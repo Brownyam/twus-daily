@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # 讓資料 commit 後能 dispatch pages.yml（GITHUB_TOKEN 的 push 不會自動觸發其他 workflow）
 
 concurrency:
   group: fetch-snapshot
@@ -57,6 +58,7 @@ jobs:
         run: python fetch/snapshot.py --slot "${{ steps.slot.outputs.slot }}"
 
       - name: Commit & push data
+        id: commit
         if: steps.slot.outputs.slot != ''
         shell: bash
         run: |
@@ -65,8 +67,17 @@ jobs:
           git add data/
           if git diff --cached --quiet; then
             echo "data/ 無變動。"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "data: ${{ steps.slot.outputs.slot }} snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase origin main
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # GITHUB_TOKEN 的 push 不會自動觸發 pages.yml，故顯式 dispatch
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --repo "${{ github.repository }}"
