@@ -1,0 +1,72 @@
+name: fetch market snapshot
+
+# 數據快報層：5 個 slot 定時抓，寫進 data/ 並 commit（用內建 GITHUB_TOKEN，可靠路徑）
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'     # tw-pre   08:00 TST
+    - cron: '0 3 * * 1-5'     # tw-mid   11:00 TST
+    - cron: '45 5 * * 1-5'    # tw-close 13:45 TST
+    - cron: '0 13 * * 1-5'    # us-pre   21:00 TST
+    - cron: '30 15 * * 1-5'   # us-mid   23:30 TST
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'slot (tw-pre|tw-mid|tw-close|us-pre|us-mid)'
+        required: true
+        default: 'tw-close'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+
+      - name: Determine slot
+        id: slot
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "slot=${{ github.event.inputs.slot }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # GHA cron 會 lag，把當前 UTC 時間對應到最近的排程 slot（±20 分容忍）
+          mins=$(( 10#$(date -u +%H) * 60 + 10#$(date -u +%M) ))
+          slot=""
+          for entry in "0:tw-pre" "180:tw-mid" "345:tw-close" "780:us-pre" "930:us-mid"; do
+            t="${entry%%:*}"; s="${entry##*:}"
+            diff=$(( mins - t )); [ $diff -lt 0 ] && diff=$(( -diff ))
+            if [ $diff -le 20 ]; then slot="$s"; break; fi
+          done
+          [ -z "$slot" ] && echo "目前 UTC ${mins} 分對不到任何 slot，跳過。"
+          echo "slot=$slot" >> "$GITHUB_OUTPUT"
+
+      - name: Run snapshot
+        if: steps.slot.outputs.slot != ''
+        run: python fetch/snapshot.py --slot "${{ steps.slot.outputs.slot }}"
+
+      - name: Commit & push data
+        if: steps.slot.outputs.slot != ''
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "data/ 無變動。"
+          else
+            git commit -m "data: ${{ steps.slot.outputs.slot }} snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin main
+            git push
+          fi

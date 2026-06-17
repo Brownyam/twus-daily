@@ -1,0 +1,52 @@
+name: post report to discord
+
+# 分析報告代發 Discord —— 預設 OFF（前身踩坑：CCR sandbox 擋 discord.com，故由 GHA 代發）
+# 啟用方式：repo Settings → Variables 設 ENABLE_DISCORD_PUSH = true
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'report/**.md'
+  workflow_dispatch:
+    inputs:
+      report:
+        description: 'report md 路徑（手動補發用）'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    if: ${{ vars.ENABLE_DISCORD_PUSH == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+
+      - name: Determine report files
+        id: files
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "files=${{ github.event.inputs.report }}" >> "$GITHUB_OUTPUT"
+          else
+            files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'report/**.md' | tr '\n' ' ')
+            echo "files=$files" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post to Discord
+        if: steps.files.outputs.files != ''
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        shell: bash
+        run: |
+          for f in ${{ steps.files.outputs.files }}; do
+            echo "Posting $f"
+            python discord/post.py --report "$f"
+          done

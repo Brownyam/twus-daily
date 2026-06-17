@@ -1,0 +1,24 @@
+# ==== Python ====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ==== Secrets — 永不 commit ====
+.env
+.env.local
+.env.*.local
+
+# ==== OS / IDE / agent dev configs ====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+*.swp
+
+# 注意：data/ 與 report/ 是 GitHub Pages 要服務的內容，由 cloud 寫入並 commit，**不要 ignore**

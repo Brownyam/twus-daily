@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://brownyam.github.io/twus-daily/schema/snapshot.schema.json",
+  "title": "TWUS Daily Market Snapshot",
+  "description": "一個 slot 的結構化市場快照。數據層 fetch/snapshot.py 產出，網站 site/ 與分析層 routine 消費。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","generated_at","slot","slot_label","trading_day","market_status","indices","macro","sectors","highlights","crypto","news","errors"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "generated_at": { "type": "string", "format": "date-time", "description": "ISO8601 含 +08:00 時區；分析層用來確認是今日資料" },
+    "slot": { "type": "string", "enum": ["tw-pre","tw-mid","tw-close","us-pre","us-mid"] },
+    "slot_label": { "type": "string" },
+    "trading_day": { "type": "string", "format": "date" },
+    "market_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tw","us"],
+      "properties": {
+        "tw": { "$ref": "#/$defs/marketState" },
+        "us": { "$ref": "#/$defs/marketState" }
+      }
+    },
+    "indices": { "type": "array", "items": { "$ref": "#/$defs/quote" } },
+    "macro": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vix":   { "anyOf": [ { "$ref": "#/$defs/macroPoint" }, { "type": "null" } ] },
+        "us10y": { "anyOf": [ { "$ref": "#/$defs/macroYield" }, { "type": "null" } ] },
+        "us30y": { "anyOf": [ { "$ref": "#/$defs/macroYield" }, { "type": "null" } ] },
+        "dxy":   { "anyOf": [ { "$ref": "#/$defs/macroPoint" }, { "type": "null" } ] },
+        "futures": { "type": "array", "items": { "$ref": "#/$defs/changeItem" } }
+      }
+    },
+    "sectors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["US","TW"],
+      "properties": {
+        "US": { "type": "array", "items": { "$ref": "#/$defs/sectorUS" } },
+        "TW": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" } }
+      }
+    },
+    "highlights": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "strongest_sector": { "anyOf": [ { "$ref": "#/$defs/strongestSector" }, { "type": "null" } ] },
+        "sector_leaders": { "type": "array", "items": { "$ref": "#/$defs/changeItem" } },
+        "top_gainers": { "type": "array", "items": { "$ref": "#/$defs/mover" } },
+        "top_losers": { "type": "array", "items": { "$ref": "#/$defs/mover" } }
+      }
+    },
+    "crypto": { "type": "array", "items": { "$ref": "#/$defs/cryptoItem" } },
+    "news": { "type": "array", "items": { "$ref": "#/$defs/newsItem" } },
+    "errors": { "type": "array", "items": { "$ref": "#/$defs/errorItem" } }
+  },
+  "$defs": {
+    "marketState": { "type": "string", "enum": ["pre","open","closed","holiday"] },
+    "quote": {
+      "type": "object",
+      "required": ["symbol","name","change_pct"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "name": { "type": "string" },
+        "region": { "type": "string", "enum": ["TW","US","INTL"] },
+        "price": { "type": ["number","null"] },
+        "change": { "type": ["number","null"] },
+        "change_pct": { "type": ["number","null"] },
+        "prev_close": { "type": ["number","null"] }
+      }
+    },
+    "macroPoint": {
+      "type": "object",
+      "required": ["symbol","value"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "value": { "type": ["number","null"] },
+        "change_pct": { "type": ["number","null"] }
+      }
+    },
+    "macroYield": {
+      "type": "object",
+      "required": ["symbol","value"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "value": { "type": ["number","null"], "description": "殖利率 %（如 4.25）" },
+        "change_bps": { "type": ["number","null"], "description": "(今-昨)*100，單位 bps" }
+      }
+    },
+    "changeItem": {
+      "type": "object",
+      "required": ["symbol","change_pct"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "name": { "type": "string" },
+        "change_pct": { "type": ["number","null"] }
+      }
+    },
+    "constituent": {
+      "type": "object",
+      "required": ["symbol","change_pct"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "name": { "type": "string" },
+        "weight_pct": { "type": ["number","null"] },
+        "mktcap": { "type": ["number","null"] },
+        "change_pct": { "type": ["number","null"] }
+      }
+    },
+    "sectorUS": {
+      "type": "object",
+      "required": ["sector","etf","change_pct"],
+      "properties": {
+        "sector": { "type": "string" },
+        "etf": { "type": "string" },
+        "change_pct": { "type": ["number","null"] },
+        "constituents": { "type": "array", "items": { "$ref": "#/$defs/constituent" } }
+      }
+    },
+    "sectorTW": {
+      "type": "object",
+      "required": ["sector","change_pct"],
+      "properties": {
+        "sector": { "type": "string" },
+        "index": { "type": "string", "description": "對應 TWSE 類股指數名稱" },
+        "change_pct": { "type": ["number","null"] },
+        "constituents": { "type": "array", "items": { "$ref": "#/$defs/constituent" } }
+      }
+    },
+    "strongestSector": {
+      "type": "object",
+      "required": ["region","sector","change_pct"],
+      "properties": {
+        "region": { "type": "string", "enum": ["TW","US"] },
+        "sector": { "type": "string" },
+        "change_pct": { "type": ["number","null"] }
+      }
+    },
+    "mover": {
+      "type": "object",
+      "required": ["symbol","change_pct"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "name": { "type": "string" },
+        "region": { "type": "string", "enum": ["TW","US"] },
+        "change_pct": { "type": ["number","null"] },
+        "note": { "type": "string" }
+      }
+    },
+    "cryptoItem": {
+      "type": "object",
+      "required": ["symbol","change_pct_24h"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "price": { "type": ["number","null"] },
+        "change_pct_24h": { "type": ["number","null"] }
+      }
+    },
+    "newsItem": {
+      "type": "object",
+      "required": ["source","title","url"],
+      "properties": {
+        "source": { "type": "string" },
+        "tag": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "url": { "type": "string" },
+        "published": { "type": "string" },
+        "translated": { "type": "boolean" }
+      }
+    },
+    "errorItem": {
+      "type": "object",
+      "required": ["source","stage","message"],
+      "properties": {
+        "source": { "type": "string" },
+        "stage": { "type": "string", "enum": ["indices","macro","sectors","highlights","crypto","news","other"] },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

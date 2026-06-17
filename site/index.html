@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台美股日報 Dashboard</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Markdown 渲染：marked.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- §1 Header -->
+  <header id="header">
+    <div class="logo">📊 台美股日報</div>
+    <div class="trading-day" id="trading-day">—</div>
+
+    <!-- 市場狀態燈 -->
+    <div class="market-status-lights">
+      <div class="status-light">
+        <span class="status-dot" id="tw-status-dot"></span>
+        <span id="tw-status-label">台股 —</span>
+      </div>
+      <div class="status-light">
+        <span class="status-dot" id="us-status-dot"></span>
+        <span id="us-status-label">美股 —</span>
+      </div>
+    </div>
+
+    <!-- Slot 切換 -->
+    <nav id="slot-nav" aria-label="資料時段">
+      <button class="slot-btn" data-slot="tw-pre">台股盤前</button>
+      <button class="slot-btn" data-slot="tw-mid">台股盤中</button>
+      <button class="slot-btn" data-slot="tw-close">台股盤後</button>
+      <button class="slot-btn" data-slot="us-pre">美股盤前</button>
+      <button class="slot-btn" data-slot="us-mid">美股盤中</button>
+    </nav>
+
+    <!-- 歷史日期 picker -->
+    <input type="date" id="date-picker" title="選擇歷史日期" />
+
+    <div class="header-right">
+      <span id="data-timestamp"></span>
+      <span class="error-flag" id="error-flag" style="display:none"
+            title="點此查看錯誤詳情" onclick="document.getElementById('errors-footer').scrollIntoView({behavior:'smooth'})">
+        ⚠ 部分資料失效
+      </span>
+    </div>
+  </header>
+
+  <!-- §2 當日最強卡 -->
+  <section id="highlights-section">
+    <h2 class="section-title">當日最強</h2>
+    <div class="card" id="highlights-card">
+      <div class="highlight-grid">
+        <!-- 最強板塊 -->
+        <div class="highlight-block">
+          <h4>最強板塊</h4>
+          <div class="strongest-sector-name" id="hl-sector-name">—</div>
+          <div class="strongest-pct" id="hl-sector-pct">—</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px" id="hl-sector-region">—</div>
+        </div>
+
+        <!-- 領漲股 -->
+        <div class="highlight-block">
+          <h4>板塊領漲</h4>
+          <ul class="leader-list" id="hl-leaders"></ul>
+        </div>
+
+        <!-- 題材股 -->
+        <div class="highlight-block">
+          <h4>最強題材</h4>
+          <ul class="mover-list" id="hl-gainers"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §3 指數區 -->
+  <section id="indices-section">
+    <h2 class="section-title">指數</h2>
+    <div class="card" style="padding-bottom:12px">
+      <div class="indices-tabs">
+        <button class="tab-btn active" data-region="TW">台股</button>
+        <button class="tab-btn" data-region="US">美股</button>
+        <button class="tab-btn" data-region="INTL">國際</button>
+      </div>
+
+      <div class="indices-panel active" id="panel-TW">
+        <div class="indices-grid" id="indices-TW"></div>
+      </div>
+      <div class="indices-panel" id="panel-US">
+        <div class="indices-grid" id="indices-US"></div>
+        <!-- 期貨小列 -->
+        <div class="futures-list" id="futures-list" style="margin-top:12px"></div>
+      </div>
+      <div class="indices-panel" id="panel-INTL">
+        <div class="indices-grid" id="indices-INTL"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4 Macro 區 -->
+  <section id="macro-section">
+    <h2 class="section-title">總經指標</h2>
+    <div class="card">
+      <div class="macro-grid" id="macro-grid"></div>
+    </div>
+  </section>
+
+  <!-- §5 板塊熱力圖 -->
+  <section id="sectors-section">
+    <h2 class="section-title">板塊熱力圖</h2>
+    <div class="card">
+      <div class="sector-tabs">
+        <button class="tab-btn active" data-market="US">美股</button>
+        <button class="tab-btn" data-market="TW">台股</button>
+      </div>
+      <!-- 說明：台股慣例紅漲綠跌，本站統一採此規則 -->
+      <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">
+        色塊深淺 = 漲跌幅｜紅色 = 上漲、綠色 = 下跌（台股慣例）｜點選色塊可展開成分股
+      </div>
+
+      <div id="heatmap-US" class="heatmap-grid"></div>
+      <div id="heatmap-TW" class="heatmap-grid" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- §6 加密小區 -->
+  <section id="crypto-section">
+    <h2 class="section-title">加密貨幣</h2>
+    <div class="crypto-grid" id="crypto-grid"></div>
+  </section>
+
+  <!-- §7 新聞流 -->
+  <section id="news-section">
+    <h2 class="section-title">市場新聞</h2>
+    <div class="news-filter" id="news-filter"></div>
+    <div class="news-list" id="news-list"></div>
+  </section>
+
+  <!-- §8 分析報告區 -->
+  <section id="report-section">
+    <h2 class="section-title">分析報告</h2>
+    <div class="report-selector" id="report-selector">
+      <button class="report-btn active" data-anchor="am-brief">🌅 早報</button>
+      <button class="report-btn" data-anchor="tw-wrap">🏁 台股收盤</button>
+      <button class="report-btn" data-anchor="us-preview">🌃 美股盤前</button>
+      <span id="report-loading" style="font-size:0.8rem;color:var(--text-muted);display:none">載入中…</span>
+    </div>
+    <div id="report-content">
+      <div style="color:var(--text-muted);font-size:0.85rem;padding:20px 0;text-align:center">
+        選擇報告類型後載入
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer：錯誤區 -->
+  <div id="errors-footer">
+    <h4>⚠ 部分資料來源暫時失效</h4>
+    <div id="errors-list"></div>
+  </div>
+
+</div><!-- /#app -->
+
+<script src="./app.js"></script>
+</body>
+</html>

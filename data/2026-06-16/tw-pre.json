@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-16T08:00:12+08:00",
+  "slot": "tw-pre",
+  "slot_label": "台股盤前",
+  "trading_day": "2026-06-16",
+  "market_status": {
+    "tw": "pre",
+    "us": "closed"
+  },
+  "indices": [
+    { "symbol": "^TWII",  "name": "加權指數",   "region": "TW", "price": 22841.35, "change": 183.20,  "change_pct": 0.81,  "prev_close": 22658.15 },
+    { "symbol": "^GSPC",  "name": "S&P 500",    "region": "US", "price": 5487.03,  "change": 42.18,   "change_pct": 0.77,  "prev_close": 5444.85 },
+    { "symbol": "^IXIC",  "name": "那斯達克",   "region": "US", "price": 17854.22, "change": 198.44,  "change_pct": 1.12,  "prev_close": 17655.78 },
+    { "symbol": "^DJI",   "name": "道瓊工業",   "region": "US", "price": 38921.56, "change": -47.33,  "change_pct": -0.12, "prev_close": 38968.89 },
+    { "symbol": "^SOX",   "name": "費城半導體",  "region": "US", "price": 5214.68,  "change": 112.35,  "change_pct": 2.20,  "prev_close": 5102.33 },
+    { "symbol": "^N225",  "name": "日經225",    "region": "INTL","price": 38445.20, "change": 321.80,  "change_pct": 0.84,  "prev_close": 38123.40 },
+    { "symbol": "^HSI",   "name": "恒生指數",   "region": "INTL","price": 18320.44, "change": -88.60,  "change_pct": -0.48, "prev_close": 18409.04 },
+    { "symbol": "^GDAXI", "name": "德國DAX",    "region": "INTL","price": 18562.37, "change": 124.50,  "change_pct": 0.67,  "prev_close": 18437.87 }
+  ],
+  "macro": {
+    "vix": {
+      "symbol": "^VIX",
+      "value": 13.42,
+      "change_pct": -4.15
+    },
+    "us10y": {
+      "symbol": "^TNX",
+      "value": 4.28,
+      "change_bps": -3
+    },
+    "us30y": {
+      "symbol": "^TYX",
+      "value": 4.52,
+      "change_bps": -2
+    },
+    "dxy": {
+      "symbol": "DX-Y.NYB",
+      "value": 104.38,
+      "change_pct": -0.22
+    },
+    "futures": [
+      { "symbol": "ES=F", "name": "標普500期貨", "change_pct": 0.12 },
+      { "symbol": "NQ=F", "name": "那斯達克期貨","change_pct": 0.28 },
+      { "symbol": "YM=F", "name": "道瓊期貨",    "change_pct": -0.05 }
+    ]
+  },
+  "sectors": {
+    "US": [
+      {
+        "sector": "科技",
+        "etf": "XLK",
+        "change_pct": 1.45,
+        "constituents": [
+          { "symbol": "AAPL",  "name": "Apple",   "weight_pct": 22.3, "mktcap": 3120000000000, "change_pct": 0.92 },
+          { "symbol": "MSFT",  "name": "Microsoft","weight_pct": 21.8, "mktcap": 3050000000000, "change_pct": 1.15 },
+          { "symbol": "NVDA",  "name": "NVIDIA",   "weight_pct": 18.6, "mktcap": 2870000000000, "change_pct": 3.21 },
+          { "symbol": "AVGO",  "name": "Broadcom", "weight_pct": 5.2,  "mktcap": 780000000000,  "change_pct": 2.44 },
+          { "symbol": "ORCL",  "name": "Oracle",   "weight_pct": 3.8,  "mktcap": 470000000000,  "change_pct": 1.88 }
+        ]
+      },
+      {
+        "sector": "半導體",
+        "etf": "SOXX",
+        "change_pct": 2.18,
+        "constituents": [
+          { "symbol": "NVDA",  "name": "NVIDIA",   "weight_pct": 10.2, "mktcap": 2870000000000, "change_pct": 3.21 },
+          { "symbol": "AVGO",  "name": "Broadcom", "weight_pct": 8.5,  "mktcap": 780000000000,  "change_pct": 2.44 },
+          { "symbol": "AMD",   "name": "AMD",       "weight_pct": 6.1,  "mktcap": 368000000000,  "change_pct": 2.85 },
+          { "symbol": "INTC",  "name": "Intel",    "weight_pct": 3.4,  "mktcap": 103000000000,  "change_pct": -0.44 },
+          { "symbol": "MU",    "name": "Micron",   "weight_pct": 4.8,  "mktcap": 147000000000,  "change_pct": 4.12 }
+        ]
+      },
+      {
+        "sector": "金融",
+        "etf": "XLF",
+        "change_pct": 0.33,
+        "constituents": [
+          { "symbol": "JPM",   "name": "JPMorgan", "weight_pct": 11.2, "mktcap": 578000000000,  "change_pct": 0.45 },
+          { "symbol": "BAC",   "name": "BofA",     "weight_pct": 6.8,  "mktcap": 312000000000,  "change_pct": 0.28 },
+          { "symbol": "GS",    "name": "Goldman",  "weight_pct": 4.5,  "mktcap": 178000000000,  "change_pct": 0.61 }
+        ]
+      }
+    ],
+    "TW": [
+      {
+        "sector": "半導體",
+        "index": "TWSE 半導體類指數",
+        "change_pct": 1.22,
+        "constituents": [
+          { "symbol": "2330.TW", "name": "台積電", "mktcap": 22500000000000, "change_pct": 1.35 },
+          { "symbol": "2303.TW", "name": "聯電",   "mktcap": 780000000000,   "change_pct": 0.88 },
+          { "symbol": "6770.TW", "name": "力積電", "mktcap": 98000000000,    "change_pct": 2.14 }
+        ]
+      },
+      {
+        "sector": "電子零組件",
+        "index": "TWSE 電子零組件類指數",
+        "change_pct": 0.74,
+        "constituents": [
+          { "symbol": "2317.TW", "name": "鴻海",   "mktcap": 1980000000000,  "change_pct": 0.56 },
+          { "symbol": "2354.TW", "name": "鴻準",   "mktcap": 140000000000,   "change_pct": 0.98 },
+          { "symbol": "3008.TW", "name": "大立光", "mktcap": 560000000000,   "change_pct": 1.44 }
+        ]
+      },
+      {
+        "sector": "金融",
+        "index": "TWSE 金融保險類指數",
+        "change_pct": -0.18,
+        "constituents": [
+          { "symbol": "2882.TW", "name": "國泰金", "mktcap": 860000000000,   "change_pct": -0.22 },
+          { "symbol": "2881.TW", "name": "富邦金", "mktcap": 780000000000,   "change_pct": -0.15 }
+        ]
+      }
+    ]
+  },
+  "highlights": {
+    "strongest_sector": {
+      "region": "US",
+      "sector": "半導體",
+      "change_pct": 2.18
+    },
+    "sector_leaders": [
+      { "symbol": "MU",   "name": "Micron",  "change_pct": 4.12 },
+      { "symbol": "NVDA", "name": "NVIDIA",  "change_pct": 3.21 },
+      { "symbol": "AMD",  "name": "AMD",     "change_pct": 2.85 }
+    ],
+    "top_gainers": [
+      { "symbol": "MU",      "name": "Micron",  "region": "US", "change_pct": 4.12,  "note": "HBM3E 出貨量超預期" },
+      { "symbol": "6770.TW", "name": "力積電",  "region": "TW", "change_pct": 2.14,  "note": "CoWoS 先進封裝訂單題材" },
+      { "symbol": "NVDA",    "name": "NVIDIA",  "region": "US", "change_pct": 3.21,  "note": "Blackwell GB200 供貨加速" }
+    ],
+    "top_losers": [
+      { "symbol": "INTC",    "name": "Intel",   "region": "US", "change_pct": -0.44, "note": "18A 製程良率疑慮" },
+      { "symbol": "2882.TW", "name": "國泰金",  "region": "TW", "change_pct": -0.22, "note": "壽險業新台幣升值壓力" }
+    ]
+  },
+  "crypto": [
+    { "symbol": "BTC", "price": 67842.50, "change_pct_24h": 2.34 },
+    { "symbol": "ETH", "price": 3614.88,  "change_pct_24h": 1.87 }
+  ],
+  "news": [
+    {
+      "source": "鉅亨網",
+      "tag": "🇹🇼",
+      "title": "台積電外資連買五日 法人看好 AI 伺服器需求延燒至Q3",
+      "summary": "外資昨日再買超台積電逾5萬張，連續五個交易日淨買超，法人指出 AI 伺服器 HPC 訂單能見度延伸至Q3，CoWoS 先進封裝產能滿載為主要驅動力。",
+      "url": "https://news.cnyes.com/news/id/123456",
+      "published": "2026-06-16T07:45:00+08:00",
+      "translated": false
+    },
+    {
+      "source": "MarketWatch",
+      "tag": "🇺🇸",
+      "title": "Nvidia shares surge as analysts raise price targets after Computex AI chip showcases",
+      "summary": "AI 晶片供應鏈需求超預期，分析師上調英偉達目標價至 $1,450，Blackwell GB200 NVL72 出貨時程確立，帶動半導體族群全線走強。",
+      "url": "https://www.marketwatch.com/story/nvda-target-raise",
+      "published": "2026-06-15T22:15:00-04:00",
+      "translated": true
+    },
+    {
+      "source": "CoinDesk",
+      "tag": "🪙",
+      "title": "Bitcoin holds $67K as ETF inflows accelerate ahead of Fed meeting",
+      "summary": "現貨比特幣ETF本週累計淨流入超過12億美元，創六週新高；市場預期Fed本次FOMC將維持利率不變，風險資產情緒偏正向。",
+      "url": "https://www.coindesk.com/markets/btc-etf-inflow",
+      "published": "2026-06-16T06:30:00+08:00",
+      "translated": true
+    },
+    {
+      "source": "經濟日報",
+      "tag": "🇹🇼",
+      "title": "新台幣升值壓力加大 壽險業匯損風險升溫",
+      "summary": "新台幣兌美元昨升至30.2，壽險業持有大量美元資產、外匯避險成本攀升，金融股承壓，市場關注下半年台美利差走向。",
+      "url": "https://money.udn.com/money/story/5613/999888",
+      "published": "2026-06-16T07:30:00+08:00",
+      "translated": false
+    }
+  ],
+  "errors": [
+    {
+      "source": "工商時報RSS",
+      "stage": "news",
+      "message": "HTTP 410 Gone：RSS feed 已停用，請更新至新 API"
+    }
+  ]
+}
