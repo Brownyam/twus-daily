@@ -42,15 +42,15 @@ jobs:
             echo "slot=${{ github.event.inputs.slot }}" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # GHA cron 會 lag，把當前 UTC 時間對應到最近的排程 slot（±20 分容忍）
-          mins=$(( 10#$(date -u +%H) * 60 + 10#$(date -u +%M) ))
-          slot=""
-          for entry in "0:tw-pre" "180:tw-mid" "345:tw-close" "780:us-pre" "930:us-mid"; do
-            t="${entry%%:*}"; s="${entry##*:}"
-            diff=$(( mins - t )); [ $diff -lt 0 ] && diff=$(( -diff ))
-            if [ $diff -le 20 ]; then slot="$s"; break; fi
-          done
-          [ -z "$slot" ] && echo "目前 UTC ${mins} 分對不到任何 slot，跳過。"
+          # 用「實際觸發的 cron 表達式」精準對 slot（不靠猜時間，免 GHA lag 對不到窗口）
+          case "${{ github.event.schedule }}" in
+            "0 0 * * 1-5")   slot="tw-pre" ;;
+            "0 3 * * 1-5")   slot="tw-mid" ;;
+            "45 5 * * 1-5")  slot="tw-close" ;;
+            "0 13 * * 1-5")  slot="us-pre" ;;
+            "30 15 * * 1-5") slot="us-mid" ;;
+            *) slot=""; echo "未知 schedule: ${{ github.event.schedule }}" ;;
+          esac
           echo "slot=$slot" >> "$GITHUB_OUTPUT"
 
       - name: Run snapshot
