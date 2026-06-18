@@ -260,15 +260,22 @@ section {
   white-space: nowrap;
 }
 
-/* ===== §3 指數區 ===== */
-.indices-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 8px;
+/* 個股所屬板塊標記（當日最強區） */
+.mover-sector {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: #79c0ff;
+  background: rgba(56,139,253,.12);
+  border: 1px solid rgba(56,139,253,.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  white-space: nowrap;
 }
 
+/* ===== §3 指數區 ===== */
+
+/* 板塊熱力圖 tab（仍保留給 sectors-section 用） */
 .tab-btn {
   background: none;
   border: none;
@@ -283,9 +290,14 @@ section {
 .tab-btn.active { color: #fff; border-bottom: 2px solid #388bfd; }
 .tab-btn:hover  { color: var(--text-primary); }
 
-.indices-panel { display: none; }
-.indices-panel.active { display: block; }
+/* 攤平指數 grid（全部指數統一在一個 grid） */
+.indices-flat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
 
+/* 相容舊 class（板塊等地方還在用 indices-grid） */
 .indices-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -302,10 +314,30 @@ section {
 
 .index-card:hover { border-color: var(--border-light); }
 
+.index-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
 .index-symbol { font-size: 0.78rem; color: var(--text-muted); }
 .index-name   { font-size: 0.88rem; font-weight: 600; margin: 2px 0; }
 .index-price  { font-size: 1.05rem; font-weight: 700; }
 .index-change { font-size: 0.82rem; margin-top: 2px; }
+
+/* 指數卡地區標記（台股／美股／國際） */
+.index-region-badge {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
 /* 可摺疊的國際指數 */
 details summary {
@@ -323,17 +355,24 @@ details[open] summary::before { content: "▾ "; }
 .macro-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
+  gap: 16px;  /* 加大卡片間距，讓視覺區隔更清楚 */
 }
 
 .macro-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-card-hover);           /* 比 card 背景稍亮，更顯卡片輪廓 */
+  border: 1px solid var(--border-light);       /* 加深邊框顏色 */
+  border-top: 3px solid var(--border-light);   /* 頂部粗邊框作為視覺分隔線 */
   border-radius: var(--radius);
-  padding: 14px;
+  padding: 16px 14px;
 }
 
-.macro-label { font-size: 0.75rem; color: var(--text-muted); }
+/* 每張 macro 卡頂部粗線顏色依指標不同（選擇性強化） */
+.macro-card:nth-child(1) { border-top-color: var(--risk-high); }   /* VIX */
+.macro-card:nth-child(2) { border-top-color: #58a6ff; }             /* 10Y */
+.macro-card:nth-child(3) { border-top-color: #79c0ff; }             /* 30Y */
+.macro-card:nth-child(4) { border-top-color: var(--risk-mid); }     /* DXY */
+
+.macro-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.04em; }
 .macro-value { font-size: 1.3rem; font-weight: 700; margin: 4px 0 2px; }
 .macro-change { font-size: 0.8rem; }
 
@@ -638,7 +677,8 @@ details[open] summary::before { content: "▾ "; }
     grid-template-columns: 1fr;
   }
 
-  .indices-grid {
+  .indices-grid,
+  .indices-flat-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -660,7 +700,8 @@ details[open] summary::before { content: "▾ "; }
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .indices-grid {
+  .indices-grid,
+  .indices-flat-grid {
     grid-template-columns: 1fr 1fr;
   }
 

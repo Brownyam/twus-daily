@@ -95,6 +95,7 @@
       "properties": {
         "symbol": { "type": "string" },
         "name": { "type": "string" },
+        "sector": { "type": "string", "description": "所屬產業板塊中文名（可選）" },
         "change_pct": { "type": ["number","null"] }
       }
     },
@@ -144,6 +145,7 @@
       "properties": {
         "symbol": { "type": "string" },
         "name": { "type": "string" },
+        "sector": { "type": "string", "description": "所屬產業板塊中文名（可選）" },
         "region": { "type": "string", "enum": ["TW","US"] },
         "change_pct": { "type": ["number","null"] },
         "note": { "type": "string" }

@@ -193,23 +193,33 @@ function renderHighlights(data) {
   (hl.sector_leaders || []).slice(0, 5).forEach(item => {
     const li = document.createElement('li');
     li.className = 'leader-item';
+    /* 顯示：中文名（代號） + 漲跌幅；中文名可能 === 代號時只顯示代號 */
+    const displayName = (item.name && item.name !== item.symbol)
+      ? `${escHtml(item.name)}（${escHtml(item.symbol)}）`
+      : escHtml(item.symbol);
     li.innerHTML = `
-      <span class="font-bold">${escHtml(item.symbol)}</span>
+      <span class="font-bold">${displayName}</span>
       <span class="${pctClass(item.change_pct)}">${fmtPct(item.change_pct)}</span>`;
     leaders.appendChild(li);
   });
   if (!(hl.sector_leaders?.length)) leaders.innerHTML = '<li style="color:var(--text-muted)">—</li>';
 
-  /* 題材股（top_gainers） */
+  /* 題材股（top_gainers）：中文名（代號） + 漲跌幅 + 所屬板塊 */
   const gainers = document.getElementById('hl-gainers');
   gainers.innerHTML = '';
   (hl.top_gainers || []).slice(0, 4).forEach(item => {
     const li = document.createElement('li');
     li.className = 'mover-item';
+    const displayName = (item.name && item.name !== item.symbol)
+      ? `${escHtml(item.name)}（${escHtml(item.symbol)}）`
+      : escHtml(item.symbol);
+    const sectorBadge = item.sector
+      ? `<span class="mover-sector">${escHtml(item.sector)}</span>`
+      : '';
     li.innerHTML = `
       <span>
-        <span class="font-bold">${escHtml(item.symbol)}</span>
-        <span class="mover-note">${escHtml(item.note || item.name || '')}</span>
+        <span class="font-bold">${displayName}</span>
+        ${sectorBadge}
       </span>
       <span class="${pctClass(item.change_pct)}">${fmtPct(item.change_pct)}</span>`;
     gainers.appendChild(li);
@@ -217,40 +227,46 @@ function renderHighlights(data) {
   if (!(hl.top_gainers?.length)) gainers.innerHTML = '<li style="color:var(--text-muted)">—</li>';
 }
 
-/* ── 渲染：§3 指數區 ── */
+/* region 對應標籤（用於指數卡的小標記） */
+const REGION_LABEL = { TW: '台股', US: '美股', INTL: '國際' };
+
+/* ── 渲染：§3 指數區（全部攤平，不分頁） ── */
 function renderIndices(data) {
   const indices = data.indices || [];
+  const container = document.getElementById('indices-all');
+  container.innerHTML = '';
 
-  /* 依 region 分組 */
-  const groups = { TW: [], US: [], INTL: [] };
-  indices.forEach(q => {
-    const r = q.region || 'INTL';
-    if (groups[r]) groups[r].push(q);
+  /* 依 region 順序排列：TW → US → INTL */
+  const order = ['TW', 'US', 'INTL'];
+  const sorted = [...indices].sort((a, b) => {
+    const ai = order.indexOf(a.region || 'INTL');
+    const bi = order.indexOf(b.region || 'INTL');
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
   });
 
-  /* 各 region 渲染 */
-  ['TW', 'US', 'INTL'].forEach(region => {
-    const container = document.getElementById(`indices-${region}`);
-    container.innerHTML = '';
-    groups[region].forEach(q => {
-      const card = document.createElement('div');
-      card.className = 'index-card';
-      card.innerHTML = `
-        <div class="index-symbol">${escHtml(q.symbol)}</div>
-        <div class="index-name">${escHtml(q.name)}</div>
-        <div class="index-price">${q.price !== null && q.price !== undefined ? fmt(q.price) : '<span class="null-val">—</span>'}</div>
-        <div class="index-change ${pctClass(q.change_pct)}">
-          ${q.change !== null && q.change !== undefined ? (q.change >= 0 ? '+' : '') + fmt(q.change) : '—'}
-          &nbsp;(${fmtPct(q.change_pct)})
-        </div>`;
-      container.appendChild(card);
-    });
-    if (!groups[region].length) {
-      container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem">暫無資料</div>';
-    }
+  sorted.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'index-card';
+    const regionLabel = REGION_LABEL[q.region] || q.region || '';
+    card.innerHTML = `
+      <div class="index-card-top">
+        <span class="index-symbol">${escHtml(q.symbol)}</span>
+        ${regionLabel ? `<span class="index-region-badge">${escHtml(regionLabel)}</span>` : ''}
+      </div>
+      <div class="index-name">${escHtml(q.name)}</div>
+      <div class="index-price">${q.price !== null && q.price !== undefined ? fmt(q.price) : '<span class="null-val">—</span>'}</div>
+      <div class="index-change ${pctClass(q.change_pct)}">
+        ${q.change !== null && q.change !== undefined ? (q.change >= 0 ? '+' : '') + fmt(q.change) : '—'}
+        &nbsp;(${fmtPct(q.change_pct)})
+      </div>`;
+    container.appendChild(card);
   });
 
-  /* 期貨（顯示在美股 panel 下方） */
+  if (!sorted.length) {
+    container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem">暫無指數資料</div>';
+  }
+
+  /* 期貨小列 */
   const futuresList = document.getElementById('futures-list');
   futuresList.innerHTML = '';
   const futures = data.macro?.futures || [];
@@ -598,16 +614,6 @@ function bindEvents() {
   document.getElementById('date-picker').addEventListener('change', e => {
     const newDate = e.target.value;  // YYYY-MM-DD
     if (newDate) switchTo(newDate, state.slot || 'tw-pre');
-  });
-
-  /* 指數 tab（台股/美股/國際） */
-  document.querySelectorAll('#indices-section .tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#indices-section .tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.indices-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(`panel-${btn.dataset.region}`).classList.add('active');
-    });
   });
 
   /* 板塊熱力圖 tab（美股/台股） */

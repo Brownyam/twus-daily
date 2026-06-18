@@ -28,6 +28,8 @@ from fetch.config import (
     TWSE_MI_INDEX_URL,
     TWSE_STOCK_DAY_URL,
     TW_INDUSTRY_CODE_MAP,
+    TW_MOVERS_MIN_MKTCAP,
+    TW_MOVERS_MIN_TRADE_VALUE,
 )
 
 logger = logging.getLogger(__name__)
@@ -90,8 +92,9 @@ def _fetch_company_info() -> dict[str, dict]:
 
 def _fetch_stock_day_all() -> dict[str, dict]:
     """
-    回傳 {股票代號: {"price": float, "change": float, "change_pct": float, "name": str}}。
-    STOCK_DAY_ALL 欄位（英文）：Code, Name, ClosingPrice, Change...
+    回傳 {股票代號: {"price": float, "change": float, "change_pct": float, "name": str, "trade_value": float}}。
+    STOCK_DAY_ALL 欄位（英文）：Code, Name, ClosingPrice, Change, TradeVolume, TradeValue...
+    trade_value：成交金額（元），用於過濾低量股。
     """
     import json as _json
     resp = requests.get(TWSE_STOCK_DAY_URL, headers=_HEADERS, timeout=_TIMEOUT)
@@ -113,7 +116,15 @@ def _fetch_stock_day_all() -> dict[str, dict]:
             change_pct = round((change / prev) * 100, 4) if prev and prev != 0 else None
         else:
             change_pct = None
-        result[code] = {"price": price, "change": change, "change_pct": change_pct, "name": name}
+        # 成交金額（元）：TradeValue 欄位，含千分位逗號
+        trade_value = _safe_float(str(row.get("TradeValue", "0")).replace(",", ""))
+        result[code] = {
+            "price": price,
+            "change": change,
+            "change_pct": change_pct,
+            "name": name,
+            "trade_value": trade_value or 0.0,
+        }
     return result
 
 
@@ -320,11 +331,17 @@ def fetch_twii_quote(errors: list) -> dict | None:
 def fetch_tw_movers(
     errors: list,
     top_n: int = 10,
-    min_mktcap: float = 1e9,
+    min_mktcap: float = TW_MOVERS_MIN_MKTCAP,
+    min_trade_value: float = TW_MOVERS_MIN_TRADE_VALUE,
 ) -> tuple[list[dict], list[dict]]:
     """
     從 STOCK_DAY_ALL 掃全上市，找當日漲跌幅最大的個股。
-    min_mktcap：過濾掉雞蛋水餃股（預設市值 > 10 億）。
+
+    過濾條件（雙重門檻，AND 關係）：
+    - min_mktcap：市值下限（預設 30 億），過濾微型股
+    - min_trade_value：成交金額下限（預設 5000 萬元），過濾無量股
+
+    每個 mover 帶 name（中文股名）+ sector（所屬產業），由 company_info + FinMind 提供。
     回傳 (top_gainers, top_losers)。
     """
     try:
@@ -339,30 +356,64 @@ def fetch_tw_movers(
         errors.append({"source": "TWSE:STOCK_DAY_ALL", "stage": "highlights", "message": str(e)})
         return [], []
 
+    # FinMind 產業中文名（補產業欄位用）
+    finmind_industry = _fetch_finmind_industry()
+
     movers = []
     for code, price_data in stock_day.items():
         price = price_data.get("price")
         change_pct = price_data.get("change_pct")
         if price is None or change_pct is None:
             continue
-        shares = company_info.get(code, {}).get("shares", 0)
+
+        # 市值過濾
+        comp = company_info.get(code, {})
+        shares = comp.get("shares", 0)
         mktcap = price * shares if shares > 0 else 0
         if mktcap < min_mktcap:
             continue
+
+        # 成交額過濾（STOCK_DAY_ALL 的 TradeValue 欄位）
+        trade_value = price_data.get("trade_value", 0) or 0
+        if trade_value < min_trade_value:
+            continue
+
+        # 股名：優先 STOCK_DAY_ALL 的 Name，fallback t187ap03_L 的公司簡稱
+        name = price_data.get("name") or comp.get("name", code)
+
+        # 產業：優先 FinMind industry_category，fallback TW_INDUSTRY_CODE_MAP
+        industry_code = comp.get("industry_code", "")
+        sector = (
+            finmind_industry.get(code)
+            or TW_INDUSTRY_CODE_MAP.get(industry_code, "")
+        )
+
         movers.append({
             "symbol": f"{code}.TW",
-            "name": code,
+            "name": name,
+            "sector": sector,
             "region": "TW",
             "change_pct": change_pct,
             "mktcap": mktcap,
+            "trade_value": trade_value,
             "note": "",
         })
 
     movers.sort(key=lambda x: x["change_pct"], reverse=True)
-    gainers = [{"symbol": m["symbol"], "name": m["name"], "region": m["region"],
-                "change_pct": m["change_pct"], "note": m["note"]}
-               for m in movers[:top_n]]
-    losers = [{"symbol": m["symbol"], "name": m["name"], "region": m["region"],
-               "change_pct": m["change_pct"], "note": m["note"]}
-              for m in movers[-top_n:][::-1]]
+
+    def _to_mover(m: dict) -> dict:
+        """只保留 schema 需要的欄位。"""
+        out: dict = {
+            "symbol": m["symbol"],
+            "name": m["name"],
+            "region": m["region"],
+            "change_pct": m["change_pct"],
+            "note": m["note"],
+        }
+        if m.get("sector"):
+            out["sector"] = m["sector"]
+        return out
+
+    gainers = [_to_mover(m) for m in movers[:top_n]]
+    losers  = [_to_mover(m) for m in movers[-top_n:][::-1]]
     return gainers, losers

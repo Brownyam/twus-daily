@@ -142,6 +142,34 @@ TW_INDUSTRY_CODE_MAP = {
 }
 
 # ──────────────────────────────────────────────
+# 台股 top_gainers/losers 品質過濾門檻
+# ──────────────────────────────────────────────
+
+# 成交額最低門檻（元）：預設 5000 萬，過濾雞蛋水餃/無量股
+# 成交額 = ClosingPrice × TradeVolume（股數）；STOCK_DAY_ALL 無直接成交額欄位，
+# 改用「市值 × 換手率」的代理：min_mktcap + min_turnover_shares 雙重過濾
+TW_MOVERS_MIN_MKTCAP = 3e9          # 市值 > 30 億（預設），可在此調整
+TW_MOVERS_MIN_TRADE_VALUE = 50e6    # 成交額 > 5000 萬（元），可在此調整
+
+# 非產業 bucket 清單：FinMind industry_category 或 t187ap03_L 產業別可能回傳這些板別名，
+# 不是真正的產業分類，計算 strongest_sector 時要排除
+TW_NON_INDUSTRY_BUCKETS = {
+    "創新板股票",
+    "創新板",
+    "上市",
+    "上市股票",
+    "未分類",
+    "其他",        # 只保留在 TW_INDUSTRY_CODE_MAP 的 '29' fallback，sector 真實名稱比對時才排除
+    "綜合",        # code '28'，不代表產業，不用來當最強板塊
+    "臺灣存託憑證",
+    "受益憑證",
+    "認購（售）權證",
+    "特別股",
+    "ETF",
+    "指數股票型基金",
+}
+
+# ──────────────────────────────────────────────
 # 加密貨幣
 # ──────────────────────────────────────────────
 # CoinGecko id → 我們用的 symbol

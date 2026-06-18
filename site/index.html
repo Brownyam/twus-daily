@@ -82,23 +82,10 @@
   <section id="indices-section">
     <h2 class="section-title">指數</h2>
     <div class="card" style="padding-bottom:12px">
-      <div class="indices-tabs">
-        <button class="tab-btn active" data-region="TW">台股</button>
-        <button class="tab-btn" data-region="US">美股</button>
-        <button class="tab-btn" data-region="INTL">國際</button>
-      </div>
-
-      <div class="indices-panel active" id="panel-TW">
-        <div class="indices-grid" id="indices-TW"></div>
-      </div>
-      <div class="indices-panel" id="panel-US">
-        <div class="indices-grid" id="indices-US"></div>
-        <!-- 期貨小列 -->
-        <div class="futures-list" id="futures-list" style="margin-top:12px"></div>
-      </div>
-      <div class="indices-panel" id="panel-INTL">
-        <div class="indices-grid" id="indices-INTL"></div>
-      </div>
+      <!-- 全部指數攤平顯示，不分頁 -->
+      <div class="indices-flat-grid" id="indices-all"></div>
+      <!-- 期貨小列 -->
+      <div class="futures-list" id="futures-list" style="margin-top:12px"></div>
     </div>
   </section>
 

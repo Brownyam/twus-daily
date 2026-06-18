@@ -3,11 +3,11 @@ name: fetch market snapshot
 # 數據快報層：5 個 slot 定時抓，寫進 data/ 並 commit（用內建 GITHUB_TOKEN，可靠路徑）
 on:
   schedule:
-    - cron: '0 0 * * 1-5'     # tw-pre   08:00 TST
-    - cron: '0 3 * * 1-5'     # tw-mid   11:00 TST
-    - cron: '45 5 * * 1-5'    # tw-close 13:45 TST
-    - cron: '0 13 * * 1-5'    # us-pre   21:00 TST
-    - cron: '30 15 * * 1-5'   # us-mid   23:30 TST
+    - cron: '7 0 * * 1-5'     # tw-pre   08:07 TST（避開 :00 整點壅塞，降低 GitHub skip）
+    - cron: '3 3 * * 1-5'     # tw-mid   11:03 TST
+    - cron: '47 5 * * 1-5'    # tw-close 13:47 TST
+    - cron: '3 13 * * 1-5'    # us-pre   21:03 TST
+    - cron: '33 15 * * 1-5'   # us-mid   23:33 TST
   workflow_dispatch:
     inputs:
       slot:

@@ -10,7 +10,19 @@ from __future__ import annotations
 
 import logging
 
+from fetch.config import TW_NON_INDUSTRY_BUCKETS
+
 logger = logging.getLogger(__name__)
+
+
+def _is_real_industry(sector: str | None) -> bool:
+    """
+    判斷 sector 是否為真正的產業分類（非板別/板塊 bucket）。
+    創新板、上市、ETF 等回傳 False。
+    """
+    if not sector:
+        return False
+    return sector not in TW_NON_INDUSTRY_BUCKETS
 
 
 def build_highlights(
@@ -42,6 +54,9 @@ def build_highlights(
         cp = s.get("change_pct")
         if cp is None:
             continue
+        # 排除「創新板」「上市」等非產業 bucket，避免顯示無意義分類
+        if not _is_real_industry(s.get("sector")):
+            continue
         if best_tw is None or cp > best_tw["change_pct"]:
             best_tw = {"region": "TW", "sector": s["sector"], "change_pct": cp}
 
@@ -58,8 +73,9 @@ def build_highlights(
     sector_leaders: list[dict] = []
     if strongest_sector:
         source_sectors = us_sectors if strongest_sector["region"] == "US" else tw_sectors
+        top_sector_name = strongest_sector["sector"]
         for s in source_sectors:
-            if s["sector"] == strongest_sector["sector"]:
+            if s["sector"] == top_sector_name:
                 # 按 change_pct 排序
                 members = [
                     c for c in s.get("constituents", [])
@@ -67,8 +83,12 @@ def build_highlights(
                 ]
                 members.sort(key=lambda x: x["change_pct"], reverse=True)
                 sector_leaders = [
-                    {"symbol": m["symbol"], "name": m.get("name", m["symbol"]),
-                     "change_pct": m["change_pct"]}
+                    {
+                        "symbol": m["symbol"],
+                        "name": m.get("name", m["symbol"]),
+                        "sector": top_sector_name,  # 帶入所屬板塊名
+                        "change_pct": m["change_pct"],
+                    }
                     for m in members[:3]
                 ]
                 break
@@ -76,15 +96,19 @@ def build_highlights(
     # ── top_gainers / top_losers：合併 TW 個股 + US 板塊成分 ──
     us_movers: list[dict] = []
     for s in us_sectors:
+        sector_name = s.get("sector", "")
         for c in s.get("constituents", []):
             if c.get("change_pct") is not None:
-                us_movers.append({
+                m: dict = {
                     "symbol": c["symbol"],
                     "name": c.get("name", c["symbol"]),
                     "region": "US",
                     "change_pct": c["change_pct"],
                     "note": "",
-                })
+                }
+                if sector_name:
+                    m["sector"] = sector_name
+                us_movers.append(m)
 
     # 去重（US movers 跨 ETF 可能重複）
     seen = set()
@@ -97,22 +121,27 @@ def build_highlights(
     all_movers = tw_gainers + us_movers_dedup
     all_movers.sort(key=lambda x: x.get("change_pct") or 0, reverse=True)
 
-    top_gainers = [
-        {"symbol": m["symbol"], "name": m.get("name", ""), "region": m["region"],
-         "change_pct": m["change_pct"], "note": m.get("note", "")}
-        for m in all_movers[:5]
-    ]
+    def _build_mover_entry(m: dict) -> dict:
+        """組 schema 相容的 mover dict，保留 sector 欄位（若有）。"""
+        entry: dict = {
+            "symbol": m["symbol"],
+            "name": m.get("name", ""),
+            "region": m["region"],
+            "change_pct": m["change_pct"],
+            "note": m.get("note", ""),
+        }
+        if m.get("sector"):
+            entry["sector"] = m["sector"]
+        return entry
+
+    top_gainers = [_build_mover_entry(m) for m in all_movers[:5]]
 
     # losers：TW losers + US 最差個股
     us_movers_dedup.sort(key=lambda x: x.get("change_pct") or 0)
     all_losers = tw_losers + us_movers_dedup[:5]
     all_losers.sort(key=lambda x: x.get("change_pct") or 0)
 
-    top_losers = [
-        {"symbol": m["symbol"], "name": m.get("name", ""), "region": m["region"],
-         "change_pct": m["change_pct"], "note": m.get("note", "")}
-        for m in all_losers[:5]
-    ]
+    top_losers = [_build_mover_entry(m) for m in all_losers[:5]]
 
     return {
         "strongest_sector": strongest_sector,
