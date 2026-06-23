@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-23T14:03:21.024484+08:00",
-  "slot": "tw-pre",
-  "slot_label": "台股盤前",
+  "generated_at": "2026-06-23T14:17:32.307466+08:00",
+  "slot": "tw-close",
+  "slot_label": "台股盤後",
   "trading_day": "2026-06-23",
   "market_status": {
-    "tw": "pre",
+    "tw": "closed",
     "us": "closed"
   },
   "indices": [
@@ -76,9 +76,9 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 70384.8203125,
-      "change": -2046.7421875,
-      "change_pct": -2.8258,
+      "price": 70187.6015625,
+      "change": -2243.9609375,
+      "change_pct": -3.098,
       "prev_close": 72431.5625
     },
     {
@@ -94,18 +94,18 @@
       "symbol": "^HSI",
       "name": "恆生指數",
       "region": "INTL",
-      "price": 23408.05078125,
-      "change": -360.46875,
-      "change_pct": -1.5166,
+      "price": 23355.349609375,
+      "change": -413.169921875,
+      "change_pct": -1.7383,
       "prev_close": 23768.51953125
     },
     {
       "symbol": "000001.SS",
       "name": "上証綜指",
       "region": "INTL",
-      "price": 4134.552734375,
-      "change": -29.865234375,
-      "change_pct": -0.7172,
+      "price": 4114.8232421875,
+      "change": -49.5947265625,
+      "change_pct": -1.1909,
       "prev_close": 4164.41796875
     },
     {
@@ -132,22 +132,22 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": -0.7011
+        "change_pct": -0.7411
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": -1.1018
+        "change_pct": -1.1949
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": -0.4427
+        "change_pct": -0.4542
       },
       {
         "symbol": "RTY=F",
         "name": "羅素2000期貨",
-        "change_pct": -0.9635
+        "change_pct": -1.0004
       }
     ],
     "vix": {
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.08300018310547,
-      "change_pct": 0.0673
+      "value": 101.0479965209961,
+      "change_pct": 0.0327
     }
   },
   "sectors": {
@@ -3770,32 +3770,32 @@
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 63288.0,
-      "change_pct_24h": -1.2982
+      "price": 63129.0,
+      "change_pct_24h": -1.4562
     },
     {
       "symbol": "ETH",
-      "price": 1710.55,
-      "change_pct_24h": -1.3489
+      "price": 1705.3,
+      "change_pct_24h": -1.7515
     }
   ],
   "news": [
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "第四屆鏈博會於北京開幕 AI與綠色能源成亮點",
-      "summary": "第四屆中國國際供應鏈促進博覽會 (以下簡稱「鏈博會」) 周一 (22 日) 在北京中國國際展覽中心 (順義館) 正式拉開帷幕，展期將持續至 6 月 26 日。",
-      "url": "https://news.cnyes.com/news/id/6508445",
-      "published": "2026-06-23T06:00:17+00:00",
+      "title": "微信AI來了！微信迎史上最大更新",
+      "summary": "微信 AI 來了，微信原生 AI 助手「小微」20 日開啟小範圍內測，獲得內測資格的用戶，可在微信更新至最新版本（8.0.75）後，點擊微信主界面左上角的「小微」標誌使用 AI 功能。用戶也可以在主界面一鍵右滑，開啟與「小微」的互動。",
+      "url": "https://news.cnyes.com/news/id/6508467",
+      "published": "2026-06-23T06:14:05+00:00",
       "translated": false
     },
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "食品保存期限標示太混亂 加州7月起只認這兩種",
-      "summary": "《紐約郵報》報導，根據一項旨在減少食物浪費並避免保存期限標示混亂的新州法，自 7 月 1 日起，加州的食品製造商與零售商將不得在大多數販售的食品包裝上標示 「Sell By(銷售期限)」 日期。",
-      "url": "https://news.cnyes.com/news/id/6508135",
-      "published": "2026-06-23T06:00:14+00:00",
+      "title": "AI將超越工業革命？輝達黃仁勳解析AI工廠與代理AI崛起",
+      "summary": "輝達執行長黃仁勳指出，AI 正從生成式技術邁向代理 AI 時代，全球將進入「AI 工廠」基礎建設浪潮，規模甚至可能超越工業革命。他解析 AI 從推理、執行到機器人與自動駕駛應用的演進，並提出涵蓋能源、晶片、資料中心到應用層的五大產業",
+      "url": "https://news.cnyes.com/news/id/6508451",
+      "published": "2026-06-23T06:10:07+00:00",
       "translated": false
     },
     {
@@ -3837,8 +3837,8 @@
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "這 6 隻快速成長的股票處於太空和軍事技術的前沿",
-      "summary": "在 SpaceX 首次公開發行之後，投資者可以預期全球通訊和人工智慧數據處理（兩者都透過衛星）將成為多年來的重要主題。",
+      "title": "These 6 fast-growing stocks sit at the cutting edge of space and military technology",
+      "summary": "在 SpaceX 首次公開發行之後，投資者可以預期全球通訊和人工智慧資料處理（兩者都透過衛星）將成為多年來的重要主題。",
       "url": "https://www.marketwatch.com/story/these-six-fast-growing-stocks-sit-at-the-cutting-edge-of-space-and-military-technology-0a349e1b?mod=mw_rss_topstories",
       "published": "Tue, 23 Jun 2026 00:23:00 GMT",
       "translated": true

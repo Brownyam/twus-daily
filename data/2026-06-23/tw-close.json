@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-23T13:59:01.755914+08:00",
+  "generated_at": "2026-06-23T14:17:32.307466+08:00",
   "slot": "tw-close",
   "slot_label": "台股盤後",
   "trading_day": "2026-06-23",
@@ -76,9 +76,9 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 70388.84375,
-      "change": -2042.71875,
-      "change_pct": -2.8202,
+      "price": 70187.6015625,
+      "change": -2243.9609375,
+      "change_pct": -3.098,
       "prev_close": 72431.5625
     },
     {
@@ -94,18 +94,18 @@
       "symbol": "^HSI",
       "name": "恆生指數",
       "region": "INTL",
-      "price": 23423.240234375,
-      "change": -345.279296875,
-      "change_pct": -1.4527,
+      "price": 23355.349609375,
+      "change": -413.169921875,
+      "change_pct": -1.7383,
       "prev_close": 23768.51953125
     },
     {
       "symbol": "000001.SS",
       "name": "上証綜指",
       "region": "INTL",
-      "price": 4132.1552734375,
-      "change": -32.2626953125,
-      "change_pct": -0.7747,
+      "price": 4114.8232421875,
+      "change": -49.5947265625,
+      "change_pct": -1.1909,
       "prev_close": 4164.41796875
     },
     {
@@ -132,22 +132,22 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": -0.658
+        "change_pct": -0.7411
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": -1.0135
+        "change_pct": -1.1949
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": -0.435
+        "change_pct": -0.4542
       },
       {
         "symbol": "RTY=F",
         "name": "羅素2000期貨",
-        "change_pct": -0.8977
+        "change_pct": -1.0004
       }
     ],
     "vix": {
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.0790023803711,
-      "change_pct": 0.0634
+      "value": 101.0479965209961,
+      "change_pct": 0.0327
     }
   },
   "sectors": {
@@ -3770,50 +3770,50 @@
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 63353.0,
-      "change_pct_24h": -1.2496
+      "price": 63129.0,
+      "change_pct_24h": -1.4562
     },
     {
       "symbol": "ETH",
-      "price": 1712.06,
-      "change_pct_24h": -1.2993
+      "price": 1705.3,
+      "change_pct_24h": -1.7515
     }
   ],
   "news": [
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "長江存儲全球市占突破13% 技術與產能雙重擴張威脅韓廠地位",
-      "summary": "根據市場研究機構 Counterpoint Research 的最新報告，中國半導體巨頭長江存儲 (YMTC) 在全球 NAND 快閃記憶體市場的占有率已從 2025 年同期的 8% 大幅提升至 13%。",
-      "url": "https://news.cnyes.com/news/id/6508444",
-      "published": "2026-06-23T05:30:05+00:00",
+      "title": "微信AI來了！微信迎史上最大更新",
+      "summary": "微信 AI 來了，微信原生 AI 助手「小微」20 日開啟小範圍內測，獲得內測資格的用戶，可在微信更新至最新版本（8.0.75）後，點擊微信主界面左上角的「小微」標誌使用 AI 功能。用戶也可以在主界面一鍵右滑，開啟與「小微」的互動。",
+      "url": "https://news.cnyes.com/news/id/6508467",
+      "published": "2026-06-23T06:14:05+00:00",
       "translated": false
     },
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "Fed不再報明牌！華許拆解前瞻指引架構 債市重新成為升息風向球",
-      "summary": "None",
-      "url": "https://news.cnyes.com/news/id/6507924",
-      "published": "2026-06-23T05:18:05+00:00",
+      "title": "AI將超越工業革命？輝達黃仁勳解析AI工廠與代理AI崛起",
+      "summary": "輝達執行長黃仁勳指出，AI 正從生成式技術邁向代理 AI 時代，全球將進入「AI 工廠」基礎建設浪潮，規模甚至可能超越工業革命。他解析 AI 從推理、執行到機器人與自動駕駛應用的演進，並提出涵蓋能源、晶片、資料中心到應用層的五大產業",
+      "url": "https://news.cnyes.com/news/id/6508451",
+      "published": "2026-06-23T06:10:07+00:00",
       "translated": false
     },
     {
       "source": "中央社財經",
       "tag": "🇹🇼",
-      "title": "台股創高後翻黑震盪　盤中跌逾百點",
-      "summary": "（中央社記者何秀玲台北23日電）台股今天開高後震盪走低，雖早盤一度衝上48218.87點，再創歷史新高，但高檔賣壓出籠，指數由紅翻黑，盤中最低來到47310.75點，下跌逾400點。權王台積電盤中最高為2535元，再創盤中歷史新高。",
-      "url": "https://www.cna.com.tw/news/afe/202606230066.aspx",
-      "published": "Tue, 23 Jun 2026 11:18:46 +0800",
+      "title": "台股ETF受益人數終止創新高　週減8.6萬人",
+      "summary": "（中央社記者曾仁凱台北23日電）台股高檔震盪加劇，投資人陷入觀望，根據集保結算所最新統計資料，截至6月18日，總共91檔台股ETF合計受益人數為1703萬5034人，較前一週減少8萬6441人，終止先前連續創高。",
+      "url": "https://www.cna.com.tw/news/afe/202606230140.aspx",
+      "published": "Tue, 23 Jun 2026 13:36:26 +0800",
       "translated": false
     },
     {
       "source": "中央社財經",
       "tag": "🇹🇼",
-      "title": "聯覺科技奪VivaTech AI冠軍  台34家新創攻歐市場",
-      "summary": "（中央社記者曾筠庭台北23日電）經濟部中小及新創企業署今天表示，攜手國科會台灣科技新創基地（TTA）及經濟部技術司，率領34家台灣新創企業及供應鏈夥伴前進法國巴黎參加歐洲最大新創科技展「VivaTech 2026」。其中，中企署培育的新創團隊聯覺科技在全球深科技創新競賽中奪下AI領域冠軍，展現台灣新創技術實力。",
-      "url": "https://www.cna.com.tw/news/afe/202606230063.aspx",
-      "published": "Tue, 23 Jun 2026 11:14:39 +0800",
+      "title": "PC市場迎漲價風　華碩：第3季價格仍有微調空間",
+      "summary": "（中央社記者吳家豪台北23日電）個人電腦（PC）市場吹起漲價風，品牌廠華碩旗下華碩聯合科技系統事業總經理廖逸翔今天表示，今年上半年受到市場預期漲價心理因素影響，消費者紛紛提前進場，帶動整體市場開機量與銷量表現，截至今年5月為止皆維持個位數年增率。",
+      "url": "https://www.cna.com.tw/news/afe/202606230138.aspx",
+      "published": "Tue, 23 Jun 2026 13:33:20 +0800",
       "translated": false
     },
     {
@@ -3837,8 +3837,8 @@
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "這 6 隻快速成長的股票處於太空和軍事技術的前沿",
-      "summary": "在 SpaceX 首次公開發行之後，投資者可以預期全球通訊和人工智慧數據處理（兩者都透過衛星）將成為多年來的重要主題。",
+      "title": "These 6 fast-growing stocks sit at the cutting edge of space and military technology",
+      "summary": "在 SpaceX 首次公開發行之後，投資者可以預期全球通訊和人工智慧資料處理（兩者都透過衛星）將成為多年來的重要主題。",
       "url": "https://www.marketwatch.com/story/these-six-fast-growing-stocks-sit-at-the-cutting-edge-of-space-and-military-technology-0a349e1b?mod=mw_rss_topstories",
       "published": "Tue, 23 Jun 2026 00:23:00 GMT",
       "translated": true
@@ -3887,24 +3887,6 @@
       "url": "https://www.coindesk.com/tech/2026/06/23/trump-signs-orders-to-build-a-quantum-computer-and-protect-against-the-one-that-could-break-encryption",
       "published": "Tue, 23 Jun 2026 05:15:16 +0000",
       "translated": true
-    },
-    {
-      "source": "BlockTempo",
-      "tag": "🪙",
-      "title": "美國參議院 85:5 高票透過住房法案，聯準會 4 年 CBDC 禁令也入法",
-      "summary": "美國參議院以 85:5 高票透過住房負擔能力法案，法案中夾帶 4 年中央銀行數位貨幣禁令。聯儲將不得在 203 [&#8230;]\n〈美國參議院 85:5 高票透過住房法案，聯準會 4 年 CBDC 禁令也入法〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
-      "url": "https://www.blocktempo.com/us-senate-housing-bill-fed-cbdc-ban-2030/",
-      "published": "Tue, 23 Jun 2026 05:09:13 +0000",
-      "translated": false
-    },
-    {
-      "source": "BlockTempo",
-      "tag": "🪙",
-      "title": "發現東方神秘力量？彭博訪問巴逆逆：真的忍不住破戒借 500 萬 FOMO 台股、全台瘋借錢炒股",
-      "summary": "Bloomberg 最新報導揭露：台灣正在上演一場全民借錢炒股的狂熱劇本。在 AI 晶片熱潮帶動下，台股過去一 [&#8230;]\n〈發現東方神秘力量？彭博訪問巴逆逆：真的忍不住破戒借 500 萬 FOMO 台股、全台瘋借錢炒股〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
-      "url": "https://www.blocktempo.com/taiwan-stock-frenzy-banini-borrows-millions-leverage-ai-bubble-warning/",
-      "published": "Tue, 23 Jun 2026 04:49:48 +0000",
-      "translated": false
     }
   ],
   "errors": [
