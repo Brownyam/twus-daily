@@ -158,12 +158,29 @@ function renderHeader(data) {
   document.getElementById('data-timestamp').textContent =
     data.generated_at ? `資料時間 ${fmtDatetime(data.generated_at)}` : '';
 
-  /* 錯誤旗標 */
-  const errFlag = document.getElementById('error-flag');
-  if (data.errors && data.errors.length > 0) {
-    errFlag.style.display = 'inline';
+  /* 錯誤旗標（分級）
+     - 全部是 news stage → 柔和提示（灰色）
+     - 任何核心 stage → 紅色警告 */
+  const errors = data.errors || [];
+  const errFlag     = document.getElementById('error-flag');
+  const errFlagSoft = document.getElementById('error-flag-soft');
+  const errNewsCount = document.getElementById('error-news-count');
+
+  const coreStages = new Set(['indices', 'macro', 'sectors', 'highlights', 'crypto']);
+  const hasCoreError = errors.some(e => coreStages.has(e.stage));
+  const newsErrors   = errors.filter(e => e.stage === 'news');
+  const allNewsOnly  = errors.length > 0 && !hasCoreError;
+
+  if (hasCoreError) {
+    errFlag.style.display     = 'inline';
+    errFlagSoft.style.display = 'none';
+  } else if (allNewsOnly) {
+    errFlag.style.display     = 'none';
+    errFlagSoft.style.display = 'inline';
+    errNewsCount.textContent  = newsErrors.length;
   } else {
-    errFlag.style.display = 'none';
+    errFlag.style.display     = 'none';
+    errFlagSoft.style.display = 'none';
   }
 }
 
@@ -601,6 +618,43 @@ function escAttr(str) {
   return escHtml(str);
 }
 
+/* ── 刷新目前資料 ── */
+async function refreshData() {
+  const btn = document.getElementById('refresh-btn');
+  if (!btn || btn.disabled) return;
+
+  btn.disabled = true;
+  btn.textContent = '⏳ 載入中…';
+
+  const date = state.date;
+  const slot = state.slot || 'latest';
+
+  /* cache-buster：加 ?cb=<timestamp> 避免瀏覽器/CDN 舊快取 */
+  const cb  = Date.now();
+  const url = slot === 'latest'
+    ? `${DATA_PREFIX}latest.json?cb=${cb}`
+    : `${DATA_PREFIX}${date}/${slot}.json?cb=${cb}`;
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    /* 若 JSON 有記錄 trading_day，同步 */
+    if (data.trading_day) {
+      state.date = data.trading_day;
+      document.getElementById('date-picker').value = data.trading_day;
+    }
+
+    renderAll(data);
+  } catch (e) {
+    console.error('[refreshData]', e);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔄 刷新';
+  }
+}
+
 /* ── 事件綁定 ── */
 function bindEvents() {
   /* Slot 切換按鈕 */
@@ -636,6 +690,9 @@ function bindEvents() {
       renderReport(state.date, state.anchor);
     });
   });
+
+  /* 刷新鍵 */
+  document.getElementById('refresh-btn').addEventListener('click', refreshData);
 }
 
 /* ── 取得今日日期（台灣時間 UTC+8） ── */

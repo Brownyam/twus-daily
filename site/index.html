@@ -47,6 +47,14 @@
             title="點此查看錯誤詳情" onclick="document.getElementById('errors-footer').scrollIntoView({behavior:'smooth'})">
         ⚠ 部分資料失效
       </span>
+      <span class="error-flag-soft" id="error-flag-soft" style="display:none"
+            title="點此查看詳情" onclick="document.getElementById('errors-footer').scrollIntoView({behavior:'smooth'})">
+        ⓘ 部分新聞源暫缺 (<span id="error-news-count">0</span>)
+      </span>
+      <button id="refresh-btn" class="refresh-btn"
+              title="重新載入伺服器上的最新資料（資料本身由排程自動更新）">
+        🔄 刷新
+      </button>
     </div>
   </header>
 

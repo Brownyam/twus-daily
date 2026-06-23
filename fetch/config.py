@@ -209,13 +209,6 @@ RSS_FEEDS = [
         "translate": False,
     },
     {
-        "source": "工商時報",
-        "tag": "🇹🇼",
-        "kind": "rss",
-        "url": "https://ctee.com.tw/feed",
-        "translate": False,
-    },
-    {
         "source": "中央社財經",
         "tag": "🇹🇼",
         "kind": "rss",

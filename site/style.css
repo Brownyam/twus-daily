@@ -180,6 +180,36 @@ a:hover { text-decoration: underline; }
   cursor: pointer;
 }
 
+/* 柔和錯誤提示：僅新聞源失敗時顯示，灰色次要色 */
+.error-flag-soft {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+/* 刷新按鈕 */
+.refresh-btn {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 /* ===== Section 共用 ===== */
 section {
   margin-top: 24px;
