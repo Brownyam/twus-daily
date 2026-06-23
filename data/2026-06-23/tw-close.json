@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-23T13:50:30.346194+08:00",
+  "generated_at": "2026-06-23T13:59:01.755914+08:00",
   "slot": "tw-close",
   "slot_label": "台股盤後",
   "trading_day": "2026-06-23",
@@ -13,9 +13,9 @@
       "symbol": "^TWII",
       "name": "加權指數",
       "region": "TW",
-      "price": 47275.05859375,
-      "change": -508.16015625,
-      "change_pct": -1.0635,
+      "price": 47100.6484375,
+      "change": -682.5703125,
+      "change_pct": -1.4285,
       "prev_close": 47783.21875
     },
     {
@@ -76,36 +76,36 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 70479.7578125,
-      "change": -1951.8046875,
-      "change_pct": -2.6947,
+      "price": 70388.84375,
+      "change": -2042.71875,
+      "change_pct": -2.8202,
       "prev_close": 72431.5625
     },
     {
       "symbol": "^KS11",
       "name": "韓國KOSPI",
       "region": "INTL",
-      "price": 8432.08984375,
-      "change": -637.650390625,
-      "change_pct": -7.0305,
+      "price": 8375.3095703125,
+      "change": -694.4306640625,
+      "change_pct": -7.6566,
       "prev_close": 9069.740234375
     },
     {
       "symbol": "^HSI",
       "name": "恆生指數",
       "region": "INTL",
-      "price": 23405.390625,
-      "change": -363.12890625,
-      "change_pct": -1.5278,
+      "price": 23423.240234375,
+      "change": -345.279296875,
+      "change_pct": -1.4527,
       "prev_close": 23768.51953125
     },
     {
       "symbol": "000001.SS",
       "name": "上証綜指",
       "region": "INTL",
-      "price": 4136.40185546875,
-      "change": -28.01611328125,
-      "change_pct": -0.6727,
+      "price": 4132.1552734375,
+      "change": -32.2626953125,
+      "change_pct": -0.7747,
       "prev_close": 4164.41796875
     },
     {
@@ -132,22 +132,22 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": -0.7276
+        "change_pct": -0.658
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": -1.11
+        "change_pct": -1.0135
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": -0.481
+        "change_pct": -0.435
       },
       {
         "symbol": "RTY=F",
         "name": "羅素2000期貨",
-        "change_pct": -0.9966
+        "change_pct": -0.8977
       }
     ],
     "vix": {
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.052001953125,
-      "change_pct": 0.0366
+      "value": 101.0790023803711,
+      "change_pct": 0.0634
     }
   },
   "sectors": {
@@ -3770,13 +3770,13 @@
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 63308.0,
-      "change_pct_24h": -1.3827
+      "price": 63353.0,
+      "change_pct_24h": -1.2496
     },
     {
       "symbol": "ETH",
-      "price": 1711.07,
-      "change_pct_24h": -1.3818
+      "price": 1712.06,
+      "change_pct_24h": -1.2993
     }
   ],
   "news": [
