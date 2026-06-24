@@ -16,7 +16,7 @@ const ANCHORS = ['am-brief', 'tw-wrap', 'us-preview'];
  *
  * 若留空字串，刷新鍵維持原有行為（重載現有快取資料），不會觸發 GitHub Actions。
  */
-const REFRESH_WORKER_URL = "";
+const REFRESH_WORKER_URL = "https://twus-refresh.g19681205.workers.dev";
 
 /* 狀態燈標籤 */
 const STATUS_LABELS = {
