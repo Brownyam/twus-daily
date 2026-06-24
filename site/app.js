@@ -7,6 +7,17 @@
 const SLOTS = ['tw-pre', 'tw-mid', 'tw-close', 'us-pre', 'us-mid'];
 const ANCHORS = ['am-brief', 'tw-wrap', 'us-preview'];
 
+/**
+ * REFRESH_WORKER_URL — Cloudflare Worker 網址
+ *
+ * 取得方式：完成 worker/README.md 的設定步驟後，把 Worker 網址貼給 Claude，
+ * 由 Claude 填入這裡。格式範例：
+ *   "https://twus-refresh.你的帳號.workers.dev"
+ *
+ * 若留空字串，刷新鍵維持原有行為（重載現有快取資料），不會觸發 GitHub Actions。
+ */
+const REFRESH_WORKER_URL = "";
+
 /* 狀態燈標籤 */
 const STATUS_LABELS = {
   pre:     '盤前',
@@ -618,41 +629,165 @@ function escAttr(str) {
   return escHtml(str);
 }
 
+/* ── 依台灣時間算出目前應抓的 slot ──
+   08:00–09:00 → tw-pre
+   09:00–13:30 → tw-mid
+   13:30–21:00 → tw-close
+   21:00–23:00 → us-pre
+   23:00–05:00 → us-mid
+   其餘（05:00–08:00）→ tw-close（預設）
+*/
+function currentSlotByTW() {
+  const now = new Date();
+  /* 台灣時間（UTC+8）的小時與分鐘 */
+  const twNow   = new Date(now.getTime() + 8 * 60 * 60 * 1000);
+  const h       = twNow.getUTCHours();
+  const m       = twNow.getUTCMinutes();
+  const hhmm    = h * 60 + m;  // 換算成分鐘方便比較
+
+  if (hhmm >= 8 * 60 && hhmm < 9 * 60)         return 'tw-pre';
+  if (hhmm >= 9 * 60 && hhmm < 13 * 60 + 30)   return 'tw-mid';
+  if (hhmm >= 13 * 60 + 30 && hhmm < 21 * 60)  return 'tw-close';
+  if (hhmm >= 21 * 60 && hhmm < 23 * 60)        return 'us-pre';
+  if (hhmm >= 23 * 60 || hhmm < 5 * 60)         return 'us-mid';
+  return 'tw-close';  // 05:00–08:00 預設
+}
+
 /* ── 刷新目前資料 ── */
 async function refreshData() {
   const btn = document.getElementById('refresh-btn');
   if (!btn || btn.disabled) return;
 
-  btn.disabled = true;
-  btn.textContent = '⏳ 載入中…';
+  /* ── 路徑 A：沒設 Worker，維持原有重載行為 ── */
+  if (!REFRESH_WORKER_URL) {
+    console.info('[refreshData] REFRESH_WORKER_URL 未設定，執行本地重載（不觸發 GitHub Actions）');
 
-  const date = state.date;
-  const slot = state.slot || 'latest';
+    btn.disabled = true;
+    btn.textContent = '⏳ 載入中…';
 
-  /* cache-buster：加 ?cb=<timestamp> 避免瀏覽器/CDN 舊快取 */
-  const cb  = Date.now();
-  const url = slot === 'latest'
-    ? `${DATA_PREFIX}latest.json?cb=${cb}`
-    : `${DATA_PREFIX}${date}/${slot}.json?cb=${cb}`;
+    const date = state.date;
+    const slot = state.slot || 'latest';
 
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    /* cache-buster：加 ?cb=<timestamp> 避免瀏覽器/CDN 舊快取 */
+    const cb  = Date.now();
+    const url = slot === 'latest'
+      ? `${DATA_PREFIX}latest.json?cb=${cb}`
+      : `${DATA_PREFIX}${date}/${slot}.json?cb=${cb}`;
 
-    /* 若 JSON 有記錄 trading_day，同步 */
-    if (data.trading_day) {
-      state.date = data.trading_day;
-      document.getElementById('date-picker').value = data.trading_day;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      if (data.trading_day) {
+        state.date = data.trading_day;
+        document.getElementById('date-picker').value = data.trading_day;
+      }
+      renderAll(data);
+    } catch (e) {
+      console.error('[refreshData] 本地重載失敗', e);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '🔄 刷新';
     }
+    return;
+  }
 
-    renderAll(data);
+  /* ── 路徑 B：有設 Worker，即時觸發 GitHub Actions 並輪詢新資料 ── */
+
+  btn.disabled = true;
+  btn.textContent = '⏳ 抓取中…（約 2 分鐘）';
+
+  /* 步驟 1：記錄目前資料的 generated_at，用於比對是否有新資料 */
+  const prevGeneratedAt = state.data?.generated_at || null;
+
+  /* 步驟 2：依台灣時間決定 slot，POST 到 Worker 觸發 workflow */
+  const slot = currentSlotByTW();
+  try {
+    const triggerRes = await fetch(`${REFRESH_WORKER_URL}?slot=${slot}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const triggerJson = await triggerRes.json().catch(() => ({}));
+    if (!triggerJson.ok) {
+      /* Worker 回報失敗（如 PAT 無效），直接給提示並退出 */
+      console.error('[refreshData] Worker 回報失敗', triggerJson);
+      btn.disabled = false;
+      btn.textContent = '🔄 刷新';
+      alert(`觸發失敗（Worker 狀態 ${triggerJson.status || '?'}），請確認 Cloudflare Worker 設定。`);
+      return;
+    }
   } catch (e) {
-    console.error('[refreshData]', e);
-  } finally {
+    console.error('[refreshData] 觸發 Worker 失敗', e);
     btn.disabled = false;
     btn.textContent = '🔄 刷新';
+    return;
   }
+
+  /* 步驟 3：輪詢 latest.json，每 15 秒一次，最多 3 分鐘 */
+  const POLL_INTERVAL_MS = 15_000;  // 15 秒
+  const POLL_TIMEOUT_MS  = 3 * 60 * 1000;  // 3 分鐘
+  const pollStart = Date.now();
+  let   timerID   = null;
+
+  async function poll() {
+    /* 超時處理 */
+    if (Date.now() - pollStart > POLL_TIMEOUT_MS) {
+      console.warn('[refreshData] 輪詢逾時，重載現有資料');
+      btn.textContent = '⚠ 抓取逾時，顯示現有資料';
+      /* 逾時：重載一次現有 latest.json（不更新 UI 狀態就先顯示舊資料） */
+      try {
+        const cb   = Date.now();
+        const res  = await fetch(`${DATA_PREFIX}latest.json?cb=${cb}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.trading_day) {
+            state.date = data.trading_day;
+            document.getElementById('date-picker').value = data.trading_day;
+          }
+          renderAll(data);
+        }
+      } catch { /* 網路問題就靜默 */ }
+      btn.disabled    = false;
+      btn.textContent = '🔄 刷新';
+      return;
+    }
+
+    /* 抓 latest.json（cache-buster 確保不吃快取） */
+    try {
+      const cb   = Date.now();
+      const res  = await fetch(`${DATA_PREFIX}latest.json?cb=${cb}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      /* 比對 generated_at：有新值且不同於觸發前 → 代表資料已更新 */
+      const newGeneratedAt = data.generated_at || null;
+      const isNewer = newGeneratedAt && newGeneratedAt !== prevGeneratedAt;
+
+      if (isNewer) {
+        /* 成功拿到新資料 */
+        if (data.trading_day) {
+          state.date = data.trading_day;
+          document.getElementById('date-picker').value = data.trading_day;
+        }
+        renderAll(data);
+
+        /* 短暫顯示「✓ 已更新」後恢復按鈕 */
+        btn.textContent = '✓ 已更新';
+        btn.disabled    = false;
+        setTimeout(() => { btn.textContent = '🔄 刷新'; }, 3000);
+        return;
+      }
+    } catch (e) {
+      console.warn('[refreshData] 輪詢失敗，繼續等待', e);
+    }
+
+    /* 尚未更新，繼續等待 */
+    timerID = setTimeout(poll, POLL_INTERVAL_MS);
+  }
+
+  /* 第一次輪詢稍微延遲一點（Actions 觸發需要幾秒才起跑） */
+  timerID = setTimeout(poll, POLL_INTERVAL_MS);
 }
 
 /* ── 事件綁定 ── */
