@@ -126,9 +126,16 @@
           <button class="tab-btn active" data-market="US">美股</button>
           <button class="tab-btn" data-market="TW">台股</button>
         </div>
+        <!-- 台股分類視角切換（大分類／次產業／供應鏈），只在台股時顯示 -->
+        <div class="tw-view-tabs" id="tw-view-tabs" style="display:none">
+          <button class="subtab-btn active" data-twview="major">大分類</button>
+          <button class="subtab-btn" data-twview="sub">次產業</button>
+          <button class="subtab-btn" data-twview="chain">供應鏈</button>
+        </div>
         <!-- 說明：台股慣例紅漲綠跌，本站統一採此規則 -->
         <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">
           色塊深淺 = 漲跌幅｜紅色 = 上漲、綠色 = 下跌（台股慣例）｜點選色塊可展開成分股
+          <span id="tw-view-hint"></span>
         </div>
 
         <div id="heatmap-US" class="heatmap-grid"></div>

@@ -44,6 +44,7 @@ from fetch.config import (
     TW_MOVERS_MIN_MKTCAP,
     TW_MOVERS_MIN_TRADE_VALUE,
 )
+from fetch.tw_subindustry import CHAIN_ORDER, STOCK_TO_SUB, SUB_TO_CHAIN
 
 logger = logging.getLogger(__name__)
 
@@ -458,3 +459,80 @@ def fetch_tw_movers(
     gainers = [_to_mover(m) for m in movers[:top_n]]
     losers = [_to_mover(m) for m in movers[-top_n:][::-1]]
     return gainers, losers
+
+
+# ──────────────────────────────────────────────
+# 次產業 / 上下游供應鏈分組（電子家族，人工對照表 tw_subindustry）
+# ──────────────────────────────────────────────
+
+def _assemble_groups(groups: dict[str, list[dict]], top_n: int) -> list[dict]:
+    """把 {群名: [個股info]} 組成 schema 相容 sector list（市值加權漲跌 + 市值排序成分股）。"""
+    out = []
+    for name, stocks in groups.items():
+        valid = [(s["mktcap"], s["change_pct"]) for s in stocks
+                 if s["mktcap"] and s["change_pct"] is not None]
+        change_pct = None
+        if valid:
+            total = sum(m for m, _ in valid)
+            if total > 0:
+                change_pct = round(sum(m * c for m, c in valid) / total, 4)
+        sorted_stocks = sorted(stocks, key=lambda s: s["mktcap"] or 0, reverse=True)
+        out.append({
+            "sector": name,
+            "change_pct": change_pct,
+            "constituents": sorted_stocks[:top_n],
+        })
+    return out
+
+
+def fetch_tw_subgroups(errors: list) -> tuple[list[dict], list[dict]]:
+    """
+    依人工對照表把電子家族個股分成「次產業」與「上下游供應鏈」兩種分組。
+    回 (sub_sectors, chain_sectors)，皆為 schema sectorTW 相容。
+    對照表外的股票不納入（次產業/供應鏈視圖本就聚焦電子家族）。
+    """
+    try:
+        stock_day = _fetch_stock_day_all()
+    except Exception as e:
+        errors.append({"source": "TWSE:STOCK_DAY_ALL", "stage": "sectors", "message": str(e)})
+        return [], []
+    try:
+        shares_map = _fetch_company_shares()
+    except Exception:
+        shares_map = {}
+
+    from collections import defaultdict as _dd
+    sub_groups: dict[str, list[dict]] = _dd(list)
+    chain_groups: dict[str, list[dict]] = _dd(list)
+
+    for code, sub in STOCK_TO_SUB.items():
+        pd = stock_day.get(code)
+        if not pd:
+            continue
+        price = pd.get("price")
+        shares = shares_map.get(code, 0)
+        mktcap = price * shares if price is not None and shares > 0 else None
+        info = {
+            "symbol": f"{code}.TW",
+            "name": pd.get("name") or code,
+            "weight_pct": None,
+            "mktcap": mktcap,
+            "change_pct": pd.get("change_pct"),
+        }
+        sub_groups[sub].append(info)
+        chain = SUB_TO_CHAIN.get(sub)
+        if chain:
+            chain_groups[chain].append(info)
+
+    # 次產業：按市值總和排序（大的先）
+    sub_sectors = _assemble_groups(sub_groups, top_n=15)
+    sub_sectors.sort(
+        key=lambda s: sum(c["mktcap"] or 0 for c in s["constituents"]),
+        reverse=True,
+    )
+
+    # 供應鏈：固定 上→中→下 順序，成分股放多一點
+    chain_map = {s["sector"]: s for s in _assemble_groups(chain_groups, top_n=30)}
+    chain_sectors = [chain_map[c] for c in CHAIN_ORDER if c in chain_map]
+
+    return sub_sectors, chain_sectors

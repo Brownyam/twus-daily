@@ -39,7 +39,9 @@
       "required": ["US","TW"],
       "properties": {
         "US": { "type": "array", "items": { "$ref": "#/$defs/sectorUS" } },
-        "TW": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" } }
+        "TW": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" } },
+        "TW_sub": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股次產業分組（電子家族，人工對照表）" },
+        "TW_chain": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股上下游供應鏈分組（上/中/下游）" }
       }
     },
     "highlights": {

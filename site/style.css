@@ -499,6 +499,27 @@ details[open] summary::before { content: "▾ "; }
   margin-bottom: 12px;
 }
 
+/* 台股視角次切換（大分類 / 次產業 / 供應鏈） */
+.tw-view-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.subtab-btn {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.subtab-btn:hover  { border-color: #58a6ff; color: var(--text-primary); }
+.subtab-btn.active { background: #1f6feb; border-color: #388bfd; color: #fff; }
+
 /* 熱力圖 grid：每塊大小由漲跌幅決定色深 */
 .heatmap-grid {
   display: grid;

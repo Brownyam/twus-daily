@@ -45,8 +45,9 @@ const state = {
   date:   null,   // YYYY-MM-DD
   slot:   null,   // 目前選中的 slot
   anchor: 'am-brief',
-  page:   'data', // 目前頁面：data | analysis | news
-  data:   null,   // 目前載入的 snapshot JSON
+  page:   'data',  // 目前頁面：data | analysis | news
+  twView: 'major', // 台股板塊視角：major(大分類) | sub(次產業) | chain(供應鏈)
+  data:   null,    // 目前載入的 snapshot JSON
 };
 
 /* ── 工具函式 ── */
@@ -384,7 +385,33 @@ function makeMacroCard({ label, value, change, changeCls, extra = '' }) {
 /* ── 渲染：§5 板塊熱力圖 ── */
 function renderSectors(data) {
   renderHeatmap(data.sectors?.US || [], 'US');
-  renderHeatmap(data.sectors?.TW || [], 'TW');
+  renderTWHeatmap(data);
+}
+
+/* 依 state.twView 取台股要顯示的板塊陣列 */
+function twSectorsForView(data, view) {
+  const s = data.sectors || {};
+  if (view === 'sub')   return s.TW_sub   || [];
+  if (view === 'chain') return s.TW_chain || [];
+  return s.TW || [];
+}
+
+/* 台股熱力圖（依目前視角：大分類 / 次產業 / 供應鏈） */
+function renderTWHeatmap(data) {
+  const list = twSectorsForView(data, state.twView);
+  renderHeatmap(list, 'TW');
+
+  /* 次產業 / 供應鏈 = 人工對照表，僅電子家族，加註說明 */
+  const hint = document.getElementById('tw-view-hint');
+  if (hint) {
+    if (state.twView === 'sub') {
+      hint.textContent = '｜次產業：電子家族（人工對照表）';
+    } else if (state.twView === 'chain') {
+      hint.textContent = '｜供應鏈：上游=設計/IP/材料、中游=製造/封測/載板/元件、下游=系統/組裝/品牌（電子家族）';
+    } else {
+      hint.textContent = '';
+    }
+  }
 }
 
 function renderHeatmap(sectors, market) {
@@ -829,6 +856,18 @@ function bindEvents() {
       const mkt = btn.dataset.market;
       document.getElementById('heatmap-US').style.display = mkt === 'US' ? 'grid' : 'none';
       document.getElementById('heatmap-TW').style.display = mkt === 'TW' ? 'grid' : 'none';
+      /* 台股次分類切換列只在台股時顯示 */
+      document.getElementById('tw-view-tabs').style.display = mkt === 'TW' ? 'flex' : 'none';
+    });
+  });
+
+  /* 台股板塊視角切換（大分類 / 次產業 / 供應鏈） */
+  document.querySelectorAll('#tw-view-tabs .subtab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#tw-view-tabs .subtab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.twView = btn.dataset.twview;
+      if (state.data) renderTWHeatmap(state.data);
     });
   });
 

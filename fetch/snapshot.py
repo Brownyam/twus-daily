@@ -26,7 +26,7 @@ if str(_REPO_ROOT) not in sys.path:
 from fetch.config import SCHEMA_VERSION, SLOTS
 from fetch.mkt_calendar import get_market_status, get_trading_day, is_market_holiday
 from fetch.sources.yf import fetch_indices, fetch_macro, fetch_us_sectors
-from fetch.sources.twse import fetch_tw_sectors, fetch_tw_movers
+from fetch.sources.twse import fetch_tw_sectors, fetch_tw_movers, fetch_tw_subgroups
 from fetch.sources.crypto import fetch_crypto
 from fetch.sources.news import fetch_news
 from fetch.universe import build_highlights
@@ -226,7 +226,7 @@ def _build_holiday_snapshot(slot: str, trading_day: str, market_status: dict) ->
         "market_status": market_status,
         "indices": [],
         "macro": {"futures": []},
-        "sectors": {"US": [], "TW": []},
+        "sectors": {"US": [], "TW": [], "TW_sub": [], "TW_chain": []},
         "highlights": {
             "strongest_sector": None,
             "sector_leaders": [],
@@ -270,9 +270,13 @@ def build_snapshot(slot: str) -> dict:
     logger.info("抓美股板塊...")
     us_sectors = fetch_us_sectors(errors)
 
-    # ── 台股板塊 ──
+    # ── 台股板塊（大分類）──
     logger.info("抓台股板塊...")
     tw_sectors = fetch_tw_sectors(errors)
+
+    # ── 台股次產業 + 上下游供應鏈（電子家族，人工對照表）──
+    logger.info("組台股次產業/供應鏈...")
+    tw_sub_sectors, tw_chain_sectors = fetch_tw_subgroups(errors)
 
     # ── 台股漲跌幅排行 ──
     logger.info("抓台股漲跌幅...")
@@ -302,6 +306,8 @@ def build_snapshot(slot: str) -> dict:
         "sectors": {
             "US": us_sectors,
             "TW": tw_sectors,
+            "TW_sub": tw_sub_sectors,      # 次產業（電子家族）
+            "TW_chain": tw_chain_sectors,  # 上下游供應鏈（上/中/下游）
         },
         "highlights": highlights,
         "crypto": crypto,
