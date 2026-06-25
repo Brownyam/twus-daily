@@ -58,101 +58,114 @@
     </div>
   </header>
 
-  <!-- §2 當日最強卡 -->
-  <section id="highlights-section">
-    <h2 class="section-title">當日最強</h2>
-    <div class="card" id="highlights-card">
-      <div class="highlight-grid">
-        <!-- 最強板塊 -->
-        <div class="highlight-block">
-          <h4>最強板塊</h4>
-          <div class="strongest-sector-name" id="hl-sector-name">—</div>
-          <div class="strongest-pct" id="hl-sector-pct">—</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px" id="hl-sector-region">—</div>
+  <!-- 頁面切換（數值 / 分析 / 新聞） -->
+  <nav id="page-nav" aria-label="頁面切換">
+    <button class="page-tab active" data-page="data">📈 數值・板塊</button>
+    <button class="page-tab" data-page="analysis">🧠 分析</button>
+    <button class="page-tab" data-page="news">📰 新聞</button>
+  </nav>
+
+  <!-- ===================== 頁面 1：數值・板塊・價格 ===================== -->
+  <div class="page-panel active" id="page-data">
+
+    <!-- 當日最強卡 -->
+    <section id="highlights-section">
+      <h2 class="section-title">當日最強</h2>
+      <div class="card" id="highlights-card">
+        <div class="highlight-grid">
+          <!-- 最強板塊 -->
+          <div class="highlight-block">
+            <h4>最強板塊</h4>
+            <div class="strongest-sector-name" id="hl-sector-name">—</div>
+            <div class="strongest-pct" id="hl-sector-pct">—</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:4px" id="hl-sector-region">—</div>
+          </div>
+
+          <!-- 領漲股 -->
+          <div class="highlight-block">
+            <h4>板塊領漲</h4>
+            <ul class="leader-list" id="hl-leaders"></ul>
+          </div>
+
+          <!-- 題材股 -->
+          <div class="highlight-block">
+            <h4>最強題材</h4>
+            <ul class="mover-list" id="hl-gainers"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 指數區（含加密貨幣，同一張卡） -->
+    <section id="indices-section">
+      <h2 class="section-title">指數・加密</h2>
+      <div class="card" style="padding-bottom:12px">
+        <!-- 全部指數攤平顯示，不分頁 -->
+        <div class="indices-flat-grid" id="indices-all"></div>
+        <!-- 期貨小列 -->
+        <div class="futures-list" id="futures-list" style="margin-top:12px"></div>
+        <!-- 加密貨幣：跟指數放一起 -->
+        <div class="sub-divider">加密貨幣</div>
+        <div class="crypto-grid" id="crypto-grid"></div>
+      </div>
+    </section>
+
+    <!-- Macro 區 -->
+    <section id="macro-section">
+      <h2 class="section-title">總經指標</h2>
+      <div class="card">
+        <div class="macro-grid" id="macro-grid"></div>
+      </div>
+    </section>
+
+    <!-- 板塊熱力圖 -->
+    <section id="sectors-section">
+      <h2 class="section-title">板塊熱力圖</h2>
+      <div class="card">
+        <div class="sector-tabs">
+          <button class="tab-btn active" data-market="US">美股</button>
+          <button class="tab-btn" data-market="TW">台股</button>
+        </div>
+        <!-- 說明：台股慣例紅漲綠跌，本站統一採此規則 -->
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">
+          色塊深淺 = 漲跌幅｜紅色 = 上漲、綠色 = 下跌（台股慣例）｜點選色塊可展開成分股
         </div>
 
-        <!-- 領漲股 -->
-        <div class="highlight-block">
-          <h4>板塊領漲</h4>
-          <ul class="leader-list" id="hl-leaders"></ul>
+        <div id="heatmap-US" class="heatmap-grid"></div>
+        <div id="heatmap-TW" class="heatmap-grid" style="display:none"></div>
+      </div>
+    </section>
+
+  </div><!-- /#page-data -->
+
+  <!-- ===================== 頁面 2：分析報告 ===================== -->
+  <div class="page-panel" id="page-analysis">
+    <section id="report-section">
+      <h2 class="section-title">分析報告</h2>
+      <div class="report-selector" id="report-selector">
+        <button class="report-btn active" data-anchor="am-brief">🌅 早報</button>
+        <button class="report-btn" data-anchor="tw-wrap">🏁 台股收盤</button>
+        <button class="report-btn" data-anchor="us-preview">🌃 美股盤前</button>
+        <span id="report-loading" style="font-size:0.8rem;color:var(--text-muted);display:none">載入中…</span>
+      </div>
+      <div id="report-content">
+        <div style="color:var(--text-muted);font-size:0.85rem;padding:20px 0;text-align:center">
+          選擇報告類型後載入
         </div>
-
-        <!-- 題材股 -->
-        <div class="highlight-block">
-          <h4>最強題材</h4>
-          <ul class="mover-list" id="hl-gainers"></ul>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div><!-- /#page-analysis -->
 
-  <!-- §3 指數區 -->
-  <section id="indices-section">
-    <h2 class="section-title">指數</h2>
-    <div class="card" style="padding-bottom:12px">
-      <!-- 全部指數攤平顯示，不分頁 -->
-      <div class="indices-flat-grid" id="indices-all"></div>
-      <!-- 期貨小列 -->
-      <div class="futures-list" id="futures-list" style="margin-top:12px"></div>
-    </div>
-  </section>
+  <!-- ===================== 頁面 3：新聞 ===================== -->
+  <div class="page-panel" id="page-news">
+    <section id="news-section">
+      <h2 class="section-title">市場新聞</h2>
+      <div class="news-filter" id="news-filter"></div>
+      <div class="news-list" id="news-list"></div>
+    </section>
+  </div><!-- /#page-news -->
 
-  <!-- §4 Macro 區 -->
-  <section id="macro-section">
-    <h2 class="section-title">總經指標</h2>
-    <div class="card">
-      <div class="macro-grid" id="macro-grid"></div>
-    </div>
-  </section>
-
-  <!-- §5 板塊熱力圖 -->
-  <section id="sectors-section">
-    <h2 class="section-title">板塊熱力圖</h2>
-    <div class="card">
-      <div class="sector-tabs">
-        <button class="tab-btn active" data-market="US">美股</button>
-        <button class="tab-btn" data-market="TW">台股</button>
-      </div>
-      <!-- 說明：台股慣例紅漲綠跌，本站統一採此規則 -->
-      <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">
-        色塊深淺 = 漲跌幅｜紅色 = 上漲、綠色 = 下跌（台股慣例）｜點選色塊可展開成分股
-      </div>
-
-      <div id="heatmap-US" class="heatmap-grid"></div>
-      <div id="heatmap-TW" class="heatmap-grid" style="display:none"></div>
-    </div>
-  </section>
-
-  <!-- §6 加密小區 -->
-  <section id="crypto-section">
-    <h2 class="section-title">加密貨幣</h2>
-    <div class="crypto-grid" id="crypto-grid"></div>
-  </section>
-
-  <!-- §7 新聞流 -->
-  <section id="news-section">
-    <h2 class="section-title">市場新聞</h2>
-    <div class="news-filter" id="news-filter"></div>
-    <div class="news-list" id="news-list"></div>
-  </section>
-
-  <!-- §8 分析報告區 -->
-  <section id="report-section">
-    <h2 class="section-title">分析報告</h2>
-    <div class="report-selector" id="report-selector">
-      <button class="report-btn active" data-anchor="am-brief">🌅 早報</button>
-      <button class="report-btn" data-anchor="tw-wrap">🏁 台股收盤</button>
-      <button class="report-btn" data-anchor="us-preview">🌃 美股盤前</button>
-      <span id="report-loading" style="font-size:0.8rem;color:var(--text-muted);display:none">載入中…</span>
-    </div>
-    <div id="report-content">
-      <div style="color:var(--text-muted);font-size:0.85rem;padding:20px 0;text-align:center">
-        選擇報告類型後載入
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer：錯誤區 -->
+  <!-- Footer：錯誤區（跨頁面共用） -->
   <div id="errors-footer">
     <h4>⚠ 部分資料來源暫時失效</h4>
     <div id="errors-list"></div>

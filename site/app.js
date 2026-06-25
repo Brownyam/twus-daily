@@ -45,6 +45,7 @@ const state = {
   date:   null,   // YYYY-MM-DD
   slot:   null,   // 目前選中的 slot
   anchor: 'am-brief',
+  page:   'data', // 目前頁面：data | analysis | news
   data:   null,   // 目前載入的 snapshot JSON
 };
 
@@ -609,6 +610,21 @@ async function switchTo(date, slot) {
   renderAll(data);
 }
 
+/* ── 頁面切換：數值 / 分析 / 新聞 ── */
+function switchPage(page) {
+  state.page = page;
+  /* 切換頁籤 active */
+  document.querySelectorAll('.page-tab').forEach(b => {
+    b.classList.toggle('active', b.dataset.page === page);
+  });
+  /* 切換 panel 顯示 */
+  document.querySelectorAll('.page-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `page-${page}`);
+  });
+  /* 切頁時捲回頂端，避免停在前一頁的捲動位置 */
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function showLoadError() {
   document.getElementById('report-content').innerHTML =
     '<div style="color:var(--color-up);padding:20px">⚠ 資料載入失敗，請確認日期或 slot 是否有效。</div>';
@@ -824,6 +840,11 @@ function bindEvents() {
       state.anchor = btn.dataset.anchor;
       renderReport(state.date, state.anchor);
     });
+  });
+
+  /* 頁面切換（數值 / 分析 / 新聞） */
+  document.querySelectorAll('.page-tab').forEach(btn => {
+    btn.addEventListener('click', () => switchPage(btn.dataset.page));
   });
 
   /* 刷新鍵 */

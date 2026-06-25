@@ -210,10 +210,64 @@ a:hover { text-decoration: underline; }
   cursor: not-allowed;
 }
 
+/* ===== 頁面切換 nav（數值 / 分析 / 新聞） ===== */
+#page-nav {
+  position: sticky;
+  top: 51px;                 /* 黏在 header 下方（header 約 51px 高） */
+  z-index: 90;
+  background: var(--bg-base);
+  display: flex;
+  gap: 6px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.page-tab {
+  flex: 1 1 0;
+  max-width: 240px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.page-tab:hover  { border-color: #58a6ff; color: var(--text-primary); }
+.page-tab.active {
+  background: #1f6feb;
+  border-color: #388bfd;
+  color: #fff;
+  box-shadow: 0 0 0 1px #388bfd;
+}
+
+/* 頁面 panel：只顯示 active 的那頁 */
+.page-panel { display: none; }
+.page-panel.active { display: block; }
+
+/* 卡內次分隔線（如指數卡裡的「加密貨幣」標題） */
+.sub-divider {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 16px 0 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
 /* ===== Section 共用 ===== */
 section {
   margin-top: 24px;
 }
+
+/* panel 內第一個 section 不要多餘上邊距 */
+.page-panel > section:first-child { margin-top: 12px; }
 
 .section-title {
   font-size: 0.8rem;
@@ -701,6 +755,17 @@ details[open] summary::before { content: "▾ "; }
   #header {
     padding: 8px 0;
     gap: 8px;
+  }
+
+  /* 手機：header 會換行變高，page-nav 不黏避免重疊；頁籤縮小 */
+  #page-nav {
+    position: static;
+    padding: 8px 0;
+  }
+  .page-tab {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    max-width: none;
   }
 
   .highlight-grid {
