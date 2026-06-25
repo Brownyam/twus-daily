@@ -41,7 +41,8 @@
         "US": { "type": "array", "items": { "$ref": "#/$defs/sectorUS" } },
         "TW": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" } },
         "TW_sub": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股次產業分組（電子家族，人工對照表）" },
-        "TW_chain": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股上下游供應鏈分組（上/中/下游）" }
+        "TW_chain": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股上下游供應鏈分組（上/中/下游）" },
+        "TW_theme": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股題材鏈分組（CoWoS/HBM/CPO/Rack電源/機器人…，多對多）" }
       }
     },
     "highlights": {

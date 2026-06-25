@@ -44,7 +44,7 @@ from fetch.config import (
     TW_MOVERS_MIN_MKTCAP,
     TW_MOVERS_MIN_TRADE_VALUE,
 )
-from fetch.tw_subindustry import CHAIN_ORDER, STOCK_TO_SUB, SUB_TO_CHAIN
+from fetch.tw_subindustry import CHAIN_ORDER, STOCK_TO_SUB, SUB_TO_CHAIN, THEME_STOCKS
 
 logger = logging.getLogger(__name__)
 
@@ -536,3 +536,44 @@ def fetch_tw_subgroups(errors: list) -> tuple[list[dict], list[dict]]:
     chain_sectors = [chain_map[c] for c in CHAIN_ORDER if c in chain_map]
 
     return sub_sectors, chain_sectors
+
+
+def fetch_tw_themes(errors: list) -> list[dict]:
+    """
+    題材鏈分組（多對多，THEME_STOCKS）：CoWoS/HBM測試/CPO/Rack電源/重電/液冷/機器人/低軌衛星…
+    一檔可同時屬多個題材。回 schema sectorTW 相容 list，按市值總和排序。
+    """
+    try:
+        stock_day = _fetch_stock_day_all()
+    except Exception as e:
+        errors.append({"source": "TWSE:STOCK_DAY_ALL", "stage": "sectors", "message": str(e)})
+        return []
+    try:
+        shares_map = _fetch_company_shares()
+    except Exception:
+        shares_map = {}
+
+    from collections import defaultdict as _dd
+    theme_groups: dict[str, list[dict]] = _dd(list)
+    for theme, codes in THEME_STOCKS.items():
+        for code in codes:
+            pd = stock_day.get(code)
+            if not pd:
+                continue
+            price = pd.get("price")
+            shares = shares_map.get(code, 0)
+            mktcap = price * shares if price is not None and shares > 0 else None
+            theme_groups[theme].append({
+                "symbol": f"{code}.TW",
+                "name": pd.get("name") or code,
+                "weight_pct": None,
+                "mktcap": mktcap,
+                "change_pct": pd.get("change_pct"),
+            })
+
+    themes = _assemble_groups(theme_groups, top_n=20)
+    themes.sort(
+        key=lambda s: sum(c["mktcap"] or 0 for c in s["constituents"]),
+        reverse=True,
+    )
+    return themes

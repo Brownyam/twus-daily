@@ -393,6 +393,7 @@ function twSectorsForView(data, view) {
   const s = data.sectors || {};
   if (view === 'sub')   return s.TW_sub   || [];
   if (view === 'chain') return s.TW_chain || [];
+  if (view === 'theme') return s.TW_theme || [];
   return s.TW || [];
 }
 
@@ -408,6 +409,8 @@ function renderTWHeatmap(data) {
       hint.textContent = '｜次產業：電子家族（人工對照表）';
     } else if (state.twView === 'chain') {
       hint.textContent = '｜供應鏈：上游=設計/IP/材料、中游=製造/封測/載板/元件、下游=系統/組裝/品牌（電子家族）';
+    } else if (state.twView === 'theme') {
+      hint.textContent = '｜題材鏈：CoWoS/HBM測試/CPO/Rack電源/重電/液冷/機器人/低軌衛星…（一檔可跨多題材，部分參考 AI 供應鏈深研）';
     } else {
       hint.textContent = '';
     }
