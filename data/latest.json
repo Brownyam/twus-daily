@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-25T11:49:27.999843+08:00",
+  "generated_at": "2026-06-25T11:58:50.445873+08:00",
   "slot": "tw-mid",
   "slot_label": "台股盤中",
   "trading_day": "2026-06-25",
@@ -13,9 +13,9 @@
       "symbol": "^TWII",
       "name": "加權指數",
       "region": "TW",
-      "price": 46401.4609375,
-      "change": 82.33984375,
-      "change_pct": 0.1778,
+      "price": 46344.3515625,
+      "change": 25.23046875,
+      "change_pct": 0.0545,
       "prev_close": 46319.12109375
     },
     {
@@ -76,27 +76,27 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 72013.3515625,
-      "change": 2738.734375,
-      "change_pct": 3.9534,
+      "price": 71996.03125,
+      "change": 2721.4140625,
+      "change_pct": 3.9284,
       "prev_close": 69274.6171875
     },
     {
       "symbol": "^KS11",
       "name": "韓國KOSPI",
       "region": "INTL",
-      "price": 8938.66015625,
-      "change": 489.1103515625,
-      "change_pct": 5.7886,
+      "price": 8900.3203125,
+      "change": 450.7705078125,
+      "change_pct": 5.3348,
       "prev_close": 8449.5498046875
     },
     {
       "symbol": "^HSI",
       "name": "恆生指數",
       "region": "INTL",
-      "price": 23123.91015625,
-      "change": -288.26953125,
-      "change_pct": -1.2313,
+      "price": 23065.130859375,
+      "change": -347.048828125,
+      "change_pct": -1.4823,
       "prev_close": 23412.1796875
     },
     {
@@ -132,17 +132,17 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": 0.245
+        "change_pct": 0.2383
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": 0.9052
+        "change_pct": 0.8993
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": 0.3937
+        "change_pct": 0.3918
       },
       {
         "symbol": "RTY=F",
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.51300048828125,
-      "change_pct": 0.0542
+      "value": 101.5009994506836,
+      "change_pct": 0.0424
     }
   },
   "sectors": {
@@ -6009,32 +6009,32 @@
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 60684.0,
-      "change_pct_24h": -3.2621
+      "price": 60760.0,
+      "change_pct_24h": -3.0572
     },
     {
       "symbol": "ETH",
-      "price": 1615.31,
-      "change_pct_24h": -3.0846
+      "price": 1617.36,
+      "change_pct_24h": -2.9054
     }
   ],
   "news": [
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "《價值型投資 最新產業研究報告》南俊國際（6584-TW）AI伺服器滑軌放量，客製化晶片需求推升下半年動能",
+      "title": "〈營業氣候調查〉5月製造業創2年新高 服務業更創逾5年高",
       "summary": "",
-      "url": "https://news.cnyes.com/news/id/6511666",
-      "published": "2026-06-25T03:46:52+00:00",
+      "url": "https://news.cnyes.com/news/id/6511672",
+      "published": "2026-06-25T03:56:48+00:00",
       "translated": false
     },
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "外資狂砍1774億！別恐慌，實體AI運算量將暴增100萬倍！相關受惠股名單",
-      "summary": "",
-      "url": "https://news.cnyes.com/news/id/6511662",
-      "published": "2026-06-25T03:40:46+00:00",
+      "title": "佳能企業配發股息2元創12年新高 Q1淨利大增1.7倍EPS達0.73元",
+      "summary": "佳能企業 (2374-TW) 今 (25) 日召開股東會並通過配息 2 元，佳能企業去年每股純益 2.44 元，對盈餘分配將配發 2 元現金股息，也創 12 年來新高。",
+      "url": "https://news.cnyes.com/news/id/6511659",
+      "published": "2026-06-25T03:53:27+00:00",
       "translated": false
     },
     {
@@ -6076,7 +6076,7 @@
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "特斯拉和 Waymo 在機器人計程車競賽中展開對決——但花費最多的公司根本不生產汽車",
+      "title": "Tesla and Waymo duel in the robotaxi race — but the company spending the most builds no cars at all",
       "summary": "Uber 正在悄悄開出 5 億美元的支票來鎖定機器人計程車，而 Waymo 則威脅要放棄它。",
       "url": "https://www.marketwatch.com/story/tesla-and-waymo-are-chasing-the-robotaxi-dream-but-the-company-spending-the-most-to-win-builds-no-cars-at-all-0d8682b9?mod=mw_rss_topstories",
       "published": "Thu, 25 Jun 2026 02:55:00 GMT",
@@ -6126,6 +6126,24 @@
       "url": "https://www.coindesk.com/business/2026/06/24/kalshi-targets-a-massive-usd40-billion-valuation-widening-lead-over-rival-polymarket",
       "published": "Wed, 24 Jun 2026 19:48:23 +0000",
       "translated": true
+    },
+    {
+      "source": "BlockTempo",
+      "tag": "🪙",
+      "title": "灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力",
+      "summary": "Grayscale 研究主管 Zach Pandl 指出，前 15 大收入協議多數市盈率已降至個位數，CLAR [&#8230;]\n〈灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
+      "url": "https://www.blocktempo.com/grayscale-research-head-crypto-protocol-pe-ratios-single-digits-clarity-act-value/",
+      "published": "Thu, 25 Jun 2026 03:56:34 +0000",
+      "translated": false
+    },
+    {
+      "source": "BlockTempo",
+      "tag": "🪙",
+      "title": "摩根大通喊還會漲77%！上調韓股KOSPI目標至 15000 點：AI 硬體循環持續，韓國仍是亞洲首選市場",
+      "summary": "摩根大通將韓股 KOSPI 指數 12 個月目標價全面上調，牛市情境上看 15000 點，超越高盛與 KB 證 [&#8230;]\n〈摩根大通喊還會漲77%！上調韓股KOSPI目標至 15000 點：AI 硬體循環持續，韓國仍是亞洲首選市場〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
+      "url": "https://www.blocktempo.com/jpmorgan-kospi-target-15000-ai-hardware-korea-top-market/",
+      "published": "Thu, 25 Jun 2026 03:55:20 +0000",
+      "translated": false
     }
   ],
   "errors": []

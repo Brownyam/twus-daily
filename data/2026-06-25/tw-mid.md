@@ -1,20 +1,20 @@
 # 📊 台股盤中（2026-06-25）
-_資料時間：2026-06-25T11:49:27.999843+08:00_
+_資料時間：2026-06-25T11:58:50.445873+08:00_
 
 **市場狀態** — 台股：open　美股：closed
 
 ---SPLIT---
 ## 指數
-- **加權指數**（^TWII）46,401.46　+0.18%
+- **加權指數**（^TWII）46,344.35　+0.05%
 - **S&P 500**（^GSPC）7,358.22　-0.10%
 - **那斯達克**（^IXIC）25,476.63　-0.43%
 - **道瓊工業**（^DJI）51,848.90　+0.35%
 - **那斯達克100**（^NDX）29,220.06　-0.43%
 - **羅素2000**（^RUT）2,986.63　+0.37%
 - **費城半導體**（^SOX）13,458.19　-0.18%
-- **日經225**（^N225）72,013.35　+3.95%
-- **韓國KOSPI**（^KS11）8,938.66　+5.79%
-- **恆生指數**（^HSI）23,123.91　-1.23%
+- **日經225**（^N225）71,996.03　+3.93%
+- **韓國KOSPI**（^KS11）8,900.32　+5.33%
+- **恆生指數**（^HSI）23,065.13　-1.48%
 - **上証綜指**（000001.SS）4,125.76　+0.31%
 - **德國DAX**（^GDAXI）24,740.36　-0.62%
 - **英國富時**（^FTSE）10,461.60　+0.31%
@@ -24,9 +24,9 @@ _資料時間：2026-06-25T11:49:27.999843+08:00_
 - VIX：18.6299991607666　(-4.36%)
 - US 10Y：4.4019999504089355%　(-9 bps)
 - US 30Y：4.855999946594238%　(-8 bps)
-- DXY：101.51300048828125　(+0.05%)
+- DXY：101.5009994506836　(+0.04%)
 - 標普500期貨：+0.24%
-- 那斯達克期貨：+0.91%
+- 那斯達克期貨：+0.90%
 - 道瓊期貨：+0.39%
 - 羅素2000期貨：+0.57%
 
@@ -125,15 +125,16 @@ _資料時間：2026-06-25T11:49:27.999843+08:00_
 
 ---SPLIT---
 ## 加密貨幣
-- **BTC**　$60,684.00　24h -3.26%
-- **ETH**　$1,615.31　24h -3.08%
+- **BTC**　$60,760.00　24h -3.06%
+- **ETH**　$1,617.36　24h -2.91%
 
 ---SPLIT---
 ## 新聞
-- 🇹🇼 **[鉅亨網]** 《價值型投資 最新產業研究報告》南俊國際（6584-TW）AI伺服器滑軌放量，客製化晶片需求推升下半年動能
-  <https://news.cnyes.com/news/id/6511666>
-- 🇹🇼 **[鉅亨網]** 外資狂砍1774億！別恐慌，實體AI運算量將暴增100萬倍！相關受惠股名單
-  <https://news.cnyes.com/news/id/6511662>
+- 🇹🇼 **[鉅亨網]** 〈營業氣候調查〉5月製造業創2年新高 服務業更創逾5年高
+  <https://news.cnyes.com/news/id/6511672>
+- 🇹🇼 **[鉅亨網]** 佳能企業配發股息2元創12年新高 Q1淨利大增1.7倍EPS達0.73元
+  佳能企業 (2374-TW) 今 (25) 日召開股東會並通過配息 2 元，佳能企業去年每股純益 2.44 元，對盈餘分配將配發 2 元現金股息，也創 12 年來新高。…
+  <https://news.cnyes.com/news/id/6511659>
 - 🇹🇼 **[中央社財經]** 高通獲Meta資料中心訂單　聯電南亞科有望受惠
   （中央社記者張建中新竹25日電）手機晶片廠高通（Qualcomm）搶攻AI資料中心市場，成功取得Meta訂單，晶圓代工廠聯電與記憶體廠南亞科躋身高通供應鏈合作夥伴，營運可望受惠。…
   <https://www.cna.com.tw/news/afe/202606250059.aspx>
@@ -146,7 +147,7 @@ _資料時間：2026-06-25T11:49:27.999843+08:00_
 - 🇺🇸 **[CNBC]** SK 海力士在納斯達克申請重磅上市後股價飆漲 11%
   韓國晶片巨頭 SK 海力士表示正在尋求籌集 294 億美元資金，該公司股價週四飆升 11%。…
   <https://www.cnbc.com/2026/06/25/chip-tech-stocks-sk-hynix-nasdaq-adr-listing-29-billion-ai-investment.html>
-- 🇺🇸 **[MarketWatch]** 特斯拉和 Waymo 在機器人計程車競賽中展開對決——但花費最多的公司根本不生產汽車
+- 🇺🇸 **[MarketWatch]** Tesla and Waymo duel in the robotaxi race — but the company spending the most builds no cars at all
   Uber 正在悄悄開出 5 億美元的支票來鎖定機器人計程車，而 Waymo 則威脅要放棄它。…
   <https://www.marketwatch.com/story/tesla-and-waymo-are-chasing-the-robotaxi-dream-but-the-company-spending-the-most-to-win-builds-no-cars-at-all-0d8682b9?mod=mw_rss_topstories>
 - 🇺🇸 **[MarketWatch]** 為什麼 SK 海力士 300 億美元的美國上市對美光股票來說可能是一把雙面刃
@@ -160,3 +161,11 @@ _資料時間：2026-06-25T11:49:27.999843+08:00_
   <https://www.coindesk.com/tech/2026/06/24/upheaval-at-the-ethereum-foundation-has-some-of-crypto-s-biggest-names-feeling-bullish>
 - 🪙 **[CoinDesk]** Kalshi 的目標估值高達 400 億美元，擴大對競爭對手 Polymarket 的領先優勢
   <https://www.coindesk.com/business/2026/06/24/kalshi-targets-a-massive-usd40-billion-valuation-widening-lead-over-rival-polymarket>
+- 🪙 **[BlockTempo]** 灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力
+  Grayscale 研究主管 Zach Pandl 指出，前 15 大收入協議多數市盈率已降至個位數，CLAR [&#8230;]
+〈灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力〉這篇文章最早發佈於動區Block…
+  <https://www.blocktempo.com/grayscale-research-head-crypto-protocol-pe-ratios-single-digits-clarity-act-value/>
+- 🪙 **[BlockTempo]** 摩根大通喊還會漲77%！上調韓股KOSPI目標至 15000 點：AI 硬體循環持續，韓國仍是亞洲首選市場
+  摩根大通將韓股 KOSPI 指數 12 個月目標價全面上調，牛市情境上看 15000 點，超越高盛與 KB 證 [&#8230;]
+〈摩根大通喊還會漲77%！上調韓股KOSPI目標至 15000 點：AI 硬體循環持續，韓國仍是亞洲首選市場…
+  <https://www.blocktempo.com/jpmorgan-kospi-target-15000-ai-hardware-korea-top-market/>
