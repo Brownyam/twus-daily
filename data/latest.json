@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-25T14:17:11.969277+08:00",
+  "generated_at": "2026-06-25T17:10:01.969813+08:00",
   "slot": "tw-close",
   "slot_label": "台股盤後",
   "trading_day": "2026-06-25",
@@ -76,55 +76,55 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 72428.5078125,
-      "change": 3153.890625,
-      "change_pct": 4.5527,
+      "price": 72366.34375,
+      "change": 3091.7265625,
+      "change_pct": 4.463,
       "prev_close": 69274.6171875
     },
     {
       "symbol": "^KS11",
       "name": "韓國KOSPI",
       "region": "INTL",
-      "price": 8953.2998046875,
-      "change": 503.75,
-      "change_pct": 5.9619,
-      "prev_close": 8449.5498046875
+      "price": 8930.2998046875,
+      "change": 459.27980468749956,
+      "change_pct": 5.4218,
+      "prev_close": 8471.02
     },
     {
       "symbol": "^HSI",
       "name": "恆生指數",
       "region": "INTL",
-      "price": 23027.33984375,
-      "change": -384.83984375,
-      "change_pct": -1.6438,
+      "price": 23076.91015625,
+      "change": -335.26953125,
+      "change_pct": -1.432,
       "prev_close": 23412.1796875
     },
     {
       "symbol": "000001.SS",
       "name": "上証綜指",
       "region": "INTL",
-      "price": 4107.98974609375,
-      "change": -4.8359375,
-      "change_pct": -0.1176,
+      "price": 4120.28076171875,
+      "change": 7.455078125,
+      "change_pct": 0.1813,
       "prev_close": 4112.82568359375
     },
     {
       "symbol": "^GDAXI",
       "name": "德國DAX",
       "region": "INTL",
-      "price": 24740.359375,
-      "change": -153.22062500000175,
-      "change_pct": -0.6155,
-      "prev_close": 24893.58
+      "price": 24879.0703125,
+      "change": 165.560546875,
+      "change_pct": 0.6699,
+      "prev_close": 24713.509765625
     },
     {
       "symbol": "^FTSE",
       "name": "英國富時",
       "region": "INTL",
-      "price": 10461.599609375,
-      "change": 32.749609374999636,
-      "change_pct": 0.314,
-      "prev_close": 10428.85
+      "price": 10493.5703125,
+      "change": 38.3701171875,
+      "change_pct": 0.367,
+      "prev_close": 10455.2001953125
     }
   ],
   "macro": {
@@ -132,28 +132,28 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": 0.0335
+        "change_pct": 0.0904
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": 0.1598
+        "change_pct": 0.2688
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": -0.0478
+        "change_pct": 0.0134
       },
       {
         "symbol": "RTY=F",
         "name": "羅素2000期貨",
-        "change_pct": 0.053
+        "change_pct": -0.0696
       }
     ],
     "vix": {
       "symbol": "^VIX",
-      "value": 18.6299991607666,
-      "change_pct": -4.3635
+      "value": 18.1299991607666,
+      "change_pct": -2.7882
     },
     "us10y": {
       "symbol": "^TNX",
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.56800079345703,
-      "change_pct": 0.0749
+      "value": 101.48400115966797,
+      "change_pct": -0.0079
     }
   },
   "sectors": {
@@ -176,616 +176,616 @@
       {
         "sector": "科技",
         "etf": "XLK",
-        "change_pct": -1.1075,
+        "change_pct": -2.6585,
         "constituents": [
           {
             "symbol": "NVDA",
             "name": "NVDA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.9457
+            "change_pct": -0.8409
           },
           {
             "symbol": "AAPL",
             "name": "AAPL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.5458
+            "change_pct": 0.7832
           },
           {
             "symbol": "MSFT",
             "name": "MSFT",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.2834
+            "change_pct": 0.0192
           },
           {
             "symbol": "MU",
             "name": "MU",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.5482
+            "change_pct": -13.6289
           },
           {
             "symbol": "AVGO",
             "name": "AVGO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.1494
+            "change_pct": -1.9202
           },
           {
             "symbol": "AMD",
             "name": "AMD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.4711
+            "change_pct": -3.5339
           },
           {
             "symbol": "INTC",
             "name": "INTC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.8734
+            "change_pct": -5.0761
           },
           {
             "symbol": "CSCO",
             "name": "CSCO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.925
+            "change_pct": 1.0806
           },
           {
             "symbol": "LRCX",
             "name": "LRCX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.3427
+            "change_pct": -6.5267
           },
           {
             "symbol": "ORCL",
             "name": "ORCL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -4.8617
+            "change_pct": -1.1297
           }
         ]
       },
       {
         "sector": "金融",
         "etf": "XLF",
-        "change_pct": -0.2784,
+        "change_pct": -0.0372,
         "constituents": [
           {
             "symbol": "BRK-B",
             "name": "BRK-B",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.4466
+            "change_pct": 0.3142
           },
           {
             "symbol": "JPM",
             "name": "JPM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.3139
+            "change_pct": -0.4774
           },
           {
             "symbol": "V",
             "name": "V",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.1355
+            "change_pct": 0.4782
           },
           {
             "symbol": "MA",
             "name": "MA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.287
+            "change_pct": 0.5205
           },
           {
             "symbol": "BAC",
             "name": "BAC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.3108
+            "change_pct": -0.1548
           },
           {
             "symbol": "GS",
             "name": "GS",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.3141
+            "change_pct": -0.3369
           },
           {
             "symbol": "MS",
             "name": "MS",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.8887
+            "change_pct": -0.34
           },
           {
             "symbol": "WFC",
             "name": "WFC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.3213
+            "change_pct": 0.0
           },
           {
             "symbol": "C",
             "name": "C",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.5678
+            "change_pct": -0.4782
           },
           {
             "symbol": "AXP",
             "name": "AXP",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.3941
+            "change_pct": -0.1283
           }
         ]
       },
       {
         "sector": "能源",
         "etf": "XLE",
-        "change_pct": -1.5981,
+        "change_pct": 0.2245,
         "constituents": [
           {
             "symbol": "XOM",
             "name": "XOM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.0043
+            "change_pct": 0.3886
           },
           {
             "symbol": "CVX",
             "name": "CVX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.5797
+            "change_pct": 0.1043
           },
           {
             "symbol": "COP",
             "name": "COP",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -3.3561
+            "change_pct": 1.346
           },
           {
             "symbol": "SLB",
             "name": "SLB",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.5048
+            "change_pct": -0.071
           },
           {
             "symbol": "WMB",
             "name": "WMB",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.0924
+            "change_pct": 0.1716
           },
           {
             "symbol": "VLO",
             "name": "VLO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.2346
+            "change_pct": 0.8193
           },
           {
             "symbol": "MPC",
             "name": "MPC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.8088
+            "change_pct": 0.604
           },
           {
             "symbol": "EOG",
             "name": "EOG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.1383
+            "change_pct": 1.8252
           },
           {
             "symbol": "PSX",
             "name": "PSX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.4378
+            "change_pct": 0.1818
           },
           {
             "symbol": "BKR",
             "name": "BKR",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -4.0504
+            "change_pct": 0.3739
           }
         ]
       },
       {
         "sector": "醫療保健",
         "etf": "XLV",
-        "change_pct": 0.6392,
+        "change_pct": 0.3797,
         "constituents": [
           {
             "symbol": "LLY",
             "name": "LLY",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.8831
+            "change_pct": 0.4342
           },
           {
             "symbol": "JNJ",
             "name": "JNJ",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7949
+            "change_pct": 0.879
           },
           {
             "symbol": "ABBV",
             "name": "ABBV",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.1663
+            "change_pct": 0.7031
           },
           {
             "symbol": "UNH",
             "name": "UNH",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.549
+            "change_pct": 0.3753
           },
           {
             "symbol": "MRK",
             "name": "MRK",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.6427
+            "change_pct": 0.433
           },
           {
             "symbol": "TMO",
             "name": "TMO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 5.1709
+            "change_pct": 0.1529
           },
           {
             "symbol": "AMGN",
             "name": "AMGN",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.8463
+            "change_pct": 0.4934
           },
           {
             "symbol": "GILD",
             "name": "GILD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.2312
+            "change_pct": 0.1681
           },
           {
             "symbol": "ISRG",
             "name": "ISRG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.273
+            "change_pct": 0.0075
           },
           {
             "symbol": "PFE",
             "name": "PFE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.8954
+            "change_pct": -0.249
           }
         ]
       },
       {
         "sector": "非必需消費",
         "etf": "XLY",
-        "change_pct": 1.3833,
+        "change_pct": 1.4995,
         "constituents": [
           {
             "symbol": "AMZN",
             "name": "AMZN",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.2868
+            "change_pct": 0.5235
           },
           {
             "symbol": "TSLA",
             "name": "TSLA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.812
+            "change_pct": -0.6534
           },
           {
             "symbol": "HD",
             "name": "HD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 5.7264
+            "change_pct": 0.1665
           },
           {
             "symbol": "TJX",
             "name": "TJX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.5874
+            "change_pct": 0.652
           },
           {
             "symbol": "MCD",
             "name": "MCD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7576
+            "change_pct": 0.4033
           },
           {
             "symbol": "BKNG",
             "name": "BKNG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 7.312
+            "change_pct": 1.1609
           },
           {
             "symbol": "LOW",
             "name": "LOW",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 3.4813
+            "change_pct": 0.4126
           },
           {
             "symbol": "SBUX",
             "name": "SBUX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 2.2923
+            "change_pct": 1.8996
           },
           {
             "symbol": "MAR",
             "name": "MAR",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.5136
+            "change_pct": 0.3613
           },
           {
             "symbol": "GM",
             "name": "GM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.6526
+            "change_pct": -0.5915
           }
         ]
       },
       {
         "sector": "必需消費",
         "etf": "XLP",
-        "change_pct": 0.8841,
+        "change_pct": 0.7878,
         "constituents": [
           {
             "symbol": "WMT",
             "name": "WMT",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.3183
+            "change_pct": 1.7094
           },
           {
             "symbol": "COST",
             "name": "COST",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.362
+            "change_pct": 0.4274
           },
           {
             "symbol": "PG",
             "name": "PG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.0165
+            "change_pct": 0.4891
           },
           {
             "symbol": "KO",
             "name": "KO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.6871
+            "change_pct": 1.0658
           },
           {
             "symbol": "PM",
             "name": "PM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.3567
+            "change_pct": -0.0
           },
           {
             "symbol": "MDLZ",
             "name": "MDLZ",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 2.2016
+            "change_pct": 1.6464
           },
           {
             "symbol": "MO",
             "name": "MO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.0374
+            "change_pct": 0.516
           },
           {
             "symbol": "CL",
             "name": "CL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.9338
+            "change_pct": -0.1304
           },
           {
             "symbol": "PEP",
             "name": "PEP",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.1055
+            "change_pct": 1.0656
           },
           {
             "symbol": "MNST",
             "name": "MNST",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.2859
+            "change_pct": 2.3784
           }
         ]
       },
       {
         "sector": "工業",
         "etf": "XLI",
-        "change_pct": 0.9015,
+        "change_pct": -0.5189,
         "constituents": [
           {
             "symbol": "CAT",
             "name": "CAT",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.715
+            "change_pct": -1.31
           },
           {
             "symbol": "GE",
             "name": "GE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 2.8706
+            "change_pct": 0.2384
           },
           {
             "symbol": "GEV",
             "name": "GEV",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.784
+            "change_pct": -2.0785
           },
           {
             "symbol": "RTX",
             "name": "RTX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.5214
+            "change_pct": 0.4342
           },
           {
             "symbol": "BA",
             "name": "BA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.4487
+            "change_pct": -0.0408
           },
           {
             "symbol": "UNP",
             "name": "UNP",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.6064
+            "change_pct": 0.3707
           },
           {
             "symbol": "ETN",
             "name": "ETN",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.5921
+            "change_pct": -1.5596
           },
           {
             "symbol": "HON",
             "name": "HON",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.7539
+            "change_pct": 0.7566
           },
           {
             "symbol": "UBER",
             "name": "UBER",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 5.8326
+            "change_pct": -0.1911
           },
           {
             "symbol": "DE",
             "name": "DE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.3086
+            "change_pct": -0.2093
           }
         ]
       },
       {
         "sector": "公用事業",
         "etf": "XLU",
-        "change_pct": 1.1661,
+        "change_pct": 0.419,
         "constituents": [
           {
             "symbol": "NEE",
             "name": "NEE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.3065
+            "change_pct": 0.4817
           },
           {
             "symbol": "SO",
             "name": "SO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.8741
+            "change_pct": 0.0836
           },
           {
             "symbol": "DUK",
             "name": "DUK",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.6683
+            "change_pct": 0.6436
           },
           {
             "symbol": "CEG",
             "name": "CEG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.0597
+            "change_pct": -0.503
           },
           {
             "symbol": "AEP",
             "name": "AEP",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7089
+            "change_pct": 1.4661
           },
           {
             "symbol": "SRE",
             "name": "SRE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.8899
+            "change_pct": 0.455
           },
           {
             "symbol": "D",
             "name": "D",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.361
+            "change_pct": 0.6979
           },
           {
             "symbol": "VST",
             "name": "VST",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.0123
+            "change_pct": -1.1591
           },
           {
             "symbol": "ETR",
             "name": "ETR",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7467
+            "change_pct": 0.1659
           },
           {
             "symbol": "XEL",
             "name": "XEL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 3.4803
+            "change_pct": 1.9267
           }
         ]
       },
@@ -799,49 +799,49 @@
             "name": "LIN",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.0601
+            "change_pct": 1.0324
           },
           {
             "symbol": "NEM",
             "name": "NEM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -3.8838
+            "change_pct": -0.7598
           },
           {
             "symbol": "NUE",
             "name": "NUE",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.2033
+            "change_pct": -0.137
           },
           {
             "symbol": "FCX",
             "name": "FCX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -4.6856
+            "change_pct": -1.3086
           },
           {
             "symbol": "VMC",
             "name": "VMC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7508
+            "change_pct": 0.7082
           },
           {
             "symbol": "CRH",
             "name": "CRH",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.8271
+            "change_pct": 1.5778
           },
           {
             "symbol": "APD",
             "name": "APD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.0086
+            "change_pct": 0.0
           },
           {
             "symbol": "STLD",
@@ -855,56 +855,56 @@
             "name": "CTVA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.7662
+            "change_pct": 0.1125
           },
           {
             "symbol": "SHW",
             "name": "SHW",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 4.6526
+            "change_pct": 0.0901
           }
         ]
       },
       {
         "sector": "通訊服務",
         "etf": "XLC",
-        "change_pct": -1.297,
+        "change_pct": 0.3265,
         "constituents": [
           {
             "symbol": "META",
             "name": "META",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.7528
+            "change_pct": -0.1826
           },
           {
             "symbol": "GOOGL",
             "name": "GOOGL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.8258
+            "change_pct": 0.9241
           },
           {
             "symbol": "GOOG",
             "name": "GOOG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.8505
+            "change_pct": 0.8889
           },
           {
             "symbol": "TTWO",
             "name": "TTWO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -3.6887
+            "change_pct": -1.658
           },
           {
             "symbol": "LYV",
             "name": "LYV",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.7023
+            "change_pct": 0.7443
           },
           {
             "symbol": "SATS",
@@ -918,182 +918,182 @@
             "name": "DIS",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.1482
+            "change_pct": 0.119
           },
           {
             "symbol": "WBD",
             "name": "WBD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.9464
+            "change_pct": 0.3135
           },
           {
             "symbol": "EA",
             "name": "EA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7488
+            "change_pct": 0.3976
           },
           {
             "symbol": "OMC",
             "name": "OMC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.0543
+            "change_pct": 0.0
           }
         ]
       },
       {
         "sector": "房地產",
         "etf": "XLRE",
-        "change_pct": -0.2912,
+        "change_pct": -0.2018,
         "constituents": [
           {
             "symbol": "WELL",
             "name": "WELL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 1.1373
+            "change_pct": -0.4809
           },
           {
             "symbol": "PLD",
             "name": "PLD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.6393
+            "change_pct": 0.8736
           },
           {
             "symbol": "EQIX",
             "name": "EQIX",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.101
+            "change_pct": -0.4545
           },
           {
             "symbol": "AMT",
             "name": "AMT",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.8454
+            "change_pct": 0.6868
           },
           {
             "symbol": "SPG",
             "name": "SPG",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 4.6553
+            "change_pct": 0.1217
           },
           {
             "symbol": "DLR",
             "name": "DLR",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.0154
+            "change_pct": -1.1143
           },
           {
             "symbol": "PSA",
             "name": "PSA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.0489
+            "change_pct": 0.2297
           },
           {
             "symbol": "VTR",
             "name": "VTR",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.9563
+            "change_pct": 0.4176
           },
           {
             "symbol": "CCI",
             "name": "CCI",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.5854
+            "change_pct": 0.6618
           },
           {
             "symbol": "O",
             "name": "O",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.7968
+            "change_pct": -0.0161
           }
         ]
       },
       {
         "sector": "半導體（iShares）",
         "etf": "SOXX",
-        "change_pct": -0.8571,
+        "change_pct": -5.1037,
         "constituents": [
           {
             "symbol": "MU",
             "name": "MU",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.5482
+            "change_pct": -13.6289
           },
           {
             "symbol": "AMD",
             "name": "AMD",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.4711
+            "change_pct": -3.5339
           },
           {
             "symbol": "AVGO",
             "name": "AVGO",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": 0.1494
+            "change_pct": -1.9202
           },
           {
             "symbol": "INTC",
             "name": "INTC",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.8734
+            "change_pct": -5.0761
           },
           {
             "symbol": "MRVL",
             "name": "MRVL",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -1.4952
+            "change_pct": -4.9174
           },
           {
             "symbol": "NVDA",
             "name": "NVDA",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.9457
+            "change_pct": -0.8409
           },
           {
             "symbol": "AMAT",
             "name": "AMAT",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.1746
+            "change_pct": -6.8085
           },
           {
             "symbol": "QCOM",
             "name": "QCOM",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -3.3015
+            "change_pct": -11.3242
           },
           {
             "symbol": "TXN",
             "name": "TXN",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -0.3747
+            "change_pct": -2.0963
           },
           {
             "symbol": "NXPI",
             "name": "NXPI",
             "weight_pct": null,
             "mktcap": null,
-            "change_pct": -2.1203
+            "change_pct": -1.133
           }
         ]
       }
@@ -1154,6 +1154,13 @@
             "change_pct": 7.5536
           },
           {
+            "symbol": "2382.TW",
+            "name": "廣達",
+            "weight_pct": null,
+            "mktcap": 1415652953828.0,
+            "change_pct": -1.4785
+          },
+          {
             "symbol": "2345.TW",
             "name": "智邦",
             "weight_pct": null,
@@ -1166,13 +1173,6 @@
             "weight_pct": null,
             "mktcap": 1245115600000.0,
             "change_pct": 2.4426
-          },
-          {
-            "symbol": "2412.TW",
-            "name": "中華電",
-            "weight_pct": null,
-            "mktcap": 1117072302480.0,
-            "change_pct": 0.3484
           }
         ]
       },
@@ -1210,11 +1210,11 @@
             "change_pct": -2.5316
           },
           {
-            "symbol": "4958.TW",
-            "name": "臻鼎-KY",
+            "symbol": "8046.TW",
+            "name": "南電",
             "weight_pct": null,
-            "mktcap": 644500089912.0,
-            "change_pct": 2.5554
+            "mktcap": 675242933915.0,
+            "change_pct": 0.0
           },
           {
             "symbol": "2368.TW",
@@ -1333,7 +1333,7 @@
       {
         "sector": "ETF",
         "index": "TWSE ETF類指數",
-        "change_pct": 0.2931,
+        "change_pct": 0.2953,
         "constituents": [
           {
             "symbol": "0050.TW",
@@ -1413,13 +1413,6 @@
         "change_pct": -0.89,
         "constituents": [
           {
-            "symbol": "2382.TW",
-            "name": "廣達",
-            "weight_pct": null,
-            "mktcap": 1415652953828.0,
-            "change_pct": -1.4785
-          },
-          {
             "symbol": "6669.TW",
             "name": "緯穎",
             "weight_pct": null,
@@ -1462,13 +1455,6 @@
             "change_pct": 0.4518
           },
           {
-            "symbol": "4938.TW",
-            "name": "和碩",
-            "weight_pct": null,
-            "mktcap": 230655792858.0,
-            "change_pct": 2.381
-          },
-          {
             "symbol": "2376.TW",
             "name": "技嘉",
             "weight_pct": null,
@@ -1481,83 +1467,20 @@
             "weight_pct": null,
             "mktcap": 162403353131.25,
             "change_pct": -2.7704
-          }
-        ]
-      },
-      {
-        "sector": "半導體業",
-        "index": "TWSE 半導體業類指數",
-        "change_pct": 0.2,
-        "constituents": [
-          {
-            "symbol": "2344.TW",
-            "name": "華邦電",
-            "weight_pct": null,
-            "mktcap": 987750042363.5,
-            "change_pct": 7.0732
           },
           {
-            "symbol": "2449.TW",
-            "name": "京元電子",
+            "symbol": "8210.TW",
+            "name": "勤誠",
             "weight_pct": null,
-            "mktcap": 409008224242.5,
-            "change_pct": 0.2999
+            "mktcap": 161035102610.0,
+            "change_pct": 0.0
           },
           {
-            "symbol": "6515.TW",
-            "name": "穎崴",
+            "symbol": "3706.TW",
+            "name": "神達",
             "weight_pct": null,
-            "mktcap": 327946182200.0,
-            "change_pct": -4.2105
-          },
-          {
-            "symbol": "3532.TW",
-            "name": "台勝科",
-            "weight_pct": null,
-            "mktcap": 144279567600.0,
-            "change_pct": 1.9178
-          },
-          {
-            "symbol": "6271.TW",
-            "name": "同欣電",
-            "weight_pct": null,
-            "mktcap": 56759253516.0,
-            "change_pct": 7.9523
-          },
-          {
-            "symbol": "7822.TW",
-            "name": "倍利科",
-            "weight_pct": null,
-            "mktcap": 54900719415.0,
-            "change_pct": -5.8594
-          },
-          {
-            "symbol": "2329.TW",
-            "name": "華泰",
-            "weight_pct": null,
-            "mktcap": 37494160147.7,
-            "change_pct": 1.426
-          },
-          {
-            "symbol": "8110.TW",
-            "name": "華東",
-            "weight_pct": null,
-            "mktcap": 32721160163.2,
-            "change_pct": 9.913
-          },
-          {
-            "symbol": "7768.TW",
-            "name": "頌勝科技",
-            "weight_pct": null,
-            "mktcap": 23717002500.0,
-            "change_pct": -2.5899
-          },
-          {
-            "symbol": "4967.TW",
-            "name": "十銓",
-            "weight_pct": null,
-            "mktcap": 23449867488.0,
-            "change_pct": -0.7194
+            "mktcap": 113476666014.0,
+            "change_pct": -1.3841
           }
         ]
       },
@@ -1793,8 +1716,134 @@
         ]
       },
       {
-        "sector": "化學生技醫療",
-        "index": "TWSE 化學生技醫療類指數",
+        "sector": "半導體業",
+        "index": "TWSE 半導體業類指數",
+        "change_pct": 0.2,
+        "constituents": [
+          {
+            "symbol": "2379.TW",
+            "name": "瑞昱",
+            "weight_pct": null,
+            "mktcap": 419627289774.0,
+            "change_pct": 1.3699
+          },
+          {
+            "symbol": "6515.TW",
+            "name": "穎崴",
+            "weight_pct": null,
+            "mktcap": 327946182200.0,
+            "change_pct": -4.2105
+          },
+          {
+            "symbol": "6239.TW",
+            "name": "力成",
+            "weight_pct": null,
+            "mktcap": 247481802684.0,
+            "change_pct": -3.5503
+          },
+          {
+            "symbol": "3532.TW",
+            "name": "台勝科",
+            "weight_pct": null,
+            "mktcap": 144279567600.0,
+            "change_pct": 1.9178
+          },
+          {
+            "symbol": "5269.TW",
+            "name": "祥碩",
+            "weight_pct": null,
+            "mktcap": 106414834365.0,
+            "change_pct": 0.7018
+          },
+          {
+            "symbol": "8150.TW",
+            "name": "南茂",
+            "weight_pct": null,
+            "mktcap": 67634220096.0,
+            "change_pct": -6.7961
+          },
+          {
+            "symbol": "7822.TW",
+            "name": "倍利科",
+            "weight_pct": null,
+            "mktcap": 54900719415.0,
+            "change_pct": -5.8594
+          },
+          {
+            "symbol": "3016.TW",
+            "name": "嘉晶",
+            "weight_pct": null,
+            "mktcap": 38520332836.5,
+            "change_pct": -2.9091
+          },
+          {
+            "symbol": "8110.TW",
+            "name": "華東",
+            "weight_pct": null,
+            "mktcap": 32721160163.2,
+            "change_pct": 9.913
+          },
+          {
+            "symbol": "4967.TW",
+            "name": "十銓",
+            "weight_pct": null,
+            "mktcap": 23449867488.0,
+            "change_pct": -0.7194
+          }
+        ]
+      },
+      {
+        "sector": "其他電子業",
+        "index": "TWSE 其他電子業類指數",
+        "change_pct": 0.88,
+        "constituents": [
+          {
+            "symbol": "2360.TW",
+            "name": "致茂",
+            "weight_pct": null,
+            "mktcap": 929161946270.0,
+            "change_pct": 1.1574
+          },
+          {
+            "symbol": "3665.TW",
+            "name": "貿聯-KY",
+            "weight_pct": null,
+            "mktcap": 374550537600.0,
+            "change_pct": -4.2394
+          },
+          {
+            "symbol": "6691.TW",
+            "name": "洋基工程",
+            "weight_pct": null,
+            "mktcap": 96825305573.0,
+            "change_pct": 5.1451
+          },
+          {
+            "symbol": "2359.TW",
+            "name": "所羅門",
+            "weight_pct": null,
+            "mktcap": 22891385442.0,
+            "change_pct": -2.5547
+          },
+          {
+            "symbol": "6722.TW",
+            "name": "輝創",
+            "weight_pct": null,
+            "mktcap": 3142619999.9999995,
+            "change_pct": 1.5714
+          },
+          {
+            "symbol": "3043.TW",
+            "name": "科風",
+            "weight_pct": null,
+            "mktcap": 880849328.4000001,
+            "change_pct": -0.4405
+          }
+        ]
+      },
+      {
+        "sector": "生技醫療業",
+        "index": "TWSE 生技醫療業類指數",
         "change_pct": -0.35,
         "constituents": [
           {
@@ -1805,67 +1854,67 @@
             "change_pct": 3.0172
           },
           {
-            "symbol": "6472.TW",
-            "name": "保瑞",
+            "symbol": "6919.TW",
+            "name": "康霈*",
             "weight_pct": null,
-            "mktcap": 53696658615.0,
-            "change_pct": -5.4115
+            "mktcap": 154636698498.0,
+            "change_pct": -4.5192
           },
           {
-            "symbol": "1773.TW",
-            "name": "勝一",
+            "symbol": "7799.TW",
+            "name": "禾榮科",
             "weight_pct": null,
-            "mktcap": 51600000000.0,
-            "change_pct": -0.8646
+            "mktcap": 62092231500.0,
+            "change_pct": -4.8426
           },
           {
-            "symbol": "1722.TW",
-            "name": "台肥",
+            "symbol": "1795.TW",
+            "name": "美時",
             "weight_pct": null,
-            "mktcap": 46893000000.0,
-            "change_pct": 0.3145
+            "mktcap": 50439150468.0,
+            "change_pct": -2.3256
           },
           {
-            "symbol": "4763.TW",
-            "name": "材料*-KY",
+            "symbol": "6491.TW",
+            "name": "晶碩",
             "weight_pct": null,
-            "mktcap": 44017026815.0,
-            "change_pct": -1.1111
+            "mktcap": 25350000000.0,
+            "change_pct": -0.3067
           },
           {
-            "symbol": "4766.TW",
-            "name": "南寶",
+            "symbol": "7827.TW",
+            "name": "漢康-KY創",
             "weight_pct": null,
-            "mktcap": 41717489880.0,
-            "change_pct": -0.1443
+            "mktcap": 23593369553.0,
+            "change_pct": 5.625
           },
           {
-            "symbol": "4722.TW",
-            "name": "國精化",
+            "symbol": "1789.TW",
+            "name": "神隆",
             "weight_pct": null,
-            "mktcap": 29396485404.0,
-            "change_pct": -4.9834
+            "mktcap": 16249691012.1,
+            "change_pct": 1.7327
           },
           {
-            "symbol": "4764.TW",
-            "name": "雙鍵",
+            "symbol": "1707.TW",
+            "name": "葡萄王",
             "weight_pct": null,
-            "mktcap": 25919244786.0,
-            "change_pct": -5.6075
+            "mktcap": 14354511443.7,
+            "change_pct": 0.1033
           },
           {
-            "symbol": "1711.TW",
-            "name": "永光",
+            "symbol": "6589.TW",
+            "name": "台康生技",
             "weight_pct": null,
-            "mktcap": 25360928063.8,
-            "change_pct": -2.935
+            "mktcap": 14330883825.800001,
+            "change_pct": -0.8493
           },
           {
-            "symbol": "1723.TW",
-            "name": "中碳",
+            "symbol": "6861.TW",
+            "name": "睿生光電",
             "weight_pct": null,
-            "mktcap": 19876285872.0,
-            "change_pct": -3.1178
+            "mktcap": 13873349875.0,
+            "change_pct": -5.5241
           }
         ]
       },
@@ -1894,6 +1943,13 @@
             "weight_pct": null,
             "mktcap": 158454961960.0,
             "change_pct": 2.9252
+          },
+          {
+            "symbol": "8112.TW",
+            "name": "至上",
+            "weight_pct": null,
+            "mktcap": 49955240479.799995,
+            "change_pct": -0.7307
           },
           {
             "symbol": "8070.TW",
@@ -1931,18 +1987,11 @@
             "change_pct": -0.9804
           },
           {
-            "symbol": "3055.TW",
-            "name": "蔚華科",
+            "symbol": "6189.TW",
+            "name": "豐藝",
             "weight_pct": null,
-            "mktcap": 11727441636.0,
-            "change_pct": 2.1021
-          },
-          {
-            "symbol": "3312.TW",
-            "name": "弘憶股",
-            "weight_pct": null,
-            "mktcap": 11322862530.0,
-            "change_pct": -0.8
+            "mktcap": 13320872678.5,
+            "change_pct": 0.0
           }
         ]
       },
@@ -2337,11 +2386,18 @@
             "change_pct": -1.836
           },
           {
-            "symbol": "2419.TW",
-            "name": "仲琦",
+            "symbol": "3704.TW",
+            "name": "合勤控",
             "weight_pct": null,
-            "mktcap": 9012948273.45,
-            "change_pct": -1.9231
+            "mktcap": 19816725069.0,
+            "change_pct": -1.8519
+          },
+          {
+            "symbol": "4977.TW",
+            "name": "眾達-KY",
+            "weight_pct": null,
+            "mktcap": 14193601857.0,
+            "change_pct": -3.0137
           },
           {
             "symbol": "8045.TW",
@@ -2358,18 +2414,11 @@
             "change_pct": -1.5773
           },
           {
-            "symbol": "6142.TW",
-            "name": "友勁",
+            "symbol": "3419.TW",
+            "name": "譁裕",
             "weight_pct": null,
-            "mktcap": 3066323323.0499997,
-            "change_pct": 0.6515
-          },
-          {
-            "symbol": "6152.TW",
-            "name": "百一",
-            "weight_pct": null,
-            "mktcap": 2281243096.7999997,
-            "change_pct": -2.8571
+            "mktcap": 1686725838.0,
+            "change_pct": -1.4085
           }
         ]
       },
@@ -2524,83 +2573,6 @@
             "weight_pct": null,
             "mktcap": 6760157118.0,
             "change_pct": -0.3344
-          }
-        ]
-      },
-      {
-        "sector": "生技醫療業",
-        "index": "TWSE 生技醫療業類指數",
-        "change_pct": -0.35,
-        "constituents": [
-          {
-            "symbol": "6919.TW",
-            "name": "康霈*",
-            "weight_pct": null,
-            "mktcap": 154636698498.0,
-            "change_pct": -4.5192
-          },
-          {
-            "symbol": "7799.TW",
-            "name": "禾榮科",
-            "weight_pct": null,
-            "mktcap": 62092231500.0,
-            "change_pct": -4.8426
-          },
-          {
-            "symbol": "1795.TW",
-            "name": "美時",
-            "weight_pct": null,
-            "mktcap": 50439150468.0,
-            "change_pct": -2.3256
-          },
-          {
-            "symbol": "6491.TW",
-            "name": "晶碩",
-            "weight_pct": null,
-            "mktcap": 25350000000.0,
-            "change_pct": -0.3067
-          },
-          {
-            "symbol": "7827.TW",
-            "name": "漢康-KY創",
-            "weight_pct": null,
-            "mktcap": 23593369553.0,
-            "change_pct": 5.625
-          },
-          {
-            "symbol": "1789.TW",
-            "name": "神隆",
-            "weight_pct": null,
-            "mktcap": 16249691012.1,
-            "change_pct": 1.7327
-          },
-          {
-            "symbol": "1707.TW",
-            "name": "葡萄王",
-            "weight_pct": null,
-            "mktcap": 14354511443.7,
-            "change_pct": 0.1033
-          },
-          {
-            "symbol": "6589.TW",
-            "name": "台康生技",
-            "weight_pct": null,
-            "mktcap": 14330883825.800001,
-            "change_pct": -0.8493
-          },
-          {
-            "symbol": "6861.TW",
-            "name": "睿生光電",
-            "weight_pct": null,
-            "mktcap": 13873349875.0,
-            "change_pct": -5.5241
-          },
-          {
-            "symbol": "4104.TW",
-            "name": "佳醫",
-            "weight_pct": null,
-            "mktcap": 12978517718.400002,
-            "change_pct": 0.1453
           }
         ]
       },
@@ -2822,6 +2794,83 @@
         ]
       },
       {
+        "sector": "化學生技醫療",
+        "index": "TWSE 化學生技醫療類指數",
+        "change_pct": -0.35,
+        "constituents": [
+          {
+            "symbol": "6472.TW",
+            "name": "保瑞",
+            "weight_pct": null,
+            "mktcap": 53696658615.0,
+            "change_pct": -5.4115
+          },
+          {
+            "symbol": "1773.TW",
+            "name": "勝一",
+            "weight_pct": null,
+            "mktcap": 51600000000.0,
+            "change_pct": -0.8646
+          },
+          {
+            "symbol": "1722.TW",
+            "name": "台肥",
+            "weight_pct": null,
+            "mktcap": 46893000000.0,
+            "change_pct": 0.3145
+          },
+          {
+            "symbol": "4763.TW",
+            "name": "材料*-KY",
+            "weight_pct": null,
+            "mktcap": 44017026815.0,
+            "change_pct": -1.1111
+          },
+          {
+            "symbol": "4722.TW",
+            "name": "國精化",
+            "weight_pct": null,
+            "mktcap": 29396485404.0,
+            "change_pct": -4.9834
+          },
+          {
+            "symbol": "4764.TW",
+            "name": "雙鍵",
+            "weight_pct": null,
+            "mktcap": 25919244786.0,
+            "change_pct": -5.6075
+          },
+          {
+            "symbol": "1711.TW",
+            "name": "永光",
+            "weight_pct": null,
+            "mktcap": 25360928063.8,
+            "change_pct": -2.935
+          },
+          {
+            "symbol": "1723.TW",
+            "name": "中碳",
+            "weight_pct": null,
+            "mktcap": 19876285872.0,
+            "change_pct": -3.1178
+          },
+          {
+            "symbol": "1718.TW",
+            "name": "中纖",
+            "weight_pct": null,
+            "mktcap": 17111943311.75,
+            "change_pct": 9.9675
+          },
+          {
+            "symbol": "1712.TW",
+            "name": "興農",
+            "weight_pct": null,
+            "mktcap": 16483309332.000002,
+            "change_pct": 0.1277
+          }
+        ]
+      },
+      {
         "sector": "綠能環保",
         "index": "TWSE 綠能環保類指數",
         "change_pct": -1.45,
@@ -2895,83 +2944,6 @@
             "weight_pct": null,
             "mktcap": 10419951099.599998,
             "change_pct": -0.657
-          }
-        ]
-      },
-      {
-        "sector": "光電業",
-        "index": "TWSE 光電業類指數",
-        "change_pct": 1.47,
-        "constituents": [
-          {
-            "symbol": "6278.TW",
-            "name": "台表科",
-            "weight_pct": null,
-            "mktcap": 59941662365.0,
-            "change_pct": 1.737
-          },
-          {
-            "symbol": "6116.TW",
-            "name": "彩晶",
-            "weight_pct": null,
-            "mktcap": 55743769594.5,
-            "change_pct": 0.5155
-          },
-          {
-            "symbol": "5234.TW",
-            "name": "達興材料",
-            "weight_pct": null,
-            "mktcap": 39442909824.0,
-            "change_pct": -1.4121
-          },
-          {
-            "symbol": "3576.TW",
-            "name": "聯合再生",
-            "weight_pct": null,
-            "mktcap": 28079470218.75,
-            "change_pct": -3.0899
-          },
-          {
-            "symbol": "2426.TW",
-            "name": "鼎元",
-            "weight_pct": null,
-            "mktcap": 25582953645.199997,
-            "change_pct": -8.7889
-          },
-          {
-            "symbol": "6443.TW",
-            "name": "元晶",
-            "weight_pct": null,
-            "mktcap": 18665800972.0,
-            "change_pct": -1.7544
-          },
-          {
-            "symbol": "5243.TW",
-            "name": "乙盛-KY",
-            "weight_pct": null,
-            "mktcap": 17779800532.5,
-            "change_pct": 1.4423
-          },
-          {
-            "symbol": "6209.TW",
-            "name": "今國光",
-            "weight_pct": null,
-            "mktcap": 16136839553.400002,
-            "change_pct": 0.4494
-          },
-          {
-            "symbol": "4960.TW",
-            "name": "誠美材",
-            "weight_pct": null,
-            "mktcap": 15693312900.6,
-            "change_pct": -3.1746
-          },
-          {
-            "symbol": "3049.TW",
-            "name": "精金",
-            "weight_pct": null,
-            "mktcap": 10987544247.3,
-            "change_pct": -2.8369
           }
         ]
       },
@@ -3172,6 +3144,125 @@
         ]
       },
       {
+        "sector": "化學工業",
+        "index": "TWSE 化學工業類指數",
+        "change_pct": -0.63,
+        "constituents": [
+          {
+            "symbol": "1717.TW",
+            "name": "長興",
+            "weight_pct": null,
+            "mktcap": 88973432159.70001,
+            "change_pct": 2.7064
+          },
+          {
+            "symbol": "4766.TW",
+            "name": "南寶",
+            "weight_pct": null,
+            "mktcap": 41717489880.0,
+            "change_pct": -0.1443
+          },
+          {
+            "symbol": "1714.TW",
+            "name": "和桐",
+            "weight_pct": null,
+            "mktcap": 18348758948.0,
+            "change_pct": -2.8871
+          },
+          {
+            "symbol": "4770.TW",
+            "name": "上品",
+            "weight_pct": null,
+            "mktcap": 16954912000.0,
+            "change_pct": -0.2353
+          },
+          {
+            "symbol": "1735.TW",
+            "name": "日勝化",
+            "weight_pct": null,
+            "mktcap": 2236230000.0,
+            "change_pct": -0.8811
+          }
+        ]
+      },
+      {
+        "sector": "光電業",
+        "index": "TWSE 光電業類指數",
+        "change_pct": 1.47,
+        "constituents": [
+          {
+            "symbol": "5234.TW",
+            "name": "達興材料",
+            "weight_pct": null,
+            "mktcap": 39442909824.0,
+            "change_pct": -1.4121
+          },
+          {
+            "symbol": "3576.TW",
+            "name": "聯合再生",
+            "weight_pct": null,
+            "mktcap": 28079470218.75,
+            "change_pct": -3.0899
+          },
+          {
+            "symbol": "2426.TW",
+            "name": "鼎元",
+            "weight_pct": null,
+            "mktcap": 25582953645.199997,
+            "change_pct": -8.7889
+          },
+          {
+            "symbol": "3149.TW",
+            "name": "正達",
+            "weight_pct": null,
+            "mktcap": 22623360400.0,
+            "change_pct": -1.9608
+          },
+          {
+            "symbol": "4960.TW",
+            "name": "誠美材",
+            "weight_pct": null,
+            "mktcap": 15693312900.6,
+            "change_pct": -3.1746
+          },
+          {
+            "symbol": "2466.TW",
+            "name": "冠西電",
+            "weight_pct": null,
+            "mktcap": 10060604426.0,
+            "change_pct": -1.6949
+          },
+          {
+            "symbol": "4976.TW",
+            "name": "佳凌",
+            "weight_pct": null,
+            "mktcap": 5986214850.0,
+            "change_pct": 9.009
+          },
+          {
+            "symbol": "4949.TW",
+            "name": "有成精密",
+            "weight_pct": null,
+            "mktcap": 5945995375.4,
+            "change_pct": -2.9834
+          },
+          {
+            "symbol": "4942.TW",
+            "name": "嘉彰",
+            "weight_pct": null,
+            "mktcap": 5360140629.45,
+            "change_pct": -0.3968
+          },
+          {
+            "symbol": "4956.TW",
+            "name": "光鋐",
+            "weight_pct": null,
+            "mktcap": 3941023263.0,
+            "change_pct": -4.5012
+          }
+        ]
+      },
+      {
         "sector": "居家生活",
         "index": "TWSE 居家生活類指數",
         "change_pct": 1.55,
@@ -3326,48 +3417,6 @@
         ]
       },
       {
-        "sector": "化學工業",
-        "index": "TWSE 化學工業類指數",
-        "change_pct": -0.63,
-        "constituents": [
-          {
-            "symbol": "1717.TW",
-            "name": "長興",
-            "weight_pct": null,
-            "mktcap": 88973432159.70001,
-            "change_pct": 2.7064
-          },
-          {
-            "symbol": "1714.TW",
-            "name": "和桐",
-            "weight_pct": null,
-            "mktcap": 18348758948.0,
-            "change_pct": -2.8871
-          },
-          {
-            "symbol": "1718.TW",
-            "name": "中纖",
-            "weight_pct": null,
-            "mktcap": 17111943311.75,
-            "change_pct": 9.9675
-          },
-          {
-            "symbol": "4770.TW",
-            "name": "上品",
-            "weight_pct": null,
-            "mktcap": 16954912000.0,
-            "change_pct": -0.2353
-          },
-          {
-            "symbol": "1735.TW",
-            "name": "日勝化",
-            "weight_pct": null,
-            "mktcap": 2236230000.0,
-            "change_pct": -0.8811
-          }
-        ]
-      },
-      {
         "sector": "造紙工業",
         "index": "TWSE 造紙工業類指數",
         "change_pct": -1.2,
@@ -3503,7 +3552,7 @@
       {
         "sector": "創新板股票",
         "index": "TWSE 創新板股票類指數",
-        "change_pct": 1.5885,
+        "change_pct": 1.8504,
         "constituents": [
           {
             "symbol": "6949.TW",
@@ -3511,13 +3560,6 @@
             "weight_pct": null,
             "mktcap": 57644863950.0,
             "change_pct": 2.2093
-          },
-          {
-            "symbol": "6534.TW",
-            "name": "正瀚-創",
-            "weight_pct": null,
-            "mktcap": 9406200000.0,
-            "change_pct": -0.3268
           },
           {
             "symbol": "6951.TW",
@@ -3639,53 +3681,11 @@
         "change_pct": -0.82,
         "constituents": [
           {
-            "symbol": "6112.TW",
-            "name": "邁達特",
-            "weight_pct": null,
-            "mktcap": 8278304917.200001,
-            "change_pct": -0.453
-          },
-          {
-            "symbol": "4994.TW",
-            "name": "傳奇",
-            "weight_pct": null,
-            "mktcap": 6067442760.0,
-            "change_pct": -0.2183
-          },
-          {
             "symbol": "2427.TW",
             "name": "三商電",
             "weight_pct": null,
             "mktcap": 4425290456.55,
             "change_pct": -0.2232
-          }
-        ]
-      },
-      {
-        "sector": "其他電子業",
-        "index": "TWSE 其他電子業類指數",
-        "change_pct": 0.88,
-        "constituents": [
-          {
-            "symbol": "5225.TW",
-            "name": "東科-KY",
-            "weight_pct": null,
-            "mktcap": 5784878076.9,
-            "change_pct": 0.4121
-          },
-          {
-            "symbol": "3518.TW",
-            "name": "柏騰",
-            "weight_pct": null,
-            "mktcap": 3038153369.5,
-            "change_pct": -0.3361
-          },
-          {
-            "symbol": "3043.TW",
-            "name": "科風",
-            "weight_pct": null,
-            "mktcap": 880849328.4000001,
-            "change_pct": -0.4405
           }
         ]
       }
@@ -4771,1090 +4771,824 @@
         ]
       }
     ],
-    "TW_chain": [
+    "TW_chains": [
       {
-        "sector": "上游",
-        "change_pct": 1.1476,
-        "constituents": [
+        "chain": "AI伺服器",
+        "group": "AI核心",
+        "change_pct": 0.2446,
+        "tiers": [
           {
-            "symbol": "2454.TW",
-            "name": "聯發科",
-            "weight_pct": null,
-            "mktcap": 6912789204170.0,
-            "change_pct": 0.5834
+            "tier": "上游",
+            "desc": "晶片/IC設計",
+            "change_pct": 0.0585,
+            "stocks": [
+              {
+                "symbol": "2330.TW",
+                "name": "台積電",
+                "change_pct": 0.0,
+                "mktcap": 61978364460130.0
+              },
+              {
+                "symbol": "2454.TW",
+                "name": "聯發科",
+                "change_pct": 0.5834,
+                "mktcap": 6912789204170.0
+              }
+            ]
           },
           {
-            "symbol": "2383.TW",
-            "name": "台光電",
-            "weight_pct": null,
-            "mktcap": 2020931082960.0,
-            "change_pct": 1.4388
+            "tier": "中游",
+            "desc": "載板/PCB/散熱/電源/記憶體/連接器",
+            "change_pct": 1.824,
+            "stocks": [
+              {
+                "symbol": "2308.TW",
+                "name": "台達電",
+                "change_pct": -1.0,
+                "mktcap": 5143135791420.0
+              },
+              {
+                "symbol": "3037.TW",
+                "name": "欣興",
+                "change_pct": 9.5596,
+                "mktcap": 1620650415120.0
+              },
+              {
+                "symbol": "2408.TW",
+                "name": "南亞科",
+                "change_pct": 7.5536,
+                "mktcap": 1478045505438.0
+              },
+              {
+                "symbol": "3017.TW",
+                "name": "奇鋐",
+                "change_pct": -0.9881,
+                "mktcap": 983320232535.0
+              },
+              {
+                "symbol": "2301.TW",
+                "name": "光寶科",
+                "change_pct": -0.6928,
+                "mktcap": 497963169045.0
+              },
+              {
+                "symbol": "3665.TW",
+                "name": "貿聯-KY",
+                "change_pct": -4.2394,
+                "mktcap": 374550537600.0
+              },
+              {
+                "symbol": "3044.TW",
+                "name": "健鼎",
+                "change_pct": 1.1407,
+                "mktcap": 279622337736.0
+              }
+            ]
           },
           {
-            "symbol": "3443.TW",
-            "name": "創意",
-            "weight_pct": null,
-            "mktcap": 649957768350.0,
-            "change_pct": -0.6148
-          },
-          {
-            "symbol": "2379.TW",
-            "name": "瑞昱",
-            "weight_pct": null,
-            "mktcap": 419627289774.0,
-            "change_pct": 1.3699
-          },
-          {
-            "symbol": "3661.TW",
-            "name": "世芯-KY",
-            "weight_pct": null,
-            "mktcap": 347246368200.0,
-            "change_pct": -2.3095
-          },
-          {
-            "symbol": "3034.TW",
-            "name": "聯詠",
-            "weight_pct": null,
-            "mktcap": 341374934109.0,
-            "change_pct": 3.3149
-          },
-          {
-            "symbol": "2404.TW",
-            "name": "漢唐",
-            "weight_pct": null,
-            "mktcap": 260150842770.0,
-            "change_pct": 8.7649
-          },
-          {
-            "symbol": "6415.TW",
-            "name": "矽力*-KY",
-            "weight_pct": null,
-            "mktcap": 239203085805.0,
-            "change_pct": 1.6529
-          },
-          {
-            "symbol": "6139.TW",
-            "name": "亞翔",
-            "weight_pct": null,
-            "mktcap": 206128758500.0,
-            "change_pct": 6.9682
-          },
-          {
-            "symbol": "6531.TW",
-            "name": "愛普*",
-            "weight_pct": null,
-            "mktcap": 179131194000.0,
-            "change_pct": 2.8037
-          },
-          {
-            "symbol": "3532.TW",
-            "name": "台勝科",
-            "weight_pct": null,
-            "mktcap": 144279567600.0,
-            "change_pct": 1.9178
-          },
-          {
-            "symbol": "6213.TW",
-            "name": "聯茂",
-            "weight_pct": null,
-            "mktcap": 123429373011.0,
-            "change_pct": 9.8706
-          },
-          {
-            "symbol": "6196.TW",
-            "name": "帆宣",
-            "weight_pct": null,
-            "mktcap": 123164206711.0,
-            "change_pct": 3.5185
-          },
-          {
-            "symbol": "5269.TW",
-            "name": "祥碩",
-            "weight_pct": null,
-            "mktcap": 106414834365.0,
-            "change_pct": 0.7018
-          },
-          {
-            "symbol": "2467.TW",
-            "name": "志聖",
-            "weight_pct": null,
-            "mktcap": 91701878580.0,
-            "change_pct": -0.5102
-          },
-          {
-            "symbol": "3583.TW",
-            "name": "辛耘",
-            "weight_pct": null,
-            "mktcap": 68294168000.0,
-            "change_pct": -0.9324
-          },
-          {
-            "symbol": "3035.TW",
-            "name": "智原",
-            "weight_pct": null,
-            "mktcap": 59666021677.0,
-            "change_pct": -0.6508
-          },
-          {
-            "symbol": "2458.TW",
-            "name": "義隆",
-            "weight_pct": null,
-            "mktcap": 54698470560.0,
-            "change_pct": 9.7561
-          },
-          {
-            "symbol": "3016.TW",
-            "name": "嘉晶",
-            "weight_pct": null,
-            "mktcap": 38520332836.5,
-            "change_pct": -2.9091
-          },
-          {
-            "symbol": "3413.TW",
-            "name": "京鼎",
-            "weight_pct": null,
-            "mktcap": 34225544520.0,
-            "change_pct": -0.6431
-          },
-          {
-            "symbol": "8081.TW",
-            "name": "致新",
-            "weight_pct": null,
-            "mktcap": 28049009436.0,
-            "change_pct": -0.1534
-          },
-          {
-            "symbol": "3014.TW",
-            "name": "聯陽",
-            "weight_pct": null,
-            "mktcap": 27967482394.0,
-            "change_pct": 1.506
-          },
-          {
-            "symbol": "6672.TW",
-            "name": "騰輝電子-KY",
-            "weight_pct": null,
-            "mktcap": 20680358677.5,
-            "change_pct": 9.8672
-          },
-          {
-            "symbol": "2401.TW",
-            "name": "凌陽",
-            "weight_pct": null,
-            "mktcap": 20660622673.1,
-            "change_pct": 0.2874
-          },
-          {
-            "symbol": "7788.TW",
-            "name": "松川精密",
-            "weight_pct": null,
-            "mktcap": 20335228215.0,
-            "change_pct": -3.7736
-          },
-          {
-            "symbol": "6202.TW",
-            "name": "盛群",
-            "weight_pct": null,
-            "mktcap": 16219329280.000002,
-            "change_pct": -1.4006
-          },
-          {
-            "symbol": "5471.TW",
-            "name": "松翰",
-            "weight_pct": null,
-            "mktcap": 10458740962.6,
-            "change_pct": -0.1603
-          },
-          {
-            "symbol": "6533.TW",
-            "name": "晶心科",
-            "weight_pct": null,
-            "mktcap": 10256809477.5,
-            "change_pct": -0.978
-          },
-          {
-            "symbol": "4952.TW",
-            "name": "凌通",
-            "weight_pct": null,
-            "mktcap": 6191619930.4,
-            "change_pct": -1.7271
+            "tier": "下游",
+            "desc": "ODM組裝/品牌",
+            "change_pct": -0.2534,
+            "stocks": [
+              {
+                "symbol": "2317.TW",
+                "name": "鴻海",
+                "change_pct": 0.5859,
+                "mktcap": 3612377021195.0
+              },
+              {
+                "symbol": "2382.TW",
+                "name": "廣達",
+                "change_pct": -1.4785,
+                "mktcap": 1415652953828.0
+              },
+              {
+                "symbol": "6669.TW",
+                "name": "緯穎",
+                "change_pct": -1.3029,
+                "mktcap": 844646395095.0
+              },
+              {
+                "symbol": "2357.TW",
+                "name": "華碩",
+                "change_pct": -2.9831,
+                "mktcap": 555584689440.0
+              },
+              {
+                "symbol": "3231.TW",
+                "name": "緯創",
+                "change_pct": 1.5873,
+                "mktcap": 508865960000.0
+              },
+              {
+                "symbol": "2356.TW",
+                "name": "英業達",
+                "change_pct": 0.4518,
+                "mktcap": 239284586902.2
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "中游",
-        "change_pct": 0.5124,
-        "constituents": [
+        "chain": "CoWoS先進封裝",
+        "group": "AI核心",
+        "change_pct": 0.2118,
+        "tiers": [
           {
-            "symbol": "2330.TW",
-            "name": "台積電",
-            "weight_pct": null,
-            "mktcap": 61978364460130.0,
-            "change_pct": 0.0
+            "tier": "上游",
+            "desc": "設備/耗材",
+            "change_pct": -0.6904,
+            "stocks": [
+              {
+                "symbol": "2467.TW",
+                "name": "志聖",
+                "change_pct": -0.5102,
+                "mktcap": 91701878580.0
+              },
+              {
+                "symbol": "3583.TW",
+                "name": "辛耘",
+                "change_pct": -0.9324,
+                "mktcap": 68294168000.0
+              }
+            ]
           },
           {
-            "symbol": "3711.TW",
-            "name": "日月光投控",
-            "weight_pct": null,
-            "mktcap": 2865636832762.0,
-            "change_pct": -1.8377
+            "tier": "中游",
+            "desc": "晶圓代工/先進封裝",
+            "change_pct": -0.0812,
+            "stocks": [
+              {
+                "symbol": "2330.TW",
+                "name": "台積電",
+                "change_pct": 0.0,
+                "mktcap": 61978364460130.0
+              },
+              {
+                "symbol": "3711.TW",
+                "name": "日月光投控",
+                "change_pct": -1.8377,
+                "mktcap": 2865636832762.0
+              }
+            ]
           },
           {
-            "symbol": "2327.TW",
-            "name": "國巨*",
-            "weight_pct": null,
-            "mktcap": 2330398669500.0,
-            "change_pct": 7.1429
-          },
-          {
-            "symbol": "2303.TW",
-            "name": "聯電",
-            "weight_pct": null,
-            "mktcap": 2244991799295.0,
-            "change_pct": 0.2809
-          },
-          {
-            "symbol": "3037.TW",
-            "name": "欣興",
-            "weight_pct": null,
-            "mktcap": 1620650415120.0,
-            "change_pct": 9.5596
-          },
-          {
-            "symbol": "2408.TW",
-            "name": "南亞科",
-            "weight_pct": null,
-            "mktcap": 1478045505438.0,
-            "change_pct": 7.5536
-          },
-          {
-            "symbol": "2344.TW",
-            "name": "華邦電",
-            "weight_pct": null,
-            "mktcap": 987750042363.5,
-            "change_pct": 7.0732
-          },
-          {
-            "symbol": "3017.TW",
-            "name": "奇鋐",
-            "weight_pct": null,
-            "mktcap": 983320232535.0,
-            "change_pct": -0.9881
-          },
-          {
-            "symbol": "3008.TW",
-            "name": "大立光",
-            "weight_pct": null,
-            "mktcap": 675572687505.0,
-            "change_pct": 5.4082
-          },
-          {
-            "symbol": "8046.TW",
-            "name": "南電",
-            "weight_pct": null,
-            "mktcap": 675242933915.0,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "2368.TW",
-            "name": "金像電",
-            "weight_pct": null,
-            "mktcap": 641100725360.0,
-            "change_pct": -1.1952
-          },
-          {
-            "symbol": "3481.TW",
-            "name": "群創",
-            "weight_pct": null,
-            "mktcap": 566434091193.3,
-            "change_pct": 2.1614
-          },
-          {
-            "symbol": "3653.TW",
-            "name": "健策",
-            "weight_pct": null,
-            "mktcap": 497424202170.0,
-            "change_pct": -6.8681
-          },
-          {
-            "symbol": "3189.TW",
-            "name": "景碩",
-            "weight_pct": null,
-            "mktcap": 427855597120.0,
-            "change_pct": 9.8782
-          },
-          {
-            "symbol": "2449.TW",
-            "name": "京元電子",
-            "weight_pct": null,
-            "mktcap": 409008224242.5,
-            "change_pct": 0.2999
-          },
-          {
-            "symbol": "6770.TW",
-            "name": "力積電",
-            "weight_pct": null,
-            "mktcap": 391873626227.2,
-            "change_pct": -2.9172
-          },
-          {
-            "symbol": "3665.TW",
-            "name": "貿聯-KY",
-            "weight_pct": null,
-            "mktcap": 374550537600.0,
-            "change_pct": -4.2394
-          },
-          {
-            "symbol": "2337.TW",
-            "name": "旺宏",
-            "weight_pct": null,
-            "mktcap": 319981374430.0,
-            "change_pct": -6.1047
-          },
-          {
-            "symbol": "2492.TW",
-            "name": "華新科",
-            "weight_pct": null,
-            "mktcap": 290637659626.0,
-            "change_pct": 1.5254
-          },
-          {
-            "symbol": "3044.TW",
-            "name": "健鼎",
-            "weight_pct": null,
-            "mktcap": 279622337736.0,
-            "change_pct": 1.1407
-          },
-          {
-            "symbol": "2313.TW",
-            "name": "華通",
-            "weight_pct": null,
-            "mktcap": 277694197237.0,
-            "change_pct": -2.9167
-          },
-          {
-            "symbol": "3533.TW",
-            "name": "嘉澤",
-            "weight_pct": null,
-            "mktcap": 250389687475.0,
-            "change_pct": -0.4474
-          },
-          {
-            "symbol": "6239.TW",
-            "name": "力成",
-            "weight_pct": null,
-            "mktcap": 247481802684.0,
-            "change_pct": -3.5503
-          },
-          {
-            "symbol": "2409.TW",
-            "name": "友達",
-            "weight_pct": null,
-            "mktcap": 229431808748.8,
-            "change_pct": -0.3279
-          },
-          {
-            "symbol": "6442.TW",
-            "name": "光聖",
-            "weight_pct": null,
-            "mktcap": 146473062275.0,
-            "change_pct": -3.6176
-          },
-          {
-            "symbol": "8996.TW",
-            "name": "高力",
-            "weight_pct": null,
-            "mktcap": 136345646340.0,
-            "change_pct": 0.6897
-          },
-          {
-            "symbol": "3026.TW",
-            "name": "禾伸堂",
-            "weight_pct": null,
-            "mktcap": 127901435178.0,
-            "change_pct": -3.1407
-          },
-          {
-            "symbol": "6805.TW",
-            "name": "富世達",
-            "weight_pct": null,
-            "mktcap": 119969318000.0,
-            "change_pct": -3.0471
-          },
-          {
-            "symbol": "3406.TW",
-            "name": "玉晶光",
-            "weight_pct": null,
-            "mktcap": 85571984817.0,
-            "change_pct": 3.5471
-          },
-          {
-            "symbol": "2354.TW",
-            "name": "鴻準",
-            "weight_pct": null,
-            "mktcap": 81191450020.8,
-            "change_pct": -1.0345
+            "tier": "下游",
+            "desc": "載板/測試介面",
+            "change_pct": 7.2397,
+            "stocks": [
+              {
+                "symbol": "3037.TW",
+                "name": "欣興",
+                "change_pct": 9.5596,
+                "mktcap": 1620650415120.0
+              },
+              {
+                "symbol": "8046.TW",
+                "name": "南電",
+                "change_pct": 0.0,
+                "mktcap": 675242933915.0
+              },
+              {
+                "symbol": "3189.TW",
+                "name": "景碩",
+                "change_pct": 9.8782,
+                "mktcap": 427855597120.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "下游",
-        "change_pct": -0.5133,
-        "constituents": [
+        "chain": "載板",
+        "group": "AI核心",
+        "change_pct": 0.2665,
+        "tiers": [
           {
-            "symbol": "2308.TW",
-            "name": "台達電",
-            "weight_pct": null,
-            "mktcap": 5143135791420.0,
-            "change_pct": -1.0
+            "tier": "上游",
+            "desc": "CCL/銅箔/玻纖",
+            "change_pct": 1.9241,
+            "stocks": [
+              {
+                "symbol": "2383.TW",
+                "name": "台光電",
+                "change_pct": 1.4388,
+                "mktcap": 2020931082960.0
+              },
+              {
+                "symbol": "6213.TW",
+                "name": "聯茂",
+                "change_pct": 9.8706,
+                "mktcap": 123429373011.0
+              }
+            ]
           },
           {
-            "symbol": "2317.TW",
-            "name": "鴻海",
-            "weight_pct": null,
-            "mktcap": 3612377021195.0,
-            "change_pct": 0.5859
+            "tier": "中游",
+            "desc": "ABF/BT載板",
+            "change_pct": 7.2397,
+            "stocks": [
+              {
+                "symbol": "3037.TW",
+                "name": "欣興",
+                "change_pct": 9.5596,
+                "mktcap": 1620650415120.0
+              },
+              {
+                "symbol": "8046.TW",
+                "name": "南電",
+                "change_pct": 0.0,
+                "mktcap": 675242933915.0
+              },
+              {
+                "symbol": "3189.TW",
+                "name": "景碩",
+                "change_pct": 9.8782,
+                "mktcap": 427855597120.0
+              }
+            ]
           },
           {
-            "symbol": "2382.TW",
-            "name": "廣達",
-            "weight_pct": null,
-            "mktcap": 1415652953828.0,
-            "change_pct": -1.4785
-          },
-          {
-            "symbol": "2345.TW",
-            "name": "智邦",
-            "weight_pct": null,
-            "mktcap": 1335460594860.0,
-            "change_pct": 0.2105
-          },
-          {
-            "symbol": "6669.TW",
-            "name": "緯穎",
-            "weight_pct": null,
-            "mktcap": 844646395095.0,
-            "change_pct": -1.3029
-          },
-          {
-            "symbol": "2357.TW",
-            "name": "華碩",
-            "weight_pct": null,
-            "mktcap": 555584689440.0,
-            "change_pct": -2.9831
-          },
-          {
-            "symbol": "3231.TW",
-            "name": "緯創",
-            "weight_pct": null,
-            "mktcap": 508865960000.0,
-            "change_pct": 1.5873
-          },
-          {
-            "symbol": "2301.TW",
-            "name": "光寶科",
-            "weight_pct": null,
-            "mktcap": 497963169045.0,
-            "change_pct": -0.6928
-          },
-          {
-            "symbol": "1519.TW",
-            "name": "華城",
-            "weight_pct": null,
-            "mktcap": 255231721952.0,
-            "change_pct": -1.3431
-          },
-          {
-            "symbol": "2356.TW",
-            "name": "英業達",
-            "weight_pct": null,
-            "mktcap": 239284586902.2,
-            "change_pct": 0.4518
-          },
-          {
-            "symbol": "4938.TW",
-            "name": "和碩",
-            "weight_pct": null,
-            "mktcap": 230655792858.0,
-            "change_pct": 2.381
-          },
-          {
-            "symbol": "2376.TW",
-            "name": "技嘉",
-            "weight_pct": null,
-            "mktcap": 223742887924.0,
-            "change_pct": -1.4749
-          },
-          {
-            "symbol": "1504.TW",
-            "name": "東元",
-            "weight_pct": null,
-            "mktcap": 168964932632.4,
-            "change_pct": -1.1127
-          },
-          {
-            "symbol": "2324.TW",
-            "name": "仁寶",
-            "weight_pct": null,
-            "mktcap": 162403353131.25,
-            "change_pct": -2.7704
-          },
-          {
-            "symbol": "1503.TW",
-            "name": "士電",
-            "weight_pct": null,
-            "mktcap": 126856736300.5,
-            "change_pct": -1.8145
-          },
-          {
-            "symbol": "6285.TW",
-            "name": "啟碁",
-            "weight_pct": null,
-            "mktcap": 124059743923.5,
-            "change_pct": 0.5882
-          },
-          {
-            "symbol": "2377.TW",
-            "name": "微星",
-            "weight_pct": null,
-            "mktcap": 112788302566.5,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "6781.TW",
-            "name": "AES-KY",
-            "weight_pct": null,
-            "mktcap": 101648348200.0,
-            "change_pct": 2.1459
-          },
-          {
-            "symbol": "1513.TW",
-            "name": "中興電",
-            "weight_pct": null,
-            "mktcap": 93075815275.0,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "2371.TW",
-            "name": "大同",
-            "weight_pct": null,
-            "mktcap": 58717791432.3,
-            "change_pct": -0.9074
-          },
-          {
-            "symbol": "6282.TW",
-            "name": "康舒",
-            "weight_pct": null,
-            "mktcap": 50249036957.8,
-            "change_pct": -5.3226
-          },
-          {
-            "symbol": "3596.TW",
-            "name": "智易",
-            "weight_pct": null,
-            "mktcap": 42969092595.0,
-            "change_pct": 2.3622
-          },
-          {
-            "symbol": "1514.TW",
-            "name": "亞力",
-            "weight_pct": null,
-            "mktcap": 33728896415.5,
-            "change_pct": -3.5156
-          },
-          {
-            "symbol": "3515.TW",
-            "name": "華擎",
-            "weight_pct": null,
-            "mktcap": 30082975931.5,
-            "change_pct": 1.0373
-          },
-          {
-            "symbol": "5388.TW",
-            "name": "中磊",
-            "weight_pct": null,
-            "mktcap": 24408271868.4,
-            "change_pct": -1.836
-          },
-          {
-            "symbol": "4906.TW",
-            "name": "正文",
-            "weight_pct": null,
-            "mktcap": 18791478715.25,
-            "change_pct": -3.5674
-          },
-          {
-            "symbol": "3380.TW",
-            "name": "明泰",
-            "weight_pct": null,
-            "mktcap": 18228826179.0,
-            "change_pct": -2.4638
-          },
-          {
-            "symbol": "3015.TW",
-            "name": "全漢",
-            "weight_pct": null,
-            "mktcap": 11460431340.0,
-            "change_pct": -2.08
-          },
-          {
-            "symbol": "2332.TW",
-            "name": "友訊",
-            "weight_pct": null,
-            "mktcap": 10899283751.300001,
-            "change_pct": -1.897
-          },
-          {
-            "symbol": "2465.TW",
-            "name": "麗臺",
-            "weight_pct": null,
-            "mktcap": 7290212005.599999,
-            "change_pct": -1.1465
-          }
-        ]
-      }
-    ],
-    "TW_theme": [
-      {
-        "sector": "CoWoS先進封裝",
-        "change_pct": 0.2161,
-        "constituents": [
-          {
-            "symbol": "2330.TW",
-            "name": "台積電",
-            "weight_pct": null,
-            "mktcap": 61978364460130.0,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "3711.TW",
-            "name": "日月光投控",
-            "weight_pct": null,
-            "mktcap": 2865636832762.0,
-            "change_pct": -1.8377
-          },
-          {
-            "symbol": "3037.TW",
-            "name": "欣興",
-            "weight_pct": null,
-            "mktcap": 1620650415120.0,
-            "change_pct": 9.5596
-          },
-          {
-            "symbol": "3189.TW",
-            "name": "景碩",
-            "weight_pct": null,
-            "mktcap": 427855597120.0,
-            "change_pct": 9.8782
+            "tier": "下游",
+            "desc": "封裝/IC廠",
+            "change_pct": -0.0812,
+            "stocks": [
+              {
+                "symbol": "2330.TW",
+                "name": "台積電",
+                "change_pct": 0.0,
+                "mktcap": 61978364460130.0
+              },
+              {
+                "symbol": "3711.TW",
+                "name": "日月光投控",
+                "change_pct": -1.8377,
+                "mktcap": 2865636832762.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "AI伺服器ODM",
-        "change_pct": -0.0718,
-        "constituents": [
+        "chain": "CPO光通",
+        "group": "AI核心",
+        "change_pct": -0.3854,
+        "tiers": [
           {
-            "symbol": "2317.TW",
-            "name": "鴻海",
-            "weight_pct": null,
-            "mktcap": 3612377021195.0,
-            "change_pct": 0.5859
+            "tier": "上游",
+            "desc": "磊晶/雷射/InP",
+            "change_pct": -2.1411,
+            "stocks": [
+              {
+                "symbol": "2455.TW",
+                "name": "全新",
+                "change_pct": -2.1411,
+                "mktcap": 71835949143.0
+              }
+            ]
           },
           {
-            "symbol": "2382.TW",
-            "name": "廣達",
-            "weight_pct": null,
-            "mktcap": 1415652953828.0,
-            "change_pct": -1.4785
+            "tier": "中游",
+            "desc": "光引擎/FAU/CPO封裝",
+            "change_pct": -3.3224,
+            "stocks": [
+              {
+                "symbol": "6442.TW",
+                "name": "光聖",
+                "change_pct": -3.6176,
+                "mktcap": 146473062275.0
+              },
+              {
+                "symbol": "6451.TW",
+                "name": "訊芯-KY",
+                "change_pct": -2.6941,
+                "mktcap": 68815725606.0
+              }
+            ]
           },
           {
-            "symbol": "6669.TW",
-            "name": "緯穎",
-            "weight_pct": null,
-            "mktcap": 844646395095.0,
-            "change_pct": -1.3029
-          },
-          {
-            "symbol": "3231.TW",
-            "name": "緯創",
-            "weight_pct": null,
-            "mktcap": 508865960000.0,
-            "change_pct": 1.5873
-          },
-          {
-            "symbol": "2356.TW",
-            "name": "英業達",
-            "weight_pct": null,
-            "mktcap": 239284586902.2,
-            "change_pct": 0.4518
-          },
-          {
-            "symbol": "2376.TW",
-            "name": "技嘉",
-            "weight_pct": null,
-            "mktcap": 223742887924.0,
-            "change_pct": -1.4749
+            "tier": "下游",
+            "desc": "光模組/交換器",
+            "change_pct": 0.1766,
+            "stocks": [
+              {
+                "symbol": "2345.TW",
+                "name": "智邦",
+                "change_pct": 0.2105,
+                "mktcap": 1335460594860.0
+              },
+              {
+                "symbol": "4977.TW",
+                "name": "眾達-KY",
+                "change_pct": -3.0137,
+                "mktcap": 14193601857.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "Rack電源BBU",
-        "change_pct": -0.7788,
-        "constituents": [
+        "chain": "HBM測試",
+        "group": "AI核心",
+        "change_pct": -1.5146,
+        "tiers": [
           {
-            "symbol": "2308.TW",
-            "name": "台達電",
-            "weight_pct": null,
-            "mktcap": 5143135791420.0,
-            "change_pct": -1.0
+            "tier": "上游",
+            "desc": "探針卡/測試介面",
+            "change_pct": -3.7736,
+            "stocks": [
+              {
+                "symbol": "7788.TW",
+                "name": "松川精密",
+                "change_pct": -3.7736,
+                "mktcap": 20335228215.0
+              }
+            ]
           },
           {
-            "symbol": "2301.TW",
-            "name": "光寶科",
-            "weight_pct": null,
-            "mktcap": 497963169045.0,
-            "change_pct": -0.6928
+            "tier": "中游",
+            "desc": "封測/測試服務",
+            "change_pct": -1.5707,
+            "stocks": [
+              {
+                "symbol": "3711.TW",
+                "name": "日月光投控",
+                "change_pct": -1.8377,
+                "mktcap": 2865636832762.0
+              },
+              {
+                "symbol": "2449.TW",
+                "name": "京元電子",
+                "change_pct": 0.2999,
+                "mktcap": 409008224242.5
+              }
+            ]
           },
           {
-            "symbol": "6781.TW",
-            "name": "AES-KY",
-            "weight_pct": null,
-            "mktcap": 101648348200.0,
-            "change_pct": 2.1459
-          },
-          {
-            "symbol": "6409.TW",
-            "name": "旭隼",
-            "weight_pct": null,
-            "mktcap": 88253566000.0,
-            "change_pct": 9.529
-          },
-          {
-            "symbol": "6282.TW",
-            "name": "康舒",
-            "weight_pct": null,
-            "mktcap": 50249036957.8,
-            "change_pct": -5.3226
-          },
-          {
-            "symbol": "2351.TW",
-            "name": "順德",
-            "weight_pct": null,
-            "mktcap": 38067312041.0,
-            "change_pct": -3.908
-          },
-          {
-            "symbol": "2476.TW",
-            "name": "鉅祥",
-            "weight_pct": null,
-            "mktcap": 28471344601.5,
-            "change_pct": 2.3529
-          },
-          {
-            "symbol": "3617.TW",
-            "name": "碩天",
-            "weight_pct": null,
-            "mktcap": 21369744049.5,
-            "change_pct": 6.3679
-          },
-          {
-            "symbol": "3015.TW",
-            "name": "全漢",
-            "weight_pct": null,
-            "mktcap": 11460431340.0,
-            "change_pct": -2.08
-          },
-          {
-            "symbol": "5285.TW",
-            "name": "界霖",
-            "weight_pct": null,
-            "mktcap": 10357153989.0,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "3043.TW",
-            "name": "科風",
-            "weight_pct": null,
-            "mktcap": 880849328.4000001,
-            "change_pct": -0.4405
+            "tier": "下游",
+            "desc": "AI伺服器/應用",
+            "change_pct": -1.4129,
+            "stocks": [
+              {
+                "symbol": "2382.TW",
+                "name": "廣達",
+                "change_pct": -1.4785,
+                "mktcap": 1415652953828.0
+              },
+              {
+                "symbol": "6669.TW",
+                "name": "緯穎",
+                "change_pct": -1.3029,
+                "mktcap": 844646395095.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "AI網通交換",
-        "change_pct": -0.6432,
-        "constituents": [
+        "chain": "Rack電源BBU",
+        "group": "電力散熱",
+        "change_pct": 1.3402,
+        "tiers": [
           {
-            "symbol": "2345.TW",
-            "name": "智邦",
-            "weight_pct": null,
-            "mktcap": 1335460594860.0,
-            "change_pct": 0.2105
+            "tier": "上游",
+            "desc": "功率元件/被動",
+            "change_pct": 6.8779,
+            "stocks": [
+              {
+                "symbol": "2327.TW",
+                "name": "國巨*",
+                "change_pct": 7.1429,
+                "mktcap": 2330398669500.0
+              },
+              {
+                "symbol": "2481.TW",
+                "name": "強茂",
+                "change_pct": -1.5385,
+                "mktcap": 73366065984.0
+              }
+            ]
           },
           {
-            "symbol": "3665.TW",
-            "name": "貿聯-KY",
-            "weight_pct": null,
-            "mktcap": 374550537600.0,
-            "change_pct": -4.2394
+            "tier": "中游",
+            "desc": "電源模組/power shelf",
+            "change_pct": -1.0134,
+            "stocks": [
+              {
+                "symbol": "2308.TW",
+                "name": "台達電",
+                "change_pct": -1.0,
+                "mktcap": 5143135791420.0
+              },
+              {
+                "symbol": "2301.TW",
+                "name": "光寶科",
+                "change_pct": -0.6928,
+                "mktcap": 497963169045.0
+              },
+              {
+                "symbol": "6282.TW",
+                "name": "康舒",
+                "change_pct": -5.3226,
+                "mktcap": 50249036957.8
+              },
+              {
+                "symbol": "3015.TW",
+                "name": "全漢",
+                "change_pct": -2.08,
+                "mktcap": 11460431340.0
+              }
+            ]
           },
           {
-            "symbol": "6197.TW",
-            "name": "佳必琪",
-            "weight_pct": null,
-            "mktcap": 45599076927.0,
-            "change_pct": 3.8943
+            "tier": "下游",
+            "desc": "BBU/系統整合",
+            "change_pct": 2.1912,
+            "stocks": [
+              {
+                "symbol": "6781.TW",
+                "name": "AES-KY",
+                "change_pct": 2.1459,
+                "mktcap": 101648348200.0
+              },
+              {
+                "symbol": "2476.TW",
+                "name": "鉅祥",
+                "change_pct": 2.3529,
+                "mktcap": 28471344601.5
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "液冷散熱",
-        "change_pct": -2.6824,
-        "constituents": [
+        "chain": "液冷散熱",
+        "group": "電力散熱",
+        "change_pct": -1.9646,
+        "tiers": [
           {
-            "symbol": "3017.TW",
-            "name": "奇鋐",
-            "weight_pct": null,
-            "mktcap": 983320232535.0,
-            "change_pct": -0.9881
+            "tier": "上游",
+            "desc": "均熱/熱導材料",
+            "change_pct": -6.8681,
+            "stocks": [
+              {
+                "symbol": "3653.TW",
+                "name": "健策",
+                "change_pct": -6.8681,
+                "mktcap": 497424202170.0
+              }
+            ]
           },
           {
-            "symbol": "3653.TW",
-            "name": "健策",
-            "weight_pct": null,
-            "mktcap": 497424202170.0,
-            "change_pct": -6.8681
+            "tier": "中游",
+            "desc": "水冷板/CDU/manifold",
+            "change_pct": -1.0028,
+            "stocks": [
+              {
+                "symbol": "3017.TW",
+                "name": "奇鋐",
+                "change_pct": -0.9881,
+                "mktcap": 983320232535.0
+              },
+              {
+                "symbol": "8996.TW",
+                "name": "高力",
+                "change_pct": 0.6897,
+                "mktcap": 136345646340.0
+              },
+              {
+                "symbol": "6805.TW",
+                "name": "富世達",
+                "change_pct": -3.0471,
+                "mktcap": 119969318000.0
+              }
+            ]
           },
           {
-            "symbol": "8996.TW",
-            "name": "高力",
-            "weight_pct": null,
-            "mktcap": 136345646340.0,
-            "change_pct": 0.6897
-          },
-          {
-            "symbol": "6805.TW",
-            "name": "富世達",
-            "weight_pct": null,
-            "mktcap": 119969318000.0,
-            "change_pct": -3.0471
+            "tier": "下游",
+            "desc": "伺服器整合",
+            "change_pct": -1.4129,
+            "stocks": [
+              {
+                "symbol": "2382.TW",
+                "name": "廣達",
+                "change_pct": -1.4785,
+                "mktcap": 1415652953828.0
+              },
+              {
+                "symbol": "6669.TW",
+                "name": "緯穎",
+                "change_pct": -1.3029,
+                "mktcap": 844646395095.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "重電電網",
+        "chain": "重電電網",
+        "group": "電力散熱",
         "change_pct": -1.2665,
-        "constituents": [
+        "tiers": [
           {
-            "symbol": "1519.TW",
-            "name": "華城",
-            "weight_pct": null,
-            "mktcap": 255231721952.0,
-            "change_pct": -1.3431
+            "tier": "上游",
+            "desc": "重電/變壓器",
+            "change_pct": -1.2059,
+            "stocks": [
+              {
+                "symbol": "1519.TW",
+                "name": "華城",
+                "change_pct": -1.3431,
+                "mktcap": 255231721952.0
+              },
+              {
+                "symbol": "1503.TW",
+                "name": "士電",
+                "change_pct": -1.8145,
+                "mktcap": 126856736300.5
+              },
+              {
+                "symbol": "1513.TW",
+                "name": "中興電",
+                "change_pct": 0.0,
+                "mktcap": 93075815275.0
+              }
+            ]
           },
           {
-            "symbol": "1504.TW",
-            "name": "東元",
-            "weight_pct": null,
-            "mktcap": 168964932632.4,
-            "change_pct": -1.1127
+            "tier": "中游",
+            "desc": "配電/開關/馬達",
+            "change_pct": -1.3766,
+            "stocks": [
+              {
+                "symbol": "1504.TW",
+                "name": "東元",
+                "change_pct": -1.1127,
+                "mktcap": 168964932632.4
+              },
+              {
+                "symbol": "2371.TW",
+                "name": "大同",
+                "change_pct": -0.9074,
+                "mktcap": 58717791432.3
+              },
+              {
+                "symbol": "1514.TW",
+                "name": "亞力",
+                "change_pct": -3.5156,
+                "mktcap": 33728896415.5
+              }
+            ]
           },
           {
-            "symbol": "1503.TW",
-            "name": "士電",
-            "weight_pct": null,
-            "mktcap": 126856736300.5,
-            "change_pct": -1.8145
-          },
-          {
-            "symbol": "1513.TW",
-            "name": "中興電",
-            "weight_pct": null,
-            "mktcap": 93075815275.0,
-            "change_pct": 0.0
-          },
-          {
-            "symbol": "2371.TW",
-            "name": "大同",
-            "weight_pct": null,
-            "mktcap": 58717791432.3,
-            "change_pct": -0.9074
-          },
-          {
-            "symbol": "1514.TW",
-            "name": "亞力",
-            "weight_pct": null,
-            "mktcap": 33728896415.5,
-            "change_pct": -3.5156
+            "tier": "下游",
+            "desc": "資料中心供電應用",
+            "change_pct": null,
+            "stocks": []
           }
         ]
       },
       {
-        "sector": "機器人",
-        "change_pct": 0.5091,
-        "constituents": [
+        "chain": "記憶體",
+        "group": "傳統電子",
+        "change_pct": 4.8989,
+        "tiers": [
           {
-            "symbol": "1590.TW",
-            "name": "亞德客-KY",
-            "weight_pct": null,
-            "mktcap": 277999997220.0,
-            "change_pct": 0.361
+            "tier": "上游",
+            "desc": "記憶體原廠/IC設計",
+            "change_pct": 5.6034,
+            "stocks": [
+              {
+                "symbol": "2408.TW",
+                "name": "南亞科",
+                "change_pct": 7.5536,
+                "mktcap": 1478045505438.0
+              },
+              {
+                "symbol": "2344.TW",
+                "name": "華邦電",
+                "change_pct": 7.0732,
+                "mktcap": 987750042363.5
+              },
+              {
+                "symbol": "2337.TW",
+                "name": "旺宏",
+                "change_pct": -6.1047,
+                "mktcap": 319981374430.0
+              },
+              {
+                "symbol": "3006.TW",
+                "name": "晶豪科",
+                "change_pct": -2.6369,
+                "mktcap": 71348581920.0
+              }
+            ]
           },
           {
-            "symbol": "2049.TW",
-            "name": "上銀",
-            "weight_pct": null,
-            "mktcap": 118343504280.0,
-            "change_pct": 0.753
+            "tier": "中游",
+            "desc": "控制IC/封測",
+            "change_pct": 0.2999,
+            "stocks": [
+              {
+                "symbol": "2449.TW",
+                "name": "京元電子",
+                "change_pct": 0.2999,
+                "mktcap": 409008224242.5
+              }
+            ]
           },
           {
-            "symbol": "6414.TW",
-            "name": "樺漢",
-            "weight_pct": null,
-            "mktcap": 54488569279.5,
-            "change_pct": 0.6739
-          },
-          {
-            "symbol": "1597.TW",
-            "name": "直得",
-            "weight_pct": null,
-            "mktcap": 13701686914.0,
-            "change_pct": 1.9934
-          },
-          {
-            "symbol": "4540.TW",
-            "name": "全球傳動",
-            "weight_pct": null,
-            "mktcap": 6784498043.599999,
-            "change_pct": -1.9967
+            "tier": "下游",
+            "desc": "模組/儲存",
+            "change_pct": -0.7194,
+            "stocks": [
+              {
+                "symbol": "4967.TW",
+                "name": "十銓",
+                "change_pct": -0.7194,
+                "mktcap": 23449867488.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "HBM測試鏈",
-        "change_pct": 0.107,
-        "constituents": [
+        "chain": "被動元件",
+        "group": "傳統電子",
+        "change_pct": 6.1542,
+        "tiers": [
           {
-            "symbol": "2449.TW",
-            "name": "京元電子",
-            "weight_pct": null,
-            "mktcap": 409008224242.5,
-            "change_pct": 0.2999
+            "tier": "上游",
+            "desc": "材料/粉體",
+            "change_pct": null,
+            "stocks": []
           },
           {
-            "symbol": "7788.TW",
-            "name": "松川精密",
-            "weight_pct": null,
-            "mktcap": 20335228215.0,
-            "change_pct": -3.7736
+            "tier": "中游",
+            "desc": "MLCC/電阻製造",
+            "change_pct": 6.1612,
+            "stocks": [
+              {
+                "symbol": "2327.TW",
+                "name": "國巨*",
+                "change_pct": 7.1429,
+                "mktcap": 2330398669500.0
+              },
+              {
+                "symbol": "2492.TW",
+                "name": "華新科",
+                "change_pct": 1.5254,
+                "mktcap": 290637659626.0
+              },
+              {
+                "symbol": "3026.TW",
+                "name": "禾伸堂",
+                "change_pct": -3.1407,
+                "mktcap": 127901435178.0
+              },
+              {
+                "symbol": "2472.TW",
+                "name": "立隆電",
+                "change_pct": 9.9723,
+                "mktcap": 65399849389.0
+              }
+            ]
+          },
+          {
+            "tier": "下游",
+            "desc": "通路/應用",
+            "change_pct": 5.9406,
+            "stocks": [
+              {
+                "symbol": "3090.TW",
+                "name": "日電貿",
+                "change_pct": 5.9406,
+                "mktcap": 92309055150.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "矽光子CPO",
-        "change_pct": -3.0262,
-        "constituents": [
+        "chain": "功率半導體",
+        "group": "傳統電子",
+        "change_pct": -0.9884,
+        "tiers": [
           {
-            "symbol": "6442.TW",
-            "name": "光聖",
-            "weight_pct": null,
-            "mktcap": 146473062275.0,
-            "change_pct": -3.6176
+            "tier": "上游",
+            "desc": "基板/晶圓(SiC)",
+            "change_pct": -2.9091,
+            "stocks": [
+              {
+                "symbol": "3016.TW",
+                "name": "嘉晶",
+                "change_pct": -2.9091,
+                "mktcap": 38520332836.5
+              }
+            ]
           },
           {
-            "symbol": "2455.TW",
-            "name": "全新",
-            "weight_pct": null,
-            "mktcap": 71835949143.0,
-            "change_pct": -2.1411
+            "tier": "中游",
+            "desc": "功率元件製造",
+            "change_pct": -0.0191,
+            "stocks": [
+              {
+                "symbol": "2481.TW",
+                "name": "強茂",
+                "change_pct": -1.5385,
+                "mktcap": 73366065984.0
+              },
+              {
+                "symbol": "8261.TW",
+                "name": "富鼎",
+                "change_pct": 3.6511,
+                "mktcap": 30373429411.5
+              }
+            ]
           },
           {
-            "symbol": "6451.TW",
-            "name": "訊芯-KY",
-            "weight_pct": null,
-            "mktcap": 68815725606.0,
-            "change_pct": -2.6941
-          },
-          {
-            "symbol": "4977.TW",
-            "name": "眾達-KY",
-            "weight_pct": null,
-            "mktcap": 14193601857.0,
-            "change_pct": -3.0137
+            "tier": "下游",
+            "desc": "電源管理IC/應用",
+            "change_pct": -0.9935,
+            "stocks": [
+              {
+                "symbol": "2308.TW",
+                "name": "台達電",
+                "change_pct": -1.0,
+                "mktcap": 5143135791420.0
+              },
+              {
+                "symbol": "6719.TW",
+                "name": "力智",
+                "change_pct": -0.6723,
+                "mktcap": 31170518749.5
+              },
+              {
+                "symbol": "8081.TW",
+                "name": "致新",
+                "change_pct": -0.1534,
+                "mktcap": 28049009436.0
+              }
+            ]
           }
         ]
       },
       {
-        "sector": "SiC功率",
-        "change_pct": -0.8016,
-        "constituents": [
+        "chain": "面板",
+        "group": "傳統電子",
+        "change_pct": 1.9827,
+        "tiers": [
           {
-            "symbol": "2481.TW",
-            "name": "強茂",
-            "weight_pct": null,
-            "mktcap": 73366065984.0,
-            "change_pct": -1.5385
+            "tier": "上游",
+            "desc": "驅動IC/材料",
+            "change_pct": 3.3149,
+            "stocks": [
+              {
+                "symbol": "3034.TW",
+                "name": "聯詠",
+                "change_pct": 3.3149,
+                "mktcap": 341374934109.0
+              }
+            ]
           },
           {
-            "symbol": "3016.TW",
-            "name": "嘉晶",
-            "weight_pct": null,
-            "mktcap": 38520332836.5,
-            "change_pct": -2.9091
+            "tier": "中游",
+            "desc": "面板製造",
+            "change_pct": 1.383,
+            "stocks": [
+              {
+                "symbol": "3481.TW",
+                "name": "群創",
+                "change_pct": 2.1614,
+                "mktcap": 566434091193.3
+              },
+              {
+                "symbol": "2409.TW",
+                "name": "友達",
+                "change_pct": -0.3279,
+                "mktcap": 229431808748.8
+              },
+              {
+                "symbol": "6116.TW",
+                "name": "彩晶",
+                "change_pct": 0.5155,
+                "mktcap": 55743769594.5
+              }
+            ]
           },
           {
-            "symbol": "8261.TW",
-            "name": "富鼎",
-            "weight_pct": null,
-            "mktcap": 30373429411.5,
-            "change_pct": 3.6511
-          }
-        ]
-      },
-      {
-        "sector": "Timing石英",
-        "change_pct": -1.4372,
-        "constituents": [
-          {
-            "symbol": "3042.TW",
-            "name": "晶技",
-            "weight_pct": null,
-            "mktcap": 64139685577.0,
-            "change_pct": -1.8373
-          },
-          {
-            "symbol": "2484.TW",
-            "name": "希華",
-            "weight_pct": null,
-            "mktcap": 11143529437.800001,
-            "change_pct": 0.8658
-          }
-        ]
-      },
-      {
-        "sector": "低軌衛星",
-        "change_pct": -2.2243,
-        "constituents": [
-          {
-            "symbol": "3138.TW",
-            "name": "耀登",
-            "weight_pct": null,
-            "mktcap": 6964920079.0,
-            "change_pct": -3.1373
-          },
-          {
-            "symbol": "8011.TW",
-            "name": "台通",
-            "weight_pct": null,
-            "mktcap": 2911929187.05,
-            "change_pct": -0.2841
-          },
-          {
-            "symbol": "2314.TW",
-            "name": "台揚",
-            "weight_pct": null,
-            "mktcap": 1491076229.1000001,
-            "change_pct": -1.7483
+            "tier": "下游",
+            "desc": "模組/應用",
+            "change_pct": 7.0213,
+            "stocks": [
+              {
+                "symbol": "8105.TW",
+                "name": "凌巨",
+                "change_pct": 7.0213,
+                "mktcap": 11104853002.65
+              }
+            ]
           }
         ]
       }
@@ -5880,10 +5614,10 @@
         "change_pct": 7.1429
       },
       {
-        "symbol": "4958.TW",
-        "name": "臻鼎-KY",
+        "symbol": "2492.TW",
+        "name": "華新科",
         "sector": "電子零組件業",
-        "change_pct": 2.5554
+        "change_pct": 1.5254
       }
     ],
     "top_gainers": [
@@ -5930,6 +5664,22 @@
     ],
     "top_losers": [
       {
+        "symbol": "MU",
+        "name": "MU",
+        "region": "US",
+        "change_pct": -13.6289,
+        "note": "",
+        "sector": "科技"
+      },
+      {
+        "symbol": "QCOM",
+        "name": "QCOM",
+        "region": "US",
+        "change_pct": -11.3242,
+        "note": "",
+        "sector": "半導體（iShares）"
+      },
+      {
         "symbol": "2233.TW",
         "name": "宇隆",
         "region": "TW",
@@ -5952,72 +5702,56 @@
         "change_pct": -9.0236,
         "note": "",
         "sector": "ETF"
-      },
-      {
-        "symbol": "2426.TW",
-        "name": "鼎元",
-        "region": "TW",
-        "change_pct": -8.7889,
-        "note": "",
-        "sector": "光電業"
-      },
-      {
-        "symbol": "3550.TW",
-        "name": "聯穎",
-        "region": "TW",
-        "change_pct": -8.4722,
-        "note": "",
-        "sector": "電子零組件業"
       }
     ]
   },
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 61630.0,
-      "change_pct_24h": -1.7361
+      "price": 61644.0,
+      "change_pct_24h": -1.6128
     },
     {
       "symbol": "ETH",
-      "price": 1645.4,
-      "change_pct_24h": -1.5433
+      "price": 1651.26,
+      "change_pct_24h": -0.9909
     }
   ],
   "news": [
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "微信這次賭上全部！AI助理小微上線 14億用戶流量秩序重寫",
+      "title": "記憶體雙雄爭搶美國資本！今年狂漲800%的鎧俠 將與SK海力士連袂赴美發行ADR",
       "summary": "None",
-      "url": "https://news.cnyes.com/news/id/6511780",
-      "published": "2026-06-25T06:15:46+00:00",
+      "url": "https://news.cnyes.com/news/id/6512002",
+      "published": "2026-06-25T08:50:25+00:00",
       "translated": false
     },
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
-      "title": "〈燁輝股東會〉內銷短期面臨庫存壓力Q3求穩 外銷衝刺美國及中東市場",
-      "summary": "燁輝內銷短期面臨庫存壓力 Q3 求穩 外銷衝刺美國及中東市場",
-      "url": "https://news.cnyes.com/news/id/6511776",
-      "published": "2026-06-25T06:08:16+00:00",
+      "title": "台積電專利戰開打、半導體過熱？龔明鑫力挺法務團隊 點破免恐慌2大關鍵",
+      "summary": "經濟部長龔明鑫今（25）日表示，針對市場關切的 AI 與半導體過熱疑慮，強調短期波動難免，但基本面依舊穩健且成長快速。同時，面對台積電 (2330-TW) （TSM-US) 在美面臨專利訴訟，他對其法務團隊表達高度信心，認為",
+      "url": "https://news.cnyes.com/news/id/6512003",
+      "published": "2026-06-25T08:42:07+00:00",
       "translated": false
     },
     {
       "source": "中央社財經",
       "tag": "🇹🇼",
-      "title": "5月服務業測驗點創逾5年高　台經院：財富效果激勵內需",
-      "summary": "（中央社記者潘姿羽台北25日電）台經院今天公布的5月3大產業營業氣候測驗點同步上揚，其中製造業甩開陰霾，明顯反彈，服務業更受惠於台股財富效果，強勢上攻。台經院景氣預測中心主任孫明德表示，台灣經濟成長動能不再只靠外銷、投資，內需也加入行列。",
-      "url": "https://www.cna.com.tw/news/afe/202606250131.aspx",
-      "published": "Thu, 25 Jun 2026 12:28:46 +0800",
+      "title": "漢翔展示先進複材研發成果　爭取國際航空商機",
+      "summary": "（中央社記者江明晏台北25日電）漢翔航空工業展示先進複材研發成果，提供新一代的民航機、無人機高效低廢料的製造方案，並分享運用AI提升複材製造效率與品質管理的經驗。漢翔表示，已有法國、東南亞業者前往漢翔實地參訪，開啟複材合作商機。",
+      "url": "https://www.cna.com.tw/news/afe/202606250240.aspx",
+      "published": "Thu, 25 Jun 2026 16:34:42 +0800",
       "translated": false
     },
     {
       "source": "中央社財經",
       "tag": "🇹🇼",
-      "title": "搶占東西方橋梁角色　新加坡強化黃金市場基礎設施",
-      "summary": "（中央社記者吳昇鴻新加坡25日專電）新加坡正致力打造亞洲黃金交易中心地位，包括計畫建立場外清算系統和強化黃金保管服務等。貴金屬保管業者認為，新加坡目標非取代香港，而是爭取更多倫敦、紐約等市場業務，在黃金交易與儲存版圖中，搶占東西方橋梁角色。",
-      "url": "https://www.cna.com.tw/news/aopl/202606250126.aspx",
-      "published": "Thu, 25 Jun 2026 12:21:35 +0800",
+      "title": "資安署：部分機關網通設備後台未設防　恐成駭客跳板",
+      "summary": "（中央社記者潘姿羽台北25日電）數位發展部資通安全署今天發布新聞稿指出，近期檢測發現部分機關的網通設備管理介面可直接自網際網路存取，且未限制來源IP位址，可能遭攻擊者鎖定利用，因此已發布資安警訊，提醒機關立即檢視並採取必要防護。",
+      "url": "https://www.cna.com.tw/news/afe/202606250233.aspx",
+      "published": "Thu, 25 Jun 2026 16:23:27 +0800",
       "translated": false
     },
     {
@@ -6041,37 +5775,46 @@
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "特斯拉和 Waymo 在機器人計程車競賽中展開對決——但花費最多的公司根本不生產汽車",
-      "summary": "Uber 正在悄悄開出 5 億美元的支票來鎖定機器人計程車，而 Waymo 則威脅要放棄它。",
-      "url": "https://www.marketwatch.com/story/tesla-and-waymo-are-chasing-the-robotaxi-dream-but-the-company-spending-the-most-to-win-builds-no-cars-at-all-0d8682b9?mod=mw_rss_topstories",
-      "published": "Thu, 25 Jun 2026 02:55:00 GMT",
+      "title": "莎南多爾蒂 (Shannen Doherty) 去世兩年後，她在馬里布的住宅以 770 萬美元的價格售出",
+      "summary": "這個家被描述為她個人的“避難所”，在那裡她能夠逃離好萊塢的喧囂，特別是在她漫長的癌症鬥爭期間。",
+      "url": "https://www.marketwatch.com/story/two-years-after-her-death-shannen-dohertys-malibu-home-sells-for-7-7-million-7045db60?mod=mw_rss_topstories",
+      "published": "Thu, 25 Jun 2026 09:02:00 GMT",
       "translated": true
     },
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "為什麼 SK 海力士 300 億美元的美國上市對美光股票來說可能是一把雙面刃",
-      "summary": "這家韓國記憶體公司可以為投資者提供除美光之外的更多機會，儘管它也可能提高對行業動態的認識。",
-      "url": "https://www.marketwatch.com/story/why-sk-hynixs-30-billion-u-s-listing-could-be-a-double-edged-sword-for-microns-stock-f4483b0d?mod=mw_rss_topstories",
-      "published": "Thu, 25 Jun 2026 01:09:00 GMT",
+      "title": "華爾街的裁員日發生在周五。這將是一年中成交量最大的日子之一。",
+      "summary": "分析師表示，富時羅素正在進行半年度再平衡（指數提供者稱之為重組），該計畫的規模可能會影響市場。",
+      "url": "https://www.marketwatch.com/story/the-wall-street-equivalent-of-roster-cut-day-happens-friday-itll-be-one-of-the-biggest-volume-days-of-the-year-750e8496?mod=mw_rss_topstories",
+      "published": "Thu, 25 Jun 2026 08:31:00 GMT",
       "translated": true
     },
     {
       "source": "Nikkei Asia",
       "tag": "🇺🇸",
-      "title": "因應貿易戰，中國物流網絡在美國取得進展",
+      "title": "美國穩定幣巨擘Circle將與野村證券進行結算業務",
       "summary": "",
-      "url": "https://asia.nikkei.com/economy/trade-war/chinese-logistics-networks-gain-ground-in-us-in-response-to-trade-war",
+      "url": "https://asia.nikkei.com/spotlight/cryptocurrencies/us-stablecoin-giant-circle-to-start-settlement-business-with-nomura",
       "published": "",
       "translated": true
     },
     {
       "source": "Nikkei Asia",
       "tag": "🇺🇸",
-      "title": "中國在台灣以東海域「執法」遭遇阻力",
+      "title": "高通 vs. Nvidia、無人機 vs. 狗",
       "summary": "",
-      "url": "https://asia.nikkei.com/politics/international-relations/taiwan-tensions/china-s-law-enforcement-in-waters-east-of-taiwan-draws-pushback",
+      "url": "https://asia.nikkei.com/techasia/qualcomm-vs.-nvidia-and-drones-vs.-dogs",
       "published": "",
+      "translated": true
+    },
+    {
+      "source": "CoinDesk",
+      "tag": "🪙",
+      "title": "忘記最大疼痛理論。 100 億美元選擇權到期時，比特幣遠低於 72,000 美元的磁力",
+      "summary": "",
+      "url": "https://www.coindesk.com/markets/2026/06/25/forget-max-pain-bitcoin-is-well-below-the-usd72-000-magnet-ahead-of-usd10-billion-options-expiry",
+      "published": "Thu, 25 Jun 2026 07:24:59 +0000",
       "translated": true
     },
     {
@@ -6084,30 +5827,21 @@
       "translated": true
     },
     {
-      "source": "CoinDesk",
-      "tag": "🪙",
-      "title": "MemeCore 的 M 代幣在沒有明確觸發的情況下突然暴跌 80%",
-      "summary": "",
-      "url": "https://www.coindesk.com/markets/2026/06/25/memecore-s-m-token-suddenly-crashes-80-with-no-clear-trigger",
-      "published": "Thu, 25 Jun 2026 05:35:43 +0000",
-      "translated": true
-    },
-    {
       "source": "BlockTempo",
       "tag": "🪙",
-      "title": "MiCA申請碰壁！幣安急撤希臘轉攻歐盟他國",
-      "summary": "幣安在歐盟 MiCA 合規大限前夕，正式撤回希臘牌照申請，轉向其他成員國尋求授權。此舉為其歐盟數百萬使用者的前 [&#8230;]\n〈MiCA申請碰壁！幣安急撤希臘轉攻歐盟他國〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
-      "url": "https://www.blocktempo.com/binance-withdraws-mica-license-application-greece-shifts-eu-member-state/",
-      "published": "Thu, 25 Jun 2026 05:05:03 +0000",
+      "title": "瑞銀、TD Cowen 同日上調 Arm 目標價到 475 鎂，理由是自研CPU未來營收",
+      "summary": "瑞銀 UBS 將 Arm 目標價從 260 美元大幅上調至 470 美元，TD Cowen 則從 265 美元 [&#8230;]\n〈瑞銀、TD Cowen 同日上調 Arm 目標價到 475 鎂，理由是自研CPU未來營收〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
+      "url": "https://www.blocktempo.com/ubs-cowen-raise-arm-target-price-agentic-ai-cpu-upside/",
+      "published": "Thu, 25 Jun 2026 08:44:36 +0000",
       "translated": false
     },
     {
       "source": "BlockTempo",
       "tag": "🪙",
-      "title": "灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力",
-      "summary": "Grayscale 研究主管 Zach Pandl 指出，前 15 大收入協議多數市盈率已降至個位數，CLAR [&#8230;]\n〈灰度研究主管：加密協議市盈率僅個位數，CLARITY 法案將釋放估值潛力〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
-      "url": "https://www.blocktempo.com/grayscale-research-head-crypto-protocol-pe-ratios-single-digits-clarity-act-value/",
-      "published": "Thu, 25 Jun 2026 03:56:34 +0000",
+      "title": "Tom Lee：油價已經退燒！殖利率接棒看跌主因，美銀喊三次升息",
+      "summary": "BitMine 董事長暨 Fundstrat 共同創辦人 Tom Lee 本週發表宏觀觀察：過去一週油價回落， [&#8230;]\n〈Tom Lee：油價已經退燒！殖利率接棒看跌主因，美銀喊三次升息〉這篇文章最早發佈於動區BlockTempo《動區動趨-最具影響力的區塊鏈新聞媒體》。",
+      "url": "https://www.blocktempo.com/tom-lee-yields-replace-oil-warsh-fed-rate-hike-headwind/",
+      "published": "Thu, 25 Jun 2026 08:31:16 +0000",
       "translated": false
     }
   ],
