@@ -18,8 +18,11 @@ CANDIDATES = [
     ("openapi t187ap03_L",      "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"),
     ("www  opendata t187ap03_L","https://www.twse.com.tw/opendata/t187ap03_L"),
     ("www  MI_INDEX",           "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&type=ALL"),
-    ("www  rwd MI_INDEX",       "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&type=ALL"),
     ("FinMind TaiwanStockInfo", "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockInfo"),
+    # 發行股數（算市值）候選
+    ("www  fund MI_QFIIS",      "https://www.twse.com.tw/rwd/zh/fund/MI_QFIIS?response=json&selectType=ALLBUT0999"),
+    ("www  fund MI_QFIIS leg",  "https://www.twse.com.tw/fund/MI_QFIIS?response=json&selectType=ALLBUT0999"),
+    ("www  BWIBBU_d",           "https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json&selectType=ALL"),
 ]
 
 
