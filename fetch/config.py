@@ -90,9 +90,21 @@ ISHARES_SOXX_URL = (
 # ──────────────────────────────────────────────
 # 台股 TWSE/FinMind API URL
 # ──────────────────────────────────────────────
-TWSE_COMPANY_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"
-TWSE_STOCK_DAY_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
-TWSE_MI_INDEX_URL = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
+# ⚠️ openapi.twse.com.tw 會對雲端共享 IP（GitHub Actions）間歇性節流，回 HTML 封鎖頁
+#    （「因為您的連線數過多」），導致 json.loads 報 "Expecting value: line 1 column 1"。
+#    主來源一律改走 www.twse.com.tw（同資料、不同基礎設施、實測 GHA 穩定）。
+#    openapi 端點保留為備援（_get_twse_json 會在主來源失敗時 fallback）。
+
+# 主來源（www.twse.com.tw，GHA 穩定）
+TWSE_STOCK_DAY_CSV_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?response=json"  # 回 CSV
+TWSE_QFIIS_URL = "https://www.twse.com.tw/rwd/zh/fund/MI_QFIIS?response=json&selectType=ALLBUT0999"  # 發行股數
+TWSE_MI_INDEX_WWW_URL = "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&type=ALL"      # tables 結構
+
+# 備援（openapi.twse.com.tw，間歇性可用）
+TWSE_STOCK_DAY_OPENAPI_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
+TWSE_MI_INDEX_OPENAPI_URL = "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX"
+TWSE_COMPANY_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"  # 僅 local 重生 shares 備援用
+
 FINMIND_STOCK_INFO_URL = (
     "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockInfo"
 )
