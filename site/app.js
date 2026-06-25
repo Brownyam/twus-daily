@@ -46,7 +46,8 @@ const state = {
   slot:   null,   // 目前選中的 slot
   anchor: 'am-brief',
   page:   'data',  // 目前頁面：data | analysis | news
-  twView: 'major', // 台股板塊視角：major(大分類) | sub(次產業) | chain(供應鏈)
+  twView: 'major', // 台股板塊視角：major(大分類) | sub(次產業) | chain(產業鏈)
+  chain:  null,    // 產業鏈視角下目前選的鏈名
   data:   null,    // 目前載入的 snapshot JSON
 };
 
@@ -382,39 +383,117 @@ function makeMacroCard({ label, value, change, changeCls, extra = '' }) {
   return card;
 }
 
-/* ── 渲染：§5 板塊熱力圖 ── */
+/* ── 渲染：§5 板塊熱力圖 / 產業鏈 ── */
 function renderSectors(data) {
   renderHeatmap(data.sectors?.US || [], 'US');
-  renderTWHeatmap(data);
+  renderTWContent(data);
+  applySectorVisibility();
 }
 
-/* 依 state.twView 取台股要顯示的板塊陣列 */
-function twSectorsForView(data, view) {
-  const s = data.sectors || {};
-  if (view === 'sub')   return s.TW_sub   || [];
-  if (view === 'chain') return s.TW_chain || [];
-  if (view === 'theme') return s.TW_theme || [];
-  return s.TW || [];
+/* 目前選的市場（US / TW） */
+function currentMarket() {
+  const tw = document.querySelector('#sectors-section .tab-btn[data-market="TW"]');
+  return tw && tw.classList.contains('active') ? 'TW' : 'US';
 }
 
-/* 台股熱力圖（依目前視角：大分類 / 次產業 / 供應鏈） */
-function renderTWHeatmap(data) {
-  const list = twSectorsForView(data, state.twView);
-  renderHeatmap(list, 'TW');
+/* 控制三個容器（美股 heatmap / 台股 heatmap / 產業鏈）誰顯示 */
+function applySectorVisibility() {
+  const mkt = currentMarket();
+  const isChain = state.twView === 'chain';
+  document.getElementById('heatmap-US').style.display  = mkt === 'US' ? 'grid' : 'none';
+  document.getElementById('tw-view-tabs').style.display = mkt === 'TW' ? 'flex' : 'none';
+  document.getElementById('heatmap-TW').style.display  = (mkt === 'TW' && !isChain) ? 'grid' : 'none';
+  document.getElementById('chain-view').style.display  = (mkt === 'TW' && isChain)  ? 'block' : 'none';
+}
 
-  /* 次產業 / 供應鏈 = 人工對照表，僅電子家族，加註說明 */
-  const hint = document.getElementById('tw-view-hint');
-  if (hint) {
-    if (state.twView === 'sub') {
-      hint.textContent = '｜次產業：電子家族（人工對照表）';
-    } else if (state.twView === 'chain') {
-      hint.textContent = '｜供應鏈：上游=設計/IP/材料、中游=製造/封測/載板/元件、下游=系統/組裝/品牌（電子家族）';
-    } else if (state.twView === 'theme') {
-      hint.textContent = '｜題材鏈：CoWoS/HBM測試/CPO/Rack電源/重電/液冷/機器人/低軌衛星…（一檔可跨多題材，部分參考 AI 供應鏈深研）';
-    } else {
-      hint.textContent = '';
-    }
+/* 依 state.twView 渲染台股內容（大分類/次產業=heatmap、產業鏈=流向圖） */
+function renderTWContent(data) {
+  if (state.twView === 'chain') {
+    renderChainView(data);
+  } else {
+    const list = state.twView === 'sub'
+      ? (data.sectors?.TW_sub || [])
+      : (data.sectors?.TW || []);
+    renderHeatmap(list, 'TW');
   }
+  updateTWHint();
+}
+
+function updateTWHint() {
+  const hint = document.getElementById('tw-view-hint');
+  if (!hint) return;
+  if (state.twView === 'sub') {
+    hint.textContent = '｜次產業：電子家族（人工對照表）';
+  } else if (state.twView === 'chain') {
+    hint.textContent = '｜產業鏈：選一條鏈，看它的上游 ▸ 中游 ▸ 下游（部分參考 AI 供應鏈深研）';
+  } else {
+    hint.textContent = '';
+  }
+}
+
+/* 產業鏈：鏈選擇器 + 上中下游流向 */
+function renderChainView(data) {
+  const chains = data.sectors?.TW_chains || [];
+  const sel = document.getElementById('chain-selector');
+
+  /* 預設選第一條（或目前選的若還在） */
+  if (!state.chain || !chains.find(c => c.chain === state.chain)) {
+    state.chain = chains[0]?.chain || null;
+  }
+
+  /* 鏈選擇器（依 group 分隔） */
+  sel.innerHTML = '';
+  let lastGroup = null;
+  chains.forEach(c => {
+    if (c.group && c.group !== lastGroup) {
+      const g = document.createElement('span');
+      g.className = 'chain-group-label';
+      g.textContent = c.group;
+      sel.appendChild(g);
+      lastGroup = c.group;
+    }
+    const b = document.createElement('button');
+    b.className = 'chain-btn' + (c.chain === state.chain ? ' active' : '');
+    const cp = c.change_pct;
+    b.innerHTML = `${escHtml(c.chain)} <span class="${pctClass(cp)}">${fmtPct(cp)}</span>`;
+    b.addEventListener('click', () => { state.chain = c.chain; renderChainView(data); });
+    sel.appendChild(b);
+  });
+
+  renderChainFlow(chains.find(c => c.chain === state.chain));
+}
+
+function renderChainFlow(chainObj) {
+  const flow = document.getElementById('chain-flow');
+  flow.innerHTML = '';
+  if (!chainObj) {
+    flow.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem">暫無產業鏈資料</div>';
+    return;
+  }
+  (chainObj.tiers || []).forEach((t, i) => {
+    const col = document.createElement('div');
+    col.className = 'chain-tier';
+    const stocksHtml = (t.stocks || []).map(s => `
+      <div class="chain-stock">
+        <span class="cs-name">${escHtml(s.name || s.symbol)}</span>
+        <span class="cs-pct ${pctClass(s.change_pct)}">${fmtPct(s.change_pct)}</span>
+      </div>`).join('') || '<div class="chain-empty">— 台廠較少 —</div>';
+    col.innerHTML = `
+      <div class="chain-tier-head">
+        <span class="chain-tier-name">${escHtml(t.tier)}</span>
+        <span class="chain-tier-pct ${pctClass(t.change_pct)}">${fmtPct(t.change_pct)}</span>
+      </div>
+      <div class="chain-tier-desc">${escHtml(t.desc || '')}</div>
+      <div class="chain-stocks">${stocksHtml}</div>`;
+    flow.appendChild(col);
+
+    if (i < chainObj.tiers.length - 1) {
+      const ar = document.createElement('div');
+      ar.className = 'chain-arrow';
+      ar.textContent = '▸';
+      flow.appendChild(ar);
+    }
+  });
 }
 
 function renderHeatmap(sectors, market) {
@@ -851,26 +930,23 @@ function bindEvents() {
     if (newDate) switchTo(newDate, state.slot || 'tw-pre');
   });
 
-  /* 板塊熱力圖 tab（美股/台股） */
+  /* 板塊 tab（美股/台股） */
   document.querySelectorAll('#sectors-section .tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#sectors-section .tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const mkt = btn.dataset.market;
-      document.getElementById('heatmap-US').style.display = mkt === 'US' ? 'grid' : 'none';
-      document.getElementById('heatmap-TW').style.display = mkt === 'TW' ? 'grid' : 'none';
-      /* 台股次分類切換列只在台股時顯示 */
-      document.getElementById('tw-view-tabs').style.display = mkt === 'TW' ? 'flex' : 'none';
+      applySectorVisibility();
     });
   });
 
-  /* 台股板塊視角切換（大分類 / 次產業 / 供應鏈） */
+  /* 台股視角切換（大分類 / 次產業 / 產業鏈） */
   document.querySelectorAll('#tw-view-tabs .subtab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#tw-view-tabs .subtab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       state.twView = btn.dataset.twview;
-      if (state.data) renderTWHeatmap(state.data);
+      if (state.data) renderTWContent(state.data);
+      applySectorVisibility();
     });
   });
 

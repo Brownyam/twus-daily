@@ -520,6 +520,66 @@ details[open] summary::before { content: "▾ "; }
 .subtab-btn:hover  { border-color: #58a6ff; color: var(--text-primary); }
 .subtab-btn.active { background: #1f6feb; border-color: #388bfd; color: #fff; }
 
+/* ===== 產業鏈視圖 ===== */
+.chain-selector {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  margin-bottom: 14px;
+}
+.chain-group-label {
+  font-size: 0.7rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.06em; padding-left: 8px; margin-left: 2px;
+  border-left: 2px solid var(--border-light);
+}
+.chain-group-label:first-child { padding-left: 0; margin-left: 0; border-left: none; }
+.chain-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-input); border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 4px 11px;
+  border-radius: var(--radius-sm); font-size: 0.8rem;
+  cursor: pointer; transition: var(--transition);
+}
+.chain-btn:hover  { border-color: #58a6ff; color: var(--text-primary); }
+.chain-btn.active { background: #1f6feb; border-color: #388bfd; color: #fff; }
+/* active 鈕上的漲跌數字改白色避免藍底紅綠不清 */
+.chain-btn.active .text-up,
+.chain-btn.active .text-down,
+.chain-btn.active .text-flat { color: #fff; }
+
+/* 上 ▸ 中 ▸ 下游 流向 */
+.chain-flow { display: flex; align-items: stretch; gap: 8px; }
+.chain-tier {
+  flex: 1 1 0; min-width: 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px 14px;
+}
+.chain-tier-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+}
+.chain-tier-name { font-size: 0.95rem; font-weight: 700; }
+.chain-tier-pct  { font-size: 0.85rem; font-weight: 600; }
+.chain-tier-desc {
+  font-size: 0.72rem; color: var(--text-muted);
+  margin: 2px 0 10px; line-height: 1.4;
+}
+.chain-stocks { display: flex; flex-direction: column; gap: 5px; }
+.chain-stock {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--bg-card-hover); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 5px 9px; font-size: 0.82rem;
+}
+.cs-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cs-pct  { font-weight: 600; flex-shrink: 0; }
+.chain-empty { font-size: 0.76rem; color: var(--text-muted); padding: 6px 2px; }
+.chain-arrow {
+  display: flex; align-items: center; flex-shrink: 0;
+  color: #58a6ff; font-size: 1.3rem; font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .chain-flow { flex-direction: column; }
+  .chain-arrow { justify-content: center; transform: rotate(90deg); padding: 2px 0; }
+}
+
 /* 熱力圖 grid：每塊大小由漲跌幅決定色深 */
 .heatmap-grid {
   display: grid;

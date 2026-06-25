@@ -45,6 +45,7 @@ from fetch.config import (
     TW_MOVERS_MIN_TRADE_VALUE,
 )
 from fetch.tw_subindustry import CHAIN_ORDER, STOCK_TO_SUB, SUB_TO_CHAIN, THEME_STOCKS
+from fetch.tw_chains import TW_CHAINS, CHAIN_GROUPS
 
 logger = logging.getLogger(__name__)
 
@@ -577,3 +578,66 @@ def fetch_tw_themes(errors: list) -> list[dict]:
         reverse=True,
     )
     return themes
+
+
+def _wavg_change(stocks: list[dict]) -> float | None:
+    """市值加權平均漲跌。"""
+    valid = [(s["mktcap"], s["change_pct"]) for s in stocks
+             if s.get("mktcap") and s.get("change_pct") is not None]
+    if not valid:
+        return None
+    total = sum(m for m, _ in valid)
+    return round(sum(m * c for m, c in valid) / total, 4) if total > 0 else None
+
+
+def fetch_tw_chains(errors: list) -> list[dict]:
+    """
+    產業鏈（關聯式）：每條鏈拆 上游→中游→下游，各段列個股+市值加權漲跌。
+    來源 tw_chains.TW_CHAINS。回 [{chain, group, change_pct, tiers:[{tier,desc,change_pct,stocks}]}]。
+    """
+    try:
+        stock_day = _fetch_stock_day_all()
+    except Exception as e:
+        errors.append({"source": "TWSE:STOCK_DAY_ALL", "stage": "sectors", "message": str(e)})
+        return []
+    try:
+        shares_map = _fetch_company_shares()
+    except Exception:
+        shares_map = {}
+
+    def _stock(code: str) -> dict | None:
+        pd = stock_day.get(code)
+        if not pd:
+            return None
+        price = pd.get("price")
+        shares = shares_map.get(code, 0)
+        mktcap = price * shares if price is not None and shares > 0 else None
+        return {
+            "symbol": f"{code}.TW",
+            "name": pd.get("name") or code,
+            "change_pct": pd.get("change_pct"),
+            "mktcap": mktcap,
+        }
+
+    out = []
+    for chain_name, tiers in TW_CHAINS.items():
+        tier_objs = []
+        all_stocks: list[dict] = []
+        for tier, desc, codes in tiers:
+            stocks = [s for c in codes if (s := _stock(c))]
+            # 市值大→小排序
+            stocks.sort(key=lambda s: s["mktcap"] or 0, reverse=True)
+            tier_objs.append({
+                "tier": tier,
+                "desc": desc,
+                "change_pct": _wavg_change(stocks),
+                "stocks": stocks,
+            })
+            all_stocks += stocks
+        out.append({
+            "chain": chain_name,
+            "group": CHAIN_GROUPS.get(chain_name, ""),
+            "change_pct": _wavg_change(all_stocks),
+            "tiers": tier_objs,
+        })
+    return out

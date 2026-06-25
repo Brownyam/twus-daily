@@ -41,8 +41,7 @@
         "US": { "type": "array", "items": { "$ref": "#/$defs/sectorUS" } },
         "TW": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" } },
         "TW_sub": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股次產業分組（電子家族，人工對照表）" },
-        "TW_chain": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股上下游供應鏈分組（上/中/下游）" },
-        "TW_theme": { "type": "array", "items": { "$ref": "#/$defs/sectorTW" }, "description": "台股題材鏈分組（CoWoS/HBM/CPO/Rack電源/機器人…，多對多）" }
+        "TW_chains": { "type": "array", "items": { "$ref": "#/$defs/chainTW" }, "description": "台股產業鏈（關聯式：每條鏈含上中下游與個股）" }
       }
     },
     "highlights": {
@@ -131,6 +130,26 @@
         "index": { "type": "string", "description": "對應 TWSE 類股指數名稱" },
         "change_pct": { "type": ["number","null"] },
         "constituents": { "type": "array", "items": { "$ref": "#/$defs/constituent" } }
+      }
+    },
+    "chainTW": {
+      "type": "object",
+      "required": ["chain","tiers"],
+      "properties": {
+        "chain": { "type": "string" },
+        "group": { "type": "string", "description": "UI 歸類大組（AI核心/電力散熱/傳統電子）" },
+        "change_pct": { "type": ["number","null"] },
+        "tiers": { "type": "array", "items": { "$ref": "#/$defs/chainTier" } }
+      }
+    },
+    "chainTier": {
+      "type": "object",
+      "required": ["tier","stocks"],
+      "properties": {
+        "tier": { "type": "string", "description": "上游/中游/下游" },
+        "desc": { "type": "string", "description": "該層說明" },
+        "change_pct": { "type": ["number","null"] },
+        "stocks": { "type": "array", "items": { "$ref": "#/$defs/constituent" } }
       }
     },
     "strongestSector": {

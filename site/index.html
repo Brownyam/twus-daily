@@ -130,8 +130,7 @@
         <div class="tw-view-tabs" id="tw-view-tabs" style="display:none">
           <button class="subtab-btn active" data-twview="major">大分類</button>
           <button class="subtab-btn" data-twview="sub">次產業</button>
-          <button class="subtab-btn" data-twview="chain">供應鏈</button>
-          <button class="subtab-btn" data-twview="theme">題材鏈</button>
+          <button class="subtab-btn" data-twview="chain">產業鏈</button>
         </div>
         <!-- 說明：台股慣例紅漲綠跌，本站統一採此規則 -->
         <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:8px">
@@ -141,6 +140,12 @@
 
         <div id="heatmap-US" class="heatmap-grid"></div>
         <div id="heatmap-TW" class="heatmap-grid" style="display:none"></div>
+
+        <!-- 產業鏈視圖：選一條鏈 → 上游▸中游▸下游 -->
+        <div id="chain-view" style="display:none">
+          <div class="chain-selector" id="chain-selector"></div>
+          <div class="chain-flow" id="chain-flow"></div>
+        </div>
       </div>
     </section>
 
