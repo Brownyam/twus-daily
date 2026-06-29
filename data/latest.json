@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-29T08:29:02.473544+08:00",
+  "generated_at": "2026-06-29T08:36:38.110890+08:00",
   "slot": "tw-pre",
   "slot_label": "台股盤前",
   "trading_day": "2026-06-29",
@@ -76,18 +76,18 @@
       "symbol": "^N225",
       "name": "日經225",
       "region": "INTL",
-      "price": 69513.9296875,
-      "change": 408.1328125,
-      "change_pct": 0.5906,
+      "price": 69210.8203125,
+      "change": 105.0234375,
+      "change_pct": 0.152,
       "prev_close": 69105.796875
     },
     {
       "symbol": "^KS11",
       "name": "韓國KOSPI",
       "region": "INTL",
-      "price": 8309.240234375,
-      "change": 16.970703125,
-      "change_pct": 0.2047,
+      "price": 8248.009765625,
+      "change": -44.259765625,
+      "change_pct": -0.5337,
       "prev_close": 8292.26953125
     },
     {
@@ -132,22 +132,22 @@
       {
         "symbol": "ES=F",
         "name": "標普500期貨",
-        "change_pct": 0.429
+        "change_pct": 0.304
       },
       {
         "symbol": "NQ=F",
         "name": "那斯達克期貨",
-        "change_pct": 0.4486
+        "change_pct": 0.1124
       },
       {
         "symbol": "YM=F",
         "name": "道瓊期貨",
-        "change_pct": 0.2931
+        "change_pct": 0.2298
       },
       {
         "symbol": "RTY=F",
         "name": "羅素2000期貨",
-        "change_pct": 0.354
+        "change_pct": 0.1555
       }
     ],
     "vix": {
@@ -167,8 +167,8 @@
     },
     "dxy": {
       "symbol": "DX-Y.NYB",
-      "value": 101.36299896240234,
-      "change_pct": -0.003
+      "value": 101.36399841308594,
+      "change_pct": -0.002
     }
   },
   "sectors": {
@@ -5743,16 +5743,25 @@
   "crypto": [
     {
       "symbol": "BTC",
-      "price": 59203.0,
-      "change_pct_24h": -1.4838
+      "price": 59055.0,
+      "change_pct_24h": -1.6662
     },
     {
       "symbol": "ETH",
-      "price": 1560.83,
-      "change_pct_24h": -0.9198
+      "price": 1556.02,
+      "change_pct_24h": -1.1847
     }
   ],
   "news": [
+    {
+      "source": "鉅亨網",
+      "tag": "🇹🇼",
+      "title": "普丁：俄羅斯面臨國運攸關時刻",
+      "summary": "俄羅斯總統普丁 28 日（周日）在統一俄羅斯黨第二十三次代表大會上表示，此次會議召開正值俄羅斯面臨命運攸關時刻，西方國家企圖在俄羅斯內部製造混亂，擾動政局。",
+      "url": "https://news.cnyes.com/news/id/6515207",
+      "published": "2026-06-29T00:31:34+00:00",
+      "translated": false
+    },
     {
       "source": "鉅亨網",
       "tag": "🇹🇼",
@@ -5760,15 +5769,6 @@
       "summary": "",
       "url": "https://news.cnyes.com/news/id/6515200",
       "published": "2026-06-29T00:01:01+00:00",
-      "translated": false
-    },
-    {
-      "source": "鉅亨網",
-      "tag": "🇹🇼",
-      "title": "8GB DRAM售價35美元→300美元！專家：連蘋果微軟都受記憶體荒影響 小廠商更難了",
-      "summary": "None",
-      "url": "https://news.cnyes.com/news/id/6507913",
-      "published": "2026-06-28T23:50:02+00:00",
       "translated": false
     },
     {
@@ -5793,7 +5793,7 @@
       "source": "CNBC",
       "tag": "🇺🇸",
       "title": "隨著美國和伊朗的新一輪攻擊重燃中東供應擔憂，油價上漲",
-      "summary": "美國和伊朗之間再次發動軍事打擊，重新引發對中東原油供應的擔憂，週一油價小幅走高。",
+      "summary": "美國和伊朗之間再次發動軍事襲擊，重新引發了對中東原油供應的擔憂，週一油價小幅走高。",
       "url": "https://www.cnbc.com/2026/06/29/oil-prices-wti-brent-crude-us-iran-strikes-strait-hormuz-talks.html",
       "published": "Mon, 29 Jun 2026 00:06:44 GMT",
       "translated": true
@@ -5810,10 +5810,10 @@
     {
       "source": "MarketWatch",
       "tag": "🇺🇸",
-      "title": "隨著美國和伊朗進行更多空襲，油價上漲，股指期貨小幅走高",
-      "summary": "美國和伊朗繼續在波斯灣交火，再次引發人們對通過霍爾木茲海峽的船隻安全的擔憂，週日油價上漲，美國股指期貨上漲。",
+      "title": "據報道，美國和伊朗同意停止攻擊，油價和股指期貨小幅上漲",
+      "summary": "據報道，美國和伊朗週末在波斯灣多次交火後同意停止襲擊，週日油價上漲，美國股指期貨上漲。",
       "url": "https://www.marketwatch.com/story/oil-prices-rise-stock-futures-inch-higher-as-u-s-and-iran-trade-more-airstrikes-3fc66beb?mod=mw_rss_topstories",
-      "published": "Mon, 29 Jun 2026 00:14:00 GMT",
+      "published": "Mon, 29 Jun 2026 00:30:00 GMT",
       "translated": true
     },
     {
@@ -5837,7 +5837,7 @@
     {
       "source": "Nikkei Asia",
       "tag": "🇺🇸",
-      "title": "亞洲人工智慧集會獲勝者面臨槓桿率上升的問題",
+      "title": "亞洲人工智慧反彈的贏家面臨槓桿率上升的問題",
       "summary": "",
       "url": "https://asia.nikkei.com/business/markets/trading-asia/asia-s-ai-rally-winners-face-a-rising-leverage-problem",
       "published": "",
