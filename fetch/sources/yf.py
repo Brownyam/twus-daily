@@ -252,10 +252,11 @@ def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
             resp.raise_for_status()
             # SSGA xlsx：第一張 sheet，略過前幾行元資料
             df = pd.read_excel(io.BytesIO(resp.content), header=None)
-            # 找 "Ticker" 欄位的行號
+            # 找真正的欄位標題列：cell 精確等於 "Ticker"（不能用 in 子字串比對，
+            # 前面元資料列有 "Ticker Symbol:" 會誤命中，導致抓錯列當 header）
             header_row = None
             for i, row in df.iterrows():
-                if any("Ticker" in str(c) for c in row):
+                if any(str(c).strip() == "Ticker" for c in row):
                     header_row = i
                     break
             if header_row is None:
