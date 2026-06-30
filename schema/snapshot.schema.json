@@ -108,6 +108,7 @@
         "symbol": { "type": "string" },
         "name": { "type": "string" },
         "weight_pct": { "type": ["number","null"] },
+        "price": { "type": ["number","null"] },
         "mktcap": { "type": ["number","null"] },
         "change_pct": { "type": ["number","null"] }
       }

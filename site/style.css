@@ -632,7 +632,10 @@ details[open] summary::before { content: "▾ "; }
 
 .constituent-symbol { font-weight: 600; }
 .constituent-name   { color: var(--text-secondary); margin-left: 6px; font-size: 0.78rem; }
-.constituent-pct    { font-weight: 600; }
+.constituent-left   { display: flex; align-items: baseline; flex: 1; min-width: 0; }
+.constituent-right  { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.constituent-price  { color: var(--text-secondary); font-size: 0.82rem; }
+.constituent-pct    { font-weight: 600; min-width: 52px; text-align: right; }
 
 /* ===== §6 加密小區 ===== */
 .crypto-grid {

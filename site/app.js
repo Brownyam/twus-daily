@@ -522,14 +522,25 @@ function renderHeatmap(sectors, market) {
 
     const constituents = sec.constituents || [];
     if (constituents.length) {
-      panel.innerHTML = constituents.map(c => `
+      panel.innerHTML = constituents.map(c => {
+        const priceStr = (c.price != null)
+          ? `<span class="constituent-price">$${Number(c.price).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</span>`
+          : '';
+        const nameStr = (c.name && c.name !== c.symbol)
+          ? `<span class="constituent-name">${escHtml(c.name)}</span>`
+          : '';
+        return `
         <div class="constituent-row">
-          <div>
+          <div class="constituent-left">
             <span class="constituent-symbol">${escHtml(c.symbol)}</span>
-            <span class="constituent-name">${escHtml(c.name || '')}</span>
+            ${nameStr}
           </div>
-          <span class="constituent-pct ${pctClass(c.change_pct)}">${fmtPct(c.change_pct)}</span>
-        </div>`).join('');
+          <div class="constituent-right">
+            ${priceStr}
+            <span class="constituent-pct ${pctClass(c.change_pct)}">${fmtPct(c.change_pct)}</span>
+          </div>
+        </div>`;
+      }).join('');
     } else {
       panel.innerHTML = '<div style="color:var(--text-muted);font-size:0.82rem">無成分股資料</div>';
     }

@@ -55,10 +55,12 @@ FUTURES = [
 ]
 
 # ──────────────────────────────────────────────
-# 美股板塊 ETF（12 檔）
-# SOXX 是 iShares/BlackRock，fallback URL 與 XL* 不同，請注意
+# 美股板塊 ETF（18 檔）
+# SOXX/IBB/ITA/ICLN 是 iShares；SMH 是 VanEck；ARKK 是 ARK；KWEB 是 KraneShares
+# fallback holdings 只支援 SSGA（XL*）和 SOXX；其餘走 funds_data，抓不到就空
 # ──────────────────────────────────────────────
 US_SECTOR_ETFS = [
+    # ── SPDR 11 大板塊 ──
     {"etf": "XLK",  "sector": "科技"},
     {"etf": "XLF",  "sector": "金融"},
     {"etf": "XLE",  "sector": "能源"},
@@ -70,9 +72,18 @@ US_SECTOR_ETFS = [
     {"etf": "XLB",  "sector": "原材料"},
     {"etf": "XLC",  "sector": "通訊服務"},
     {"etf": "XLRE", "sector": "房地產"},
-    # SOXX：iShares，fallback URL 走 iShares，不走 SSGA
-    {"etf": "SOXX", "sector": "半導體（iShares）"},
+    # ── 主題 ETF ──
+    {"etf": "SOXX", "sector": "半導體 iShares"},   # iShares SOX
+    {"etf": "SMH",  "sector": "半導體 VanEck"},    # 含台積電，常見基準
+    {"etf": "ARKK", "sector": "ARK 創新"},         # 高 beta 科技/AI
+    {"etf": "IBB",  "sector": "生技 iShares"},     # 細分生技（vs XLV 大醫療）
+    {"etf": "ITA",  "sector": "國防航太"},         # iShares Defense
+    {"etf": "KWEB", "sector": "中國科技"},         # 中概 ADR（BABA/JD/PDD）
+    {"etf": "ICLN", "sector": "清潔能源"},         # iShares Global Clean Energy
 ]
+
+# 每個 ETF 抓前 N 支個股（holdings）
+US_SECTOR_TOP_N = 15
 
 # SSGA（XL* 系列）fallback holdings URL template
 # 用 {etf_lower} 填充，e.g. xlk

@@ -20,7 +20,12 @@ from fetch.config import (
     SSGA_HOLDINGS_URL,
     ISHARES_SOXX_URL,
     US_SECTOR_ETFS,
+    US_SECTOR_TOP_N,
 )
+
+# ETF holdings fallback 只對以下發行商有效；其餘靜默跳過（避免噴 errors）
+_SSGA_ETFS = frozenset({"XLK","XLF","XLE","XLV","XLY","XLP","XLI","XLU","XLB","XLC","XLRE"})
+_ISHARES_ETFS = frozenset({"SOXX"})
 
 logger = logging.getLogger(__name__)
 
@@ -184,7 +189,7 @@ def _fetch_holdings_from_funds_data(etf: str) -> list[dict] | None:
             return None
 
         result = []
-        for symbol, row in holdings.head(10).iterrows():
+        for symbol, row in holdings.head(US_SECTOR_TOP_N).iterrows():
             name = str(row.get("holdingName", symbol))
             weight_pct = _safe_float(row.get("holdingPercent"))
             if weight_pct is not None:
@@ -196,6 +201,7 @@ def _fetch_holdings_from_funds_data(etf: str) -> list[dict] | None:
                 "symbol": str(symbol),
                 "name": name,
                 "weight_pct": weight_pct,
+                "price": stock_info.get("price") if stock_info else None,
                 "mktcap": None,  # funds_data 沒提供，留 null
                 "change_pct": stock_info.get("change_pct") if stock_info else None,
             })
@@ -208,14 +214,18 @@ def _fetch_holdings_from_funds_data(etf: str) -> list[dict] | None:
 def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
     """
     Fallback：從 ETF 發行商抓 holdings xlsx/csv。
-    XL* → SSGA；SOXX → iShares。
-    失敗只記 errors，回空 list。
+    XL*（SSGA）和 SOXX（iShares）有已知 URL；其餘靜默回空 list，不記 errors。
     """
     import io
     import requests
     import pandas as pd
 
-    is_soxx = (etf.upper() == "SOXX")
+    etf_u = etf.upper()
+    if etf_u not in _SSGA_ETFS and etf_u not in _ISHARES_ETFS:
+        logger.info(f"{etf} 無 fallback holdings URL，跳過")
+        return []
+
+    is_soxx = (etf_u == "SOXX")
 
     try:
         if is_soxx:
@@ -232,9 +242,9 @@ def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
                     start = i
                     break
             df = pd.read_csv(io.StringIO("\n".join(lines[start:])))
-            # 取前 10 非空 ticker
+            # 取前 N 非空 ticker
             tickers = df["Ticker"].dropna().str.strip()
-            tickers = [t for t in tickers if t and t != "-"][:10]
+            tickers = [t for t in tickers if t and t != "-"][:US_SECTOR_TOP_N]
         else:
             url = SSGA_HOLDINGS_URL.format(etf_lower=etf.lower())
             headers = {"User-Agent": "Mozilla/5.0 twus-daily-bot/1.0"}
@@ -252,7 +262,7 @@ def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
                 raise ValueError("找不到 Ticker 欄位")
             df = pd.read_excel(io.BytesIO(resp.content), header=header_row)
             tickers = df["Ticker"].dropna().str.strip()
-            tickers = [t for t in tickers if t and t != "-"][:10]
+            tickers = [t for t in tickers if t and t != "-"][:US_SECTOR_TOP_N]
 
         result = []
         for sym in tickers:
@@ -261,6 +271,7 @@ def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
                 "symbol": sym,
                 "name": sym,
                 "weight_pct": None,
+                "price": stock_info.get("price") if stock_info else None,
                 "mktcap": None,
                 "change_pct": stock_info.get("change_pct") if stock_info else None,
             })
