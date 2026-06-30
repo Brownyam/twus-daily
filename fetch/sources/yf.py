@@ -288,14 +288,22 @@ def _fetch_holdings_fallback(etf: str, errors: list) -> list[dict]:
 
 def fetch_us_sectors(errors: list) -> list[dict]:
     """
-    抓 12 個美股板塊 ETF 的 change_pct + top-10 holdings。
-    holdings 優先走 yfinance funds_data，失敗走發行商 xlsx/csv，
-    都失敗就只放 ETF change_pct + 空 constituents。
+    抓美股板塊 ETF 的 change_pct + holdings。
+
+    holdings 抓取順序：
+    - SSGA（XL*）/iShares（SOXX）有完整 holdings 清單來源 → 優先走發行商 xlsx/csv，
+      可取真正前 US_SECTOR_TOP_N 檔；yfinance funds_data.top_holdings 受 Yahoo API
+      限制固定只回 top 10，不受 head(N) 影響，故不適合當這些 ETF 的主來源。
+    - 其餘 ETF（ARKK/IBB/ITA/KWEB/ICLN 等無已知發行商端點）走 funds_data，
+      上限即 Yahoo 給的 10 檔。
+    - 兩條路都失敗，才記一次 errors，回空 constituents。
     """
     result = []
     for meta in US_SECTOR_ETFS:
         etf = meta["etf"]
         sector = meta["sector"]
+        etf_u = etf.upper()
+        has_full_list_source = etf_u in _SSGA_ETFS or etf_u in _ISHARES_ETFS
 
         # ETF 本身漲跌
         etf_info = _fetch_ticker_info(etf)
@@ -309,13 +317,18 @@ def fetch_us_sectors(errors: list) -> list[dict]:
         change_pct = etf_info.get("change_pct") if etf_info else None
 
         # Holdings
-        constituents = _fetch_holdings_from_funds_data(etf)
-        if constituents is None:
-            logger.info(f"{etf} funds_data 失敗，嘗試 fallback")
-            constituents = _fetch_holdings_fallback(etf, errors)
-            if not constituents:
-                # 最後手段：空 list，已在 fallback 裡記 errors
-                constituents = []
+        constituents = None
+        if has_full_list_source:
+            constituents = _fetch_holdings_fallback(etf, [])  # 安靜試，失敗不記 errors（還有 funds_data 可補）
+        if not constituents:
+            constituents = _fetch_holdings_from_funds_data(etf)
+        if not constituents:
+            errors.append({
+                "source": f"holdings:{etf}",
+                "stage": "sectors",
+                "message": f"ETF {etf} holdings 取得失敗（fallback + funds_data 皆失敗）",
+            })
+            constituents = []
 
         result.append({
             "sector": sector,
